@@ -1,0 +1,64 @@
+#layoutSidenav,body{background-color: #f4f6fa;}
+.bienvenida,.topcuenta{font-weight: 800;
+    color: #00417c;}
+.badge-danger{background-color:#61c12c;font-size: 13px;}
+
+.actcard .card{
+  border: none;
+  border-radius: 10px;
+}
+
+.actcard .card .card-header{
+font-weight: 800;
+color: #00417c;
+text-align: center;
+}
+
+.btn-warning{
+  background-color: #85c03f;
+  border: none;
+}
+
+.tituloventana{
+	font-weight: 800;
+    color: #00417c;
+    border: none;
+    background-color: unset;
+    font-size: 24px;
+}
+
+.breadcrumb
+{display: block;}
+.breadcrumb-item {display: inline-block;cursor: pointer;}
+.breadcrumb button{display: inline-block;float: right;margin-top: -4px;}
+
+.actcardn .card{
+  border: none;
+  border-radius: 10px;
+}
+
+.actcardn .card .card-header{
+font-weight: 800;
+color: #00417c;
+text-align: center;
+}
+
+.actcardn .card .btn-warning{
+  background-color: #85c03f;
+  border: none;
+}
+
+.btn-warning:disabled{display: none;}
+
+.btn-constructor{
+  font-size: 12px;
+  width: 80px;
+  margin: 5px;
+}
+
+#bloque .card{border: none;}
+#bloque hr{display: none;}
+#bloque {
+	padding-top: 0;
+    padding-bottom: 0;
+}
