@@ -4,8 +4,8 @@
 	$idusuario=$_REQUEST['idusuario'];
 
 	$nombre="";
-	$apellidop="";
-	$apellidom="";
+	$ap_paterno="";
+	$ap_materno="";
 	$autoriza="";
 	$nivel="";
 	$correo="";
@@ -13,12 +13,10 @@
 	if($idusuario>0){
 		$pd = $db->usuario_editar($idusuario);
 		$nombre=$pd->nombre;
-		$apellidop=$pd->apellidop;
-		$apellidom=$pd->apellidom;
-		$autoriza=$pd->autoriza;
-		$nivel=$pd->nivel;
-		$correo=$pd->correo;
-		$foto=$pd->foto;
+		$ap_paterno=$pd->ap_paterno;
+		$ap_materno=$pd->ap_materno;
+		$email=$pd->email;
+
 	}
 ?>
 
@@ -30,11 +28,6 @@
 			Usuarios
 		</div>
 		<div class='card-body'>
-			<?php
-				echo "<div class='form-group' id='imagen_div'>";
-					echo "<img src='".$db->doc.trim($foto)."' class='img-thumbnail' width='100px'>";
-				echo "</div>";
-			?>
 
 			<div class='row'>
 				<div class="col-4">
@@ -44,30 +37,19 @@
 
 				<div class="col-3">
 					<label for="">Apellido Paterno:</label>
-					<input type="text" class="form-control form-control-sm" name="apellidop" id="apellidop" value="<?php echo $apellidop ;?>" placeholder="Apellido Paterno" required>
+					<input type="text" class="form-control form-control-sm" name="ap_paterno" id="ap_paterno" value="<?php echo $ap_paterno ;?>" placeholder="Apellido Paterno" required>
 				</div>
 
 				<div class="col-3">
 					<label for="">Apellido Materno:</label>
-					<input type="text" class="form-control form-control-sm" name="apellidom" id="apellidom" value="<?php echo $apellidom;?>" placeholder="Apellido Materno">
+					<input type="text" class="form-control form-control-sm" name="ap_materno" id="ap_materno" value="<?php echo $ap_materno;?>" placeholder="Apellido Materno">
 				</div>
 
 				<div class="col-4">
 					<label for="">Correo:</label>
-					<input type="text" class="form-control form-control-sm" name="correo" id="correo" value="<?php echo $correo ;?>" placeholder="Usuario" >
+					<input type="text" class="form-control form-control-sm" name="email" id="email" value="<?php echo $email ;?>" placeholder="Usuario" >
 				</div>
 
-				<div class="col-4">
-					<label for="">Nivel:</label>
-					<select class="form-control form-control-sm" name="nivel" id="nivel">
-						<?php
-							if($_SESSION['nivel']==1){
-								echo "<option value='1'"; if($nivel=="1") echo "selected"; echo ">1 Administrador</option>";
-							}
-						 ?>
-					  <option value="2"<?php if($nivel=="2") echo "selected"; ?> >2 Terapeuta</option>
-					</select>
-				</div>
 			</div>
 		</div>
 
@@ -76,12 +58,7 @@
 				<div class="col-sm-12">
 
 					<button class="btn btn-warning btn-sm" type="submit"><i class='far fa-save'></i>Guardar</button>
-					<?php
-						if($idusuario>0){
-							echo "<button class='btn btn-warning btn-sm' type='button' is='b-link' des='a_usuarios/form_foto' v_idusuario='$idusuario' omodal='1'><i class='fas fa-camera'></i>Foto</button>";
-							echo "<button class='btn btn-warning btn-sm' type='button' is='b-link' des='a_usuarios/form_pass' v_idusuario='$idusuario' omodal='1'><i class='fas fa-key'></i>Contraseña</button>";
-						}
-					?>
+				
 					<button class="btn btn-warning btn-sm" type="button" is="b-link" des="a_usuarios/lista" dix="trabajo"><i class="fas fa-undo"></i>Regresar</button>
 				</div>
 			</div>

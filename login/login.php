@@ -41,6 +41,14 @@
 					$_SESSION['nombre']=$CLAVE->nombre;
 					$_SESSION['nombrec']=$CLAVE->nombre." ".$CLAVE->ap_paterno;
 					$_SESSION['cfondo']="#fff";
+					$_SESSION['idclues']=$CLAVE->id_clues;
+
+					$sql="select * from cat_clues where id_clues=".$CLAVE->id_clues;
+					$sth = $this->dbh->prepare($sql);
+					$sth->execute();
+					$clues=$sth->fetch(PDO::FETCH_OBJ);
+					$_SESSION['id_juris']=$clues->id_juris;
+
 					$arr=array();
 					$arr=array('acceso'=>1);
 				}

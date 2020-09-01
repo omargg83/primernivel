@@ -16,7 +16,7 @@
 			?>
 					<div class='row'>
 						<div class="col-2">
-							<button class='btn btn-warning' type="button" is="b-link" des='a_usuarios/editar' dix='trabajo' tp="edit" v_idusuario='<?php echo $key->idusuario; ?>' title='editar'>Editar</button>
+							<button class='btn btn-warning' type="button" is="b-link" des='a_usuarios/editar' dix='trabajo' tp="edit" v_idusuario='<?php echo $key->id_usuario; ?>' title='editar'>Editar</button>
 						</div>
 						<div class="col-3"><?php echo $key->nombre; ?></div>
 						<div class="col-2"><?php echo $key->nivel; ?></div>
