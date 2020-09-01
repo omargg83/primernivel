@@ -1,17 +1,13 @@
 <?php @session_start();
 date_default_timezone_set( 'America/Mexico_City' );
 //incluímos archivo de conección a la BD
-include('cnx.php');	
+include('cnx.php');
 //incluímos la clase ajax
 require ('xajax/xajax.inc.php');
 
-// Crea un nuevo objeto xajax
 $xajax = new xajax();
-// le indica la codificación que debe utilizar
 $xajax->setCharEncoding("utf-8");
-// decodifica los caracteres extraños
 $xajax->decodeUTF8InputOn();
-
 
 //formulario de inicio
 function muestra_formulario(){
@@ -64,12 +60,12 @@ function muestra_formulario(){
    $respuesta->addAssign("menu","innerHTML","$menu");
    $respuesta->addAssign("capaformulario","innerHTML","$capaformulario");
    $respuesta->addAssign("abajo","innerHTML","$abajo");
-   return $respuesta;   
+   return $respuesta;
 }
 
 //autoriza acceso al sistema y muestra menu
 function procesar_formulario($form_entrada){
-  include('cnx.php');	
+  include('cnx.php');
   //creo el xajaxResponse para generar una salida
   $respuesta = new xajaxResponse("utf-8");
 
@@ -90,7 +86,7 @@ function procesar_formulario($form_entrada){
 					<span aria-hidden='true'>&times;</span>
 				  </button>
 				</div>";
-      
+
   //compruebo resultado de la validación
   if ($error_form != ""){
       //Hubo un error en el formulario
@@ -98,17 +94,17 @@ function procesar_formulario($form_entrada){
       $respuesta->addAssign("mensaje","innerHTML","<span style='color:red;'>$error_form</span>");
   }
   else{
-	
+
     $user = $form_entrada["usuario"];
 	$password = $form_entrada["contrasena"];
-	
+
 	$sql="SELECT * FROM cat_usuarios WHERE cat_usuarios.usuario='".$user."' AND cat_usuarios.contrasena='".$password."'";
 	$consulta=mysql_query($sql,$link);
 	$row=mysql_fetch_array($consulta);
 	$num_rows = mysql_num_rows($consulta);
 	/*$_SESSION['']=$row[''];
 	*/
-	
+
    if($user==$row['usuario'] and $password==$row['contrasena'] and $num_rows==1)
 //   if($num_rows==1)
     {
@@ -158,7 +154,7 @@ function procesar_formulario($form_entrada){
 								  <a class="dropdown-item" href="" onclick="xajax_reporte_prnousmer();">Pruebas Rápidas unidades No-USMER</a>
 								 <div class="dropdown-divider"></div>
 								  <a class="dropdown-item" href="#">Reserva Estratégica</a>';
-				  //Si es martes muestra la opción de reporte de pruebas rápidas COFEPRIS		  
+				  //Si es martes muestra la opción de reporte de pruebas rápidas COFEPRIS
 			$daynum = date("N");
 				if ($daynum==2){$menu.='<div class="dropdown-divider"></div><a class="dropdown-item" href="#">Folios Pruebas rápidas COFEPRIS</a>';}
 			$menu.= 		 '<a class="dropdown-item" href="#">Parte de novedades </a>
@@ -191,7 +187,7 @@ function procesar_formulario($form_entrada){
 						</nav>';
 			  $respuesta->addAssign("mensaje","innerHTML","$mensaje");
 			  $respuesta->addAssign("arriba","innerHTML","$arriba");
-			  $respuesta->addAssign("menu","innerHTML","$menu");			  
+			  $respuesta->addAssign("menu","innerHTML","$menu");
 			  $respuesta->addAssign("abajo","innerHTML","$abajo");
 		  }
 		else
@@ -214,7 +210,7 @@ function procesar_formulario($form_entrada){
 
 function reporte_prnousmer()
 {
-   include('cnx.php');	
+   include('cnx.php');
   //creo el xajaxResponse para generar una salida
    $respuesta = new xajaxResponse("utf-8");
 	  $mensaje='';
@@ -231,7 +227,7 @@ function reporte_prnousmer()
 							<th style="border-right-style: solid; border-width: 1px;">Num. casos reactivos a IgG</th>
 							<th style="border-right-style: solid; border-width: 1px;">Num. casos reactivos a IgM</th>
 							<th style="border-right-style: solid; border-width: 1px;">Num. casos reactivos a IgG y a IgM</th>
-							<th style="border-right-style: solid; border-width: 1px;">Num. muestras inválidas</th>					
+							<th style="border-right-style: solid; border-width: 1px;">Num. muestras inválidas</th>
 							<th style="border-right-style: solid; border-width: 1px;">Num. personal en el módulo</th>
 							<th style="border-right-style: solid; border-width: 1px;">Num. pruebas (re) distribuidas</th> <!-- epor default debe tener valor 0 siempre -->
 							<th style="border-right-style: solid; border-width: 1px;">Existencia de pruebas</th> <!-- este debe de darlo en automatico restando la existencia del dia anterior menos total de pruebas rápidas realizadas +/- las pruebas que se redistribuyan, y que tiene que registrar en observaciones a que centro de salud fueron redistribuidas -->
@@ -240,11 +236,11 @@ function reporte_prnousmer()
 	//consulta para saber las unidades no USMER de la jurisdicción
 	  $sql_nousmer="	SELECT `cat_clues`.`id_clues`, `cat_clues`.`clv_clues`, `cat_clues`.`nombre_clues`, `cat_clues`.`id_juris`, `cat_csprcovid19`.`id_CSprCOVID19`
 					FROM `cat_clues`
-					LEFT JOIN `cat_csprcovid19` ON `cat_clues`.`id_clues` = `cat_csprcovid19`.`id_clues` 
+					LEFT JOIN `cat_csprcovid19` ON `cat_clues`.`id_clues` = `cat_csprcovid19`.`id_clues`
 					WHERE (( `id_juris` =  '".$_SESSION['juris']."') AND (`cat_clues`.`id_clues` = `cat_csprcovid19`.`id_clues` ))";
 	  $consulta_nousmer=mysql_query($sql_nousmer,$link);
 	do{	 $capaformulario.="
-					<tr style='border-bottom-style: solid; border-width: 1px;'>		
+					<tr style='border-bottom-style: solid; border-width: 1px;'>
 						<td style='text-align:center;'><b>".$row_nousmer['clv_clues']."<br>".$row_nousmer['nombre_clues']."</b></td>
 						<td><input type='text' required name='num_modulos_".$row_nousmer['clv_clues']."' class='form-control' value='1' aria-label='' aria-describedby='basic-addon1'></td>
 						<td><input type='text' readonly required name='num_pruebas_realizadas_".$row_nousmer['clv_clues']."' class='form-control' placeholder='' aria-label='' aria-describedby='basic-addon1'></td>
@@ -258,7 +254,7 @@ function reporte_prnousmer()
 					 $sql_existencia="SELECT `cat_csprcovid19_det`.`exis_pruebas` AS 'existencia', max(`cat_csprcovid19_det`.`fecha_reporte`)
 									  FROM `cat_csprcovid19_det` WHERE id_CSprCOVID19='".$row_nousmer['id_CSprCOVID19']."'";
 					 $consulta_existencia=mysql_query($sql_existencia,$link);
-					 $row_existencia=mysql_fetch_array($consulta_existencia);						
+					 $row_existencia=mysql_fetch_array($consulta_existencia);
 					$capaformulario.="
 						<td><input type='text' readonly required style='color:white; text-align:center;' name='exis_pruebas_".$row_nousmer['clv_clues']."' class='form-control-plaintext' value='".$row_existencia['existencia']."' aria-label='' aria-describedby='basic-addon1'></td>
 						<td><textarea name='observaciones_".$row_nousmer['clv_clues']."' class='form-control' id='exampleFormControlTextarea1' rows='2'></textarea></td>
@@ -279,14 +275,14 @@ function reporte_prnousmer()
 }
 
 function accion_reporte_prnousmer($reporte_prnousmer)
-{  include('cnx.php');	
+{  include('cnx.php');
    $respuesta = new xajaxResponse("utf-8");
 	//AQUI SE SUPONE VA A TRAER LOS DATOS DE LA PANTALLA, VALIDA QUE TODOS LOS CAMPOS ESTÉN LLENOS Y SEAN DE TIPO ENTERO Y LOS VA A GRABAR EN LA BASE DE DATOS.... LO CUAL NO TENGO NI IDEA DE COMO HACERLE >_<
     return $respuesta;
 }
 
 function consultar_reporte_prnousmer($reporte_prnousmer)
-{  include('cnx.php');	
+{  include('cnx.php');
    $respuesta = new xajaxResponse("utf-8");
 	//Aqui podrá consultar por jurisdiccion o centro de salud las cantidades globales entre rangos de fechas (y sí... tampoco tengo ni idea de como le voy a hacer aún)
     return $respuesta;
@@ -313,7 +309,7 @@ $xajax->processRequests();
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="images/favicon2.ico">
 <!-- liga fuente Roboto-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel='stylesheet'  type='text/css'> 
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel='stylesheet'  type='text/css'>
 <!-- ligas bootstrap 4-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -321,20 +317,20 @@ $xajax->processRequests();
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- ligas para date picker -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
-<script src="js/bootstrap-datepicker.min.js"></script>	
- 
+<script src="js/bootstrap-datepicker.min.js"></script>
+
   <style type="text/css">
 	@import url('css/font-awesome-index.css');
 /*	@font-face {
 	  font-family: "Roboto";
 	  src: url('../fonts/Roboto/roboto-light-webfont.eot?1423657803');
-	  src: url('../fonts/Roboto/roboto-light-webfont.eot?1423657803#iefix') format('embedded-opentype'), 
-	  url('../fonts/Roboto/roboto-light-webfont.woff?1423657803') format('woff'), 
+	  src: url('../fonts/Roboto/roboto-light-webfont.eot?1423657803#iefix') format('embedded-opentype'),
+	  url('../fonts/Roboto/roboto-light-webfont.woff?1423657803') format('woff'),
 	  url('../fonts/Roboto/roboto-light-webfont.ttf?1423657803') format('truetype');
 	  font-weight: 300;
-	  font-style: normal; 
+	  font-style: normal;
 	}
-*/	
+*/
 	@media screen and (max-width:1980px)
 	{
 		table{width:35% !important;}
@@ -362,17 +358,17 @@ $xajax->processRequests();
 	text-align:center;
 	padding:7px;
 	}
-  		
+
 	.hoverTable{
-		width:100%; 
-		border-collapse:collapse; 
+		width:100%;
+		border-collapse:collapse;
 	}
 	.hoverTable th{
 		border-bottom: 1px solid black;
 		text-align:center;
 		padding: 15px;
 	}
-	.hoverTable td{ 
+	.hoverTable td{
 		padding:7px; border:#4e95f4 1px solid;
 	}
 	/* Define the default color for all the table rows */
@@ -383,7 +379,7 @@ $xajax->processRequests();
 		color:black; background-color: lightgray;
 	}
     .hoverTable tr:hover {
-        background-color:#234a7a; 
+        background-color:#234a7a;
 		color:white;
     }
 	.form-2 {
@@ -398,9 +394,9 @@ $xajax->processRequests();
     border-radius: 4px;
     color: #7e7975;
     box-shadow:
-        0 2px 2px rgba(0,0,0,0.2),        
-        0 1px 5px rgba(0,0,0,0.2),        
-        0 0 0 12px rgba(255,255,255,0.4); 
+        0 2px 2px rgba(0,0,0,0.2),
+        0 1px 5px rgba(0,0,0,0.2),
+        0 0 0 12px rgba(255,255,255,0.4);
 }
   </style>
    <?
@@ -421,7 +417,3 @@ $xajax->processRequests();
 </div>
 </body>
 </html>
-
-
-
-
