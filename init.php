@@ -1,5 +1,5 @@
 <?php
-$server=4;
+$server=5;
 $_SESSION['des']=0;   ///////////////cambiar esta para acceder a modo desarrollador
 
 if($server==1){
@@ -28,6 +28,12 @@ else if($server==4){
   define("MYSQLPASS", "esponda123$");
   define("SERVIDOR", "sagyc.com.mx");
   define("BDD", "sagycrmr_apasear");
+}
+else if($server==5){
+  define("MYSQLUSER", "root");
+  define("MYSQLPASS", "1erNivel-94chu4");
+  define("SERVIDOR", "localhost");
+  define("BDD", "dbs610245");
 }
 
 ///////////////////contraseñas

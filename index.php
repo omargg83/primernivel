@@ -46,8 +46,8 @@
 
 													</div>
 
-														<a class="nav-link" is='menu-link' href='#a_usuarios/index' title='Usuarios'><div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>Cuentas</a>
-														<a class="nav-link" is='menu-link' href='#a_pruebas/index' title='Usuarios'><div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>Pruebas Rápidas</a>
+														<a class="nav-link" is='menu-link' href='#a_usuarios/index' title='Usuarios'><div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>Control Usuarios</a>
+														<a class="nav-link" is='menu-link' href='#a_pruebas/index' title='Usuarios'><div class="sb-nav-link-icon"><i class="fas fa-thermometer"></i></div>Pruebas Rápidas</a>
 
 
                         </div>
