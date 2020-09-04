@@ -5,25 +5,32 @@
 
 <div class="container">
 
-	<div class="row">
-		<div class="col-2">Numero</div>
-		<div class="col-3">Nombre</div>
-		<div class="col-2">Nivel</div>
-		<div class="col-3">Correo</div>
-	</div>
+	<table class="table table-striped table-dark">
+		<thead>
+	    <tr>
+	      <th scope="col"></th>
+	      <th scope="col">Nombre del usuario</th>
+				<th scope="col">ID usuario</th>
+	      <th scope="col" style="text-align:center;">Nivel</th>
+	      <th scope="col">Correo electrónico</th>
+	    </tr>
+	  </thead>
+	  <tbody>
 			<?php
 				foreach($pd as $key){
 			?>
-					<div class='row'>
-						<div class="col-2">
+					<tr>
+						<td>
 							<button class='btn btn-warning' type="button" is="b-link" des='a_usuarios/editar' dix='trabajo' tp="edit" v_idusuario='<?php echo $key->id_usuario; ?>' title='editar'>Editar</button>
-						</div>
-						<div class="col-3"><?php echo $key->nombre; ?></div>
-						<div class="col-2"><?php echo $key->nivel; ?></div>
-						<div class="col-3"><?php echo $key->email; ?></div>
-					</div>
+						</td>
+						<td><?php echo $key->nombre." ".$key->ap_paterno." ".$key->ap_materno; ?></td>
+						<td style="font-family: Courier;"><?php echo $key->usuario; ?></td>
+						<th scope="row" style="text-align:center;font-weight: 900;"><?php echo $key->nivel; ?></th>
+						<td><?php echo $key->email; ?></td>
+					</tr>
 			<?php
 				}
 			?>
-	</div>
+		</tbody>
+	</table>
 </div>

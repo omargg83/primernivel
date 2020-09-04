@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//ES">
+<html>
+<head>
+   <title>Select</title>
+</head>
+<body>
+	<form action="#" method="post" id="pizzaForm" class="demoForm">
+
+		<fieldset>
+			<legend>Demo: Select Lists Onchange</legend>
+			
+			<p>Select Pizza Size and Toppings</p>
+			
+			<p>
+				<select name="size" id="size">
+					<option value="5">Small: $5</option>
+					<option value="8" selected="selected">Medium: $8</option>
+					<option value="12">Large: $12</option>
+				</select>
+				
+				<select name="toppings[]" id="toppings" multiple="multiple" size="5">
+					<option value="400">Mushrooms</option>
+					<option value="300">Onions</option>
+					<option value="400">Black Olives</option>
+					<option value="500">Sausage</option>
+					<option value="500">Pepperoni</option>
+				</select>
+				<input type="hidden" name="toppings_tot" value="0" />
+			 
+				<label>Total: $<input type="text" class="num" name="total" value="8.00" readonly="readonly" /></label>
+			</p>
+			
+		</fieldset>
+		
+	</form>
+	
+	<script language="JavaScript" type="text/javascript">
+			// functions assigned to onchange properties
+		document.getElementById('size').onchange = function() {
+			// access form and value properties via this (keyword)
+			var form = this.form;
+			var total = parseFloat( this.value ) + parseFloat( form.elements['toppings_tot'].value );
+			form.elements['total'].value = formatDecimal(total);
+		};
+
+		document.getElementById('toppings').onchange = function() {
+			var form = this.form;
+			form.elements['toppings_tot'].value = 0; // reset toppings total
+			
+			// getSelectedOptions function handles select-multiple
+			// pass select list (this) and callback function
+			getSelectedOptions( this, calcToppingsTotal );
+			
+			// add toppings total and size price to get total
+			var tops_tot = parseFloat( form.elements['toppings_tot'].value );
+			var size_price = parseFloat( form.elements['size'].value );
+			form.elements['total'].value = formatDecimal(tops_tot + size_price );
+		};
+
+		// called for each selected option, adding its value to toppings total
+		function calcToppingsTotal(opt) {
+			// get reference to hidden toppings total field
+			var tot_fld = opt.form.elements['toppings_tot'];
+			var val = parseFloat( tot_fld.value );
+			// add value of opt to total
+			tot_fld.value = val + parseFloat( opt.value );
+		}
+
+		// handles selected options in a select-multiple
+		function getSelectedOptions(sel, fn) {
+			var opts = [], opt;
+			
+			for (var i=0, len=sel.options.length; i<len; i++) {
+				opt = sel.options[i];
+				if ( opt.selected ) {
+					opts.push(opt);
+					if (fn) {
+						fn(opt);
+					}
+				}
+			}
+			return opts;
+		}
+
+		// format val to n number of decimal places
+		// modified version of Danny Goodman's (JS Bible)
+		function formatDecimal(val, n) {
+			n = n || 2;
+			var str = "" + Math.round ( parseFloat(val) * Math.pow(10, n) );
+			while (str.length <= n) {
+				str = "0" + str;
+			}
+			var pt = str.length - n;
+			return str.slice(0,pt) + "." + str.slice(pt);
+		}
+</script>
+
+</body>
+</html>

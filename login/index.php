@@ -7,7 +7,7 @@
  <!DOCTYPE HTML>
  <html lang="es">
  <head>
- 	<title>IPSIAPP</title>
+ 	<title>SSH - DPNA</title>
  	<meta charset="utf-8">
  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
  	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,16 +17,17 @@
  	<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
  	<meta http-equiv="Pragma" content="no-cache">
 
- 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="shortcut icon" href="../img/favicon2.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
  	<link rel="stylesheet" href="../librerias15/swal/dist/sweetalert2.min.css">
  	<link rel="stylesheet" href="login.css">
  </head>
  <body>
    <div class="container">
        <div class="card card-container login">
-         <img id="profile-img" class="profile-img-card" src="../img/isotipo.jpg" />
+         <img id="profile-img" class="profile-img-card" src="../img/logo.png" />
          <p id="profile-name" class="profile-name-card"></p>
-         SISTEMA PARA EL REGISTRO DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN
+         <b style="font-weight:900; text-align:center;">SISTEMA PARA EL REGISTRO DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN</b>
         <form is="f-login" id="form_login" db="login" fun="acceso" des="/">
            <span id="reauth-email" class="reauth-email"></span>
            <input type="text" id="inputEmail"  name="inputEmail" class="form-control" placeholder="Correo" required autofocus>

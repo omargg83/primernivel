@@ -5,18 +5,21 @@
 	}
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>IPSI - Admin</title>
+				<?php
+				if ($_SESSION['nivel_usuario']==1){echo "<title>ADMIN - Sistema para el registro de información institucional de Primer Nivel de Atención</title>";}
+				else{echo "<title>Sistema para el registro de información institucional de Primer Nivel de Atención</title>";}
+				?>
         <link href="style.css" rel="stylesheet" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-
+				<link rel="shortcut icon" href="img/favicon2.ico">
         <link rel="stylesheet" href="librerias15/load/css-loader.css">
         <link rel="stylesheet" href="librerias15/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
@@ -40,20 +43,17 @@
                         <div class="nav">
 
 													<div class="sb-sidenav-menu-heading">
-
-														<div style="width: 36%;display: inline-block;"> <img style="vertical-align: bottom;border-radius: 10px; max-width: 50px;" src="<?php echo $_SESSION['foto']; ?>"> </div>
-														<div style="padding-left: 5px;width: 46%;display: inline-block;color:#fff;">  <strong><?php echo $_SESSION['nombrec']; ?> </strong></div>
-
+														<div style="padding-left: 5px;width: 96%;display: inline-block;color:#fff;">  <strong><?php echo $_SESSION['nombrec']; ?> </strong></div>
 													</div>
-
-														<a class="nav-link" is='menu-link' href='#a_usuarios/index' title='Usuarios'><div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>Control Usuarios</a>
+										<?php
+										if ($_SESSION['nivel_usuario']==1){
+											echo "<a class='nav-link' is='menu-link' href='#a_usuarios/index' title='Usuarios'><div class='sb-nav-link-icon'><i class='fas fa-user-alt'></i></div>Control Usuarios</a>";
+										}?>
 														<a class="nav-link" is='menu-link' href='#a_pruebas/index' title='Usuarios'><div class="sb-nav-link-icon"><i class="fas fa-thermometer"></i></div>Pruebas Rápidas</a>
-
-
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <a onclick='salir()' href='#' class="btn btn-block"><i class="fas fa-sign-out-alt"></i>Salir</a>
+                        <a onclick='salir()' href='#' class="btn btn-block"><i class="fas fa-sign-out-alt"></i> Salir</a>
                     </div>
                 </nav>
             </div>

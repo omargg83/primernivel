@@ -4,7 +4,8 @@
 body, html {
     height: 100%;
     background-repeat: no-repeat;
-    background-color: #00417c;
+    background-color: #001a2b;
+    /*background-color: #00417c;*/
     font-family: 'Nunito', sans-serif;
 }
 

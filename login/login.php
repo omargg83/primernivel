@@ -39,6 +39,7 @@
 					$_SESSION['autoriza']=1;
 					$_SESSION['idusuario']=$CLAVE->id_usuario;
 					$_SESSION['nombre']=$CLAVE->nombre;
+					$_SESSION['nivel_usuario']=$CLAVE->nivel;
 					$_SESSION['nombrec']=$CLAVE->nombre." ".$CLAVE->ap_paterno;
 					$_SESSION['cfondo']="#fff";
 					$_SESSION['idclues']=$CLAVE->id_clues;

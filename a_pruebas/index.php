@@ -13,12 +13,12 @@
 		echo"<h5>Seleccione el centro de salud a reportar</h5>";
 		echo"<br>
 				<form id='selec_CS'>
-				<select onchange='CS_areportar(this.value)'>";
+					<select onchange='CS_areportar(this.value)'>";
 		foreach($resp as $row_nousmer){
 			 echo"<option name='num_modulos' value='".$row_nousmer->clv_clues."' class='form-control'>".$row_nousmer->clv_clues." ".$row_nousmer->nombre_clues."</option> ";
 		}
-		echo"</select>
-		</form>";
+		echo"	</select>
+				 </form>";
 	?>
 
 <?php
