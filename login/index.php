@@ -30,7 +30,7 @@
          <b style="font-weight:900; text-align:center;">SISTEMA PARA EL REGISTRO DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN</b>
         <form is="f-login" id="form_login" db="login" fun="acceso" des="/">
            <span id="reauth-email" class="reauth-email"></span>
-           <input type="text" id="inputEmail"  name="inputEmail" class="form-control" placeholder="Correo" required autofocus>
+           <input type="text" id="inputEmail"  name="inputEmail" class="form-control" placeholder="Usuario" required autofocus>
            <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Contraseña" required>
            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Ingresar</button>
          </form>

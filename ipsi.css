@@ -1,6 +1,6 @@
 #layoutSidenav,body{background-color: #f4f6fa;}
 .bienvenida,.topcuenta{font-weight: 800;
-    color: #00417c;}
+    /*color: #00417c;*/ color:#001a2b;}
 .badge-danger{background-color:#61c12c;font-size: 13px;}
 
 .actcard .card{
@@ -10,7 +10,7 @@
 
 .actcard .card .card-header{
 font-weight: 800;
-color: #00417c;
+/*color: #00417c;*/ color:#001a2b;
 text-align: center;
 }
 
@@ -21,7 +21,7 @@ text-align: center;
 
 .tituloventana{
 	font-weight: 800;
-    color: #00417c;
+    /*color: #00417c;*/ color:#001a2b;
     border: none;
     background-color: unset;
     font-size: 24px;
@@ -39,7 +39,7 @@ text-align: center;
 
 .actcardn .card .card-header{
 font-weight: 800;
-color: #00417c;
+/*color: #00417c;*/ color:#001a2b;
 text-align: center;
 }
 

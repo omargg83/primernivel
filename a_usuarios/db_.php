@@ -43,6 +43,7 @@ class Usuario extends ipsi{
 	public function guardar_usuario(){
 		$x="";
 		$arreglo =array();
+
 		$idusuario=$_REQUEST['idusuario'];
 
 		$arreglo+=array('nombre'=>$_REQUEST['nombre']);
@@ -50,6 +51,8 @@ class Usuario extends ipsi{
 	  $arreglo+=array('email'=>$_REQUEST['email']);
 		$arreglo+=array('id_clues'=>$_REQUEST['id_clues']);
 		$arreglo+=array('usuario'=>$_REQUEST['usuario']);
+		$arreglo+=array('contrasena'=>$_REQUEST['usuario']);
+		$arreglo+=array('nivel'=>$_REQUEST['nivel']);
 
 		if (isset($_REQUEST['ap_materno'])){
 			$arreglo+=array('ap_materno'=>$_REQUEST['ap_materno']);

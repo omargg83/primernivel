@@ -23,10 +23,10 @@
 						<td>
 							<button class='btn btn-warning' type="button" is="b-link" des='a_usuarios/editar' dix='trabajo' tp="edit" v_idusuario='<?php echo $key->id_usuario; ?>' title='editar'>Editar</button>
 						</td>
-						<td><?php echo $key->nombre." ".$key->ap_paterno." ".$key->ap_materno; ?></td>
-						<td style="font-family: Courier;"><?php echo $key->usuario; ?></td>
-						<th scope="row" style="text-align:center;font-weight: 900;"><?php echo $key->nivel; ?></th>
-						<td><?php echo $key->email; ?></td>
+						<td style="vertical-align: middle;"><?php echo $key->nombre." ".$key->ap_paterno." ".$key->ap_materno; ?></td>
+						<td style="font-family: Courier;vertical-align: middle;"><?php echo $key->usuario; ?></td>
+						<th scope="row" style="text-align:center;font-weight: 900;vertical-align: middle;"><?php echo $key->nivel; ?></th>
+						<td style="vertical-align: middle;"><?php echo $key->email; ?></td>
 					</tr>
 			<?php
 				}

@@ -1,93 +1,29 @@
 <?php
 	require_once("db_.php");
 ?>
+	<nav class='navbar navbar-expand-lg navbar-light bg-light'>
+	<a class='navbar-brand'><i class="fas fa-thermometer"></i> Pruebas rápidas</a>
+	  <button class='navbar-toggler navbar-toggler-right' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='principal' aria-expanded='false' aria-label='Toggle navigation'>
+		<span class='navbar-toggler-icon'></span>
+	  </button>
+		  <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+			<ul class='navbar-nav mr-auto'>
+<?php if (($_SESSION['nivel_usuario']==3)||($_SESSION['nivel_usuario']==4)) { ?>
+				<li class='nav-item active'>
+					<a class='nav-link barranav izq' title='Reporte' id='reportar'  is='a-link' des='a_pruebas/reportar' dix='trabajo'>
+						<i class="fas fa-clipboard-check"></i> Reportar unidad</a>
+				</li>
+<?php }?>
+				<li class='nav-item active'>
+					<a class='nav-link barranav' is="a-link" des='a_pruebas/informe' dix='trabajo' tp="router"><i class="fad fa-chart-line"></i> Informes </a>
+				</li>
+			</ul>
 
-<h3>Reporte de pruebas rápidas realizadas en unidades NO USMER</h3>
-<div class='container'>
+	  </div>
+	</nav>
+
+<div id='trabajo'>
 	<?php
-		$sql="SELECT *  FROM cat_clues LEFT JOIN cat_CSprCOVID19 ON cat_clues.id_clues = cat_CSprCOVID19.id_clues
-		WHERE (( id_juris = ".$_SESSION['id_juris'].") AND (cat_clues.id_clues = cat_CSprCOVID19.id_clues ))";
-		$sth = $db->dbh->prepare($sql);
-		$sth->execute();
-		$resp=$sth->fetchAll(PDO::FETCH_OBJ);
-		echo"<h5>Seleccione el centro de salud a reportar</h5>";
-		echo"<br>
-				<form id='selec_CS'>
-					<select onchange='CS_areportar(this.value)'>";
-		foreach($resp as $row_nousmer){
-			 echo"<option name='num_modulos' value='".$row_nousmer->clv_clues."' class='form-control'>".$row_nousmer->clv_clues." ".$row_nousmer->nombre_clues."</option> ";
-		}
-		echo"	</select>
-				 </form>";
+		include 'reportar.php';
 	?>
-
-<?php
-function CS_areportar($clues)
-{
-	$sql="SELECT id_CSprCOVID19  FROM cat_clues LEFT JOIN cat_CSprCOVID19 ON cat_clues.id_clues = cat_CSprCOVID19.id_clues
-		WHERE (( clv_clues = ".$clues.") AND (cat_clues.id_clues = cat_CSprCOVID19.id_clues ))";
-	$sth = $db->dbh->prepare($sql);
-	$sth->execute();
-	$resp=$sth->fetchAll(PDO::FETCH_OBJ);
-	echo "<br><br><br>
-			<form is='f-submit' id='form_prnu_".$row_nousmer->clv_clues."' db='a_pruebas/db_' fun='guardar_clues'>
-				<table class='table table-dark table-striped'>
-					<thead>
-						<tr>
-							<th scope='col' style='vertical-align:middle;'>Centro de salud</th>
-							<th scope='col' style='vertical-align:middle;'>".$row_nousmer->clv_clues."<br>".$row_nousmer->nombre_clues."</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope='col' style='vertical-align:middle;'>Num. Módulos</th>
-							<td style='vertical-align:middle;'><div class='col'><input type='text' required name='num_modulos' value='1' class='form-control' placeholder='' ></div></td>
-						</tr>
-						<tr>
-							<th scope='col' style='vertical-align:middle;'>Num. total de pruebas rápidas realizadas</th>
-							<td style='vertical-align:middle;'><div class='col'><input type='text' required name='num_pruebas_realizadas' value='' class='form-control' placeholder='' ></div></td>
-						</tr>
-						<tr>
-							<th scope='col' style='vertical-align:middle;'>Num. casos reactivos a IgG</th>
-							<td style='vertical-align:middle;'><div class='col'><input type='text' required  name='num_casos_igg' value='' class='form-control' placeholder='IgG' ></div></td>
-						</tr>
-						<tr>
-							<th scope='col' style='vertical-align:middle;'>Num. casos reactivos a IgM</th>
-							<td style='vertical-align:middle;'><div class='col'><input type='text' required  name='num_casos_igm' value='' class='form-control' placeholder='IgM' ></div></td>
-						</tr>
-						<tr>
-							<th scope='col' style='vertical-align:middle;'>Num. casos reactivos a IgG e IgM</th>
-							<td style='vertical-align:middle;'><div class='col'><input type='text' required  name='num_casos_igg_ig' value='' class='form-control' placeholder='IgG e IgM' ></div></td>
-						</tr>
-						<tr>
-							<th scope='col' style='vertical-align:middle;'>Num. muestras inválidas</th>
-							<td style='vertical-align:middle;'><div class='col'><input type='text' required  name='num_invalidas' value='' class='form-control' placeholder='' ></div></td>
-						</tr>
-						<tr>
-							<th scope='col' style='vertical-align:middle;'>Num. personal en el módulo</th>
-							<td style='vertical-align:middle;'><div class='col'><input type='text' required  name='num_personal' value='' class='form-control' placeholder='' ></div></td>
-						</tr>
-						<tr>
-							<th scope='col' style='vertical-align:middle;'>Num. pruebas (re)distribuidas</th>
-							<td style='vertical-align:middle;'><div class='col'><input type='text' required name='distribucion' value='0' class='form-control' placeholder='' ></div></td>
-						</tr>
-						<tr>
-							<th scope='col' style='vertical-align:middle;'>Existencia de pruebas</th>
-							<td style='vertical-align:middle;'><div class='col'><input type='text' readonly required name='exis_pruebas' value='' class='form-control' placeholder='' ></div></td>
-						</tr>
-						<tr>
-							<th scope='col' style='vertical-align:middle;'>Observaciones</th>
-							<td style='vertical-align:middle;'><div class='col'><input type='text' name='observaciones' value='' class='form-control' placeholder='' ></div></td>
-						</tr>
-						<tr><td colspan='2' style='text-align:center;'><button type='submit' class='btn btn-success' />Enviar informacion</button></td></tr>
-					</tbody>
-				</table>
-			 </form>";
-
-}
-
-
-
-
-	echo"</div>";
-    ?>
+</div>

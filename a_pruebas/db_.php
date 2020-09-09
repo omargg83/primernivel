@@ -18,21 +18,40 @@ class a_pruebas extends ipsi{
 	public function __construct(){
 		parent::__construct();
 	}
-	public function usuario_lista(){
-		$sql="select * from cat_usuarios";
+
+	public function clues_nousmer(){
+		$sql="select * FROM cat_clues LEFT JOIN cat_CSprCOVID19 ON cat_clues.id_clues = cat_CSprCOVID19.id_clues
+		WHERE (( id_juris = ".$_SESSION['id_juris'].") AND (cat_clues.id_clues = cat_CSprCOVID19.id_clues ))";
 		$sth = $this->dbh->query($sql);
 		return $sth->fetchAll(PDO::FETCH_OBJ);
 	}
-	public function guardar_clues(){
+
+	public function id_clues_pr($idcsprcovid19)
+	{
+			$sql="select * FROM cat_clues LEFT JOIN cat_CSprCOVID19 ON cat_clues.id_clues = cat_CSprCOVID19.id_clues
+		WHERE (( id_CSprCOVID19 = ".$idcsprcovid19.") AND (cat_clues.id_clues = cat_CSprCOVID19.id_clues ))";
+		$sth = $this->dbh->query($sql);
+		return $sth->fetch(PDO::FETCH_OBJ);
+	}
+
+	public function ultima_existencia($id){
+		$sql=" select `cat_csprcovid19_det`.`exis_pruebas` AS 'existencia', `cat_csprcovid19_det`.`fecha_reporte` AS 'fecha_ult_reporte'
+					FROM `cat_csprcovid19_det`
+					WHERE id_CSprCOVID19='".$id."' AND cat_csprcovid19_det.fecha_reporte = (select max(`cat_csprcovid19_det`.`fecha_reporte`)
+																																								FROM `cat_csprcovid19_det` WHERE id_CSprCOVID19='".$id."')";
+		$sth = $this->dbh->query($sql);
+		return $sth->fetch(PDO::FETCH_OBJ);
+	}
+
+	public function guardar_pruebasrapidas(){
 		$x="";
 		$arreglo =array();
 		$idusuario=$_REQUEST['idusuario'];
-
+		$hoy = date("Y-m-d H:i:s");
 		///////////////con esto se obtienen los valores del formulario
 		if (isset($_REQUEST['num_modulos'])){
 			$arreglo+=array('num_modulos'=>$_REQUEST['num_modulos']);
 		}
-
 		///poner ahi la tabla y el ID de la tabla
 		///$x=$this->update('cat_usuarios',array('id_usuario'=>$idusuario), $arreglo);
 	}
