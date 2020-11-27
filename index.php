@@ -48,8 +48,13 @@
 										<?php
 										if ($_SESSION['nivel_usuario']==1){
 											echo "<a class='nav-link' is='menu-link' href='#a_usuarios/index' title='Usuarios'><div class='sb-nav-link-icon'><i class='fas fa-user-alt'></i></div>Control Usuarios</a>";
-										}?>
-														<a class="nav-link" is='menu-link' href='#a_pruebas/index' title='Usuarios'><div class="sb-nav-link-icon"><i class="fas fa-thermometer"></i></div>Pruebas Rápidas</a>
+										}
+											if (($_SESSION['nivel_usuario']==1)||($_SESSION['nivel_usuario']==2)){
+											  echo "<a class='nav-link' is='menu-link' href='#a_regio2019/index' title='Regionalización Operativa 2019'><div class='sb-nav-link-icon'><i class='fas fa-sitemap'></i></div>ERO 2019</a>";
+											}
+										?>
+														<a class="nav-link" is='menu-link' href='#a_pruebas/index' title='Pruebas Rápidas COVID-19'><div class="sb-nav-link-icon"><i class="fas fa-thermometer"></i></div>Pruebas Rápidas</a>
+														<a class="nav-link" is='menu-link' href='' title='COVID-19'><div class="sb-nav-link-icon"><i class="fas fa-bug"></i></div>COVID 19</a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -67,7 +72,8 @@
           </button>
 
           <!-- Topbar Mensaje bienvenida-->
-        <p class="bienvenida"> Hola, <?php echo $_SESSION['nombrec']; ?>, Que bueno tenerte de vuelta </p>
+        <p class="bienvenida">SISTEMA PARA EL REGISTRO DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN</p>
+				<!--p class="bienvenida"> Hola, <?php echo $_SESSION['nombrec']; ?>, Que bueno tenerte de vuelta </p-->
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -99,17 +105,17 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <span class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+               <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nombrec']; ?></span>
 								 <?php
 
-										 echo "<a class='topcuenta' is='menu-link' href='#a_usuarios/editar_p'>Mi cuenta</a></span>";
+										 //echo "<a class='topcuenta' is='menu-link' href='#a_usuarios/editar' v_idusuario='".$_SESSION['idusuario']."'>Mi cuenta</a></span>";
 
 								 ?>
 
 
 								<span class="mr-2 d-none d-lg-inline text-gray-600 small">|</span>
-								<span class="mr-2 d-none d-lg-inline text-gray-600 small"><a onclick='salir()' href="#"class="topcuenta">Salir</a></span>
-                <img class="img-profile rounded-circle" src="<?php echo $_SESSION['foto']; ?>">
+								<span class="mr-2 d-none d-lg-inline text-gray-600 small"><a onclick='salir()' href="#" class="topcuenta">Salir</a></span>
+                <!--img class="img-profile rounded-circle" src="<?php echo $_SESSION['foto']; ?>"-->
               </span>
             </li>
           </ul>

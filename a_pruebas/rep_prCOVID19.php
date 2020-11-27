@@ -24,7 +24,7 @@ if($idcsprcovid19>0){
 	var igg = parseInt(elements['num_casos_igg'].value);
 	var igm = parseInt(elements['num_casos_igm'].value);
 	var iggigm = parseInt(elements['num_casos_igg_igm'].value);
-	var no_iggigm = parseInt(elements['no_igg_ig'].value);
+	var no_iggigm = parseInt(elements['no_igg_igm'].value);
 	var inv = parseInt(elements['num_invalidas'].value);
 	var redis = parseInt(elements['distribucion'].value);
 		if (redis>0)
@@ -33,15 +33,14 @@ if($idcsprcovid19>0){
 			{total = exi_prev-igg-igm-iggigm-inv-no_iggigm+redis;}
 		tot_pr = igg+igm+iggigm+inv+no_iggigm;
 
-	document.form0.exis_pruebas.value = total;
-	document.form0.num_pruebas_realizadas.value = tot_pr;
+	document.form_pruebasrapidas.exis_pruebas.value = total;
+	document.form_pruebasrapidas.num_pruebas_realizadas.value = tot_pr;
 	}
 
 	</script>
 </head>
-
 <div class="container">
-<form name="form0" id="form0" is="f-submit" id="form_pruebasrapidas" db="a_pruebas/db_" fun="guardar_pruebasrapidas" des="a_pruebas/index" v_idcsprcovid19="<?php echo $idcsprcovid19; ?>">
+<form name="form_pruebasrapidas" id="form_pruebasrapidas" is="f-submit" db="a_pruebas/db_" fun="guardar_pruebasrapidas" des="a_pruebas/index" v_idcsprcovid19="<?php echo $idcsprcovid19; ?>">
 	<input type="hidden" class="form-control form-control-sm" name="id_CSprCOVID19" id="id_CSprCOVID19" value="<?php echo $idcsprcovid19; ?>" placeholder="No" readonly>
 	<input type="hidden" class="form-control form-control-sm" name="ult_exis" id="ult_exis" value="<?php echo $ult_exis; ?>" placeholder="No" readonly>
 	<div class='card'>
@@ -60,29 +59,29 @@ if($idcsprcovid19>0){
       </div>
 			<div class='col-4'>
         <label style='vertical-align:middle;text-align:center; color:red; font-weight: 700;'>Nueva existencia de pruebas</label>
-        <input type='text' readonly id='exis_pruebas' name='exis_pruebas' value='' class='form-control col-5' placeholder='' >
+        <input type='text' readonly id='exis_pruebas' name='exis_pruebas' class='form-control col-5' placeholder='' >
       </div>
 		 </div>
 		 <div class='row'>
       <div class='col-4'>
         <label>Num. casos <b><u>reactivos</u> a IgG</b></label>
-        <input type='text' required id='num_casos_igg' name='num_casos_igg' value='0' class='form-control col-5' placeholder='' >
+        <input type='text' required id='num_casos_igg' name='num_casos_igg' value='0' class='form-control col-5' placeholder='' onKeyUp="Calc('form-control col-5')" onClick="this.focus();this.select();">
       </div>
       <div class='col-4'>
         <label>Num. casos <b><u>reactivos</u> a IgM</b></label>
-        <input type='text' required id='num_casos_igm' name='num_casos_igm' value='0' class='form-control col-5' placeholder='' >
+        <input type='text' required id='num_casos_igm' name='num_casos_igm' value='0' class='form-control col-5' placeholder='' onKeyUp="Calc('form-control col-5')" onClick="this.focus();this.select();">
       </div>
       <div class='col-4'>
         <label>Num. casos <b><u>reactivos</u> a IgG e IgM</b></label>
-        <input type='text' required id='num_casos_igg_igm' name='num_casos_igg_igm' value='0' class='form-control col-5' placeholder='' >
+        <input type='text' required id='num_casos_igg_igm' name='num_casos_igg_igm' value='0' class='form-control col-5' placeholder='' onKeyUp="Calc('form-control col-5')" onClick="this.focus();this.select();">
       </div>
 			<div class='col-4'>
         <label>Num. casos <b><u>NO reactivos</u> a IgG ni a IgM</b></label>
-        <input type='text' required id='no_igg_ig' name='no_igg_ig' value='0' class='form-control col-5' placeholder='' >
+        <input type='text' required id='no_igg_igm' name='no_igg_igm' value='0' class='form-control col-5' placeholder='' onKeyUp="Calc('form-control col-5')" onClick="this.focus();this.select();">
       </div>
       <div class='col-4'>
         <label>Num. muestras inválidas</label>
-        <input type='text' required id='num_invalidas' name='num_invalidas' value='0' class='form-control col-5' placeholder='' >
+        <input type='text' required id='num_invalidas' name='num_invalidas' value='0' class='form-control col-5' placeholder='' onKeyUp="Calc('form-control col-5')" onClick="this.focus();this.select();">
       </div>
       <div class='col-4'>
         <label>Num. personal en el módulo</label>
@@ -90,7 +89,7 @@ if($idcsprcovid19>0){
       </div>
       <div class='col-4'>
         <label>Num. pruebas (re)distribuidas</label>
-        <input type='text' required id='distribucion' name='distribucion' value='0' class='form-control col-5' placeholder='' >
+        <input type='text' required id='distribucion' name='distribucion' value='0' class='form-control col-5' placeholder='' onKeyUp="Calc('form-control col-5')" onClick="this.focus();this.select();">
       </div>
 		</div>
 		<div class='row'>
