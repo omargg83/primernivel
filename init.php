@@ -1,7 +1,7 @@
 <?php
 $server=2;
 $_SESSION['des']=1;   ///////////////cambiar esta para acceder a modo desarrollador
-
+$_SESSION['pagina']=50; ///////registros por pagina
 if($server==2){
   //////////localhost
   define("MYSQLUSER", "root");

@@ -172,6 +172,41 @@
 			}
 		}
 
+
+		public function paginar($paginas,$pag,$pagx,$des,$div){
+			echo "<div class='pag_sagyc'>";
+
+			    echo "<a is='b-link' title='Editar' des='$des' dix='$div'><i class='fas fa-angle-double-left'></i></a>";
+					$max=$pag+4;
+					$min=$pag-4;
+
+					$pre=0;
+					$pos=0;
+					for($i=0;$i<$paginas;$i++){
+						////////para las anteriores a la selecionada
+						$ant=$pag-1;
+						$desp=$pag+1;
+
+						$b=$i+1;
+
+							if($i==0 or $i==($paginas-1) or $ant==$i or $desp==$i or $pag==$i or $paginas<7){
+								echo "<a class='"; if($pag==$i){ echo " active";} echo "' is='b-link' title='Editar' des='$des' dix='$div' v_pag='$i'>$b</a>";
+							}
+							else{
+								if(($pre==0) or ($pos==0 and $pre==1 and $i>$pag)){
+									echo "<a>...</a>";
+									if($pre==0)
+									$pre=1;
+									if ($pos==0 and $pre==1 and $i>$pag){
+										$pos=1;
+									}
+								}
+							}
+
+					}
+			    echo "<a class='paginacion-item' is='b-link' title='Editar' des='$des' dix='$div' v_pag='$pagx'><i class='fas fa-angle-double-right'></i></a>";
+			echo "</div>";
+		}
 		////////////////////////////funciones
 
 

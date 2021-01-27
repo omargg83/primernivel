@@ -57,8 +57,9 @@ class Regio2019 extends ipsi{
 		return $sth->fetchAll(PDO::FETCH_OBJ);
 	}
 
-  public function listado_loca()
+  public function listado_loca($pagina)
 	{
+		$pagina=$pagina*$_SESSION['pagina'];
 		$sql="select cat_regio2019.id_catregio2019,
 					cat_regio2019.nombre_localidad AS 'nom_loca',
 					cat_regio2019.id_clues,
@@ -71,7 +72,7 @@ class Regio2019 extends ipsi{
 					left join cat_municipios on cat_regio2019.id_mpio_loc = cat_municipios.id_mpio
 					left join cat_clues on cat_regio2019.id_clues = cat_clues.id_clues
 					left join cat_instituciones on cat_clues.id_inst=cat_instituciones.id_inst
-					order by cat_regio2019.id_catregio2019 asc;";
+					order by cat_regio2019.id_catregio2019 asc limit $pagina,".$_SESSION['pagina']."";
 		$sth = $this->dbh->query($sql);
 		return $sth->fetchAll(PDO::FETCH_OBJ);
 	}
