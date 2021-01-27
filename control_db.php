@@ -1,4 +1,7 @@
-<?php @session_start();
+<?php
+	session_name("dbs610245#&%1");
+	@session_start();
+
 	if (isset($_REQUEST['function'])){$function=clean_var($_REQUEST['function']);}	else{ $function="";}
 	if (isset($_REQUEST['ctrl'])){$ctrl=clean_var($_REQUEST['ctrl']);}	else{ $ctrl="";}
 

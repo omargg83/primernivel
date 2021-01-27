@@ -4,9 +4,11 @@ require_once("../control_db.php");
 
 if($_SESSION['des']==1 and strlen($function)==0)
 {
-	echo "<div class='alert alert-primary' role='alert'>";
+	echo "<div class='alert alert-primary' role='alert' style='font-size:10px'>";
 	$arrayx=explode('/', $_SERVER['SCRIPT_NAME']);
 	echo print_r($arrayx);
+	echo "<br>";
+	echo print_r($_REQUEST);
 	echo "</div>";
 }
 
@@ -19,19 +21,15 @@ class Regio2019 extends ipsi{
 		parent::__construct();
 	}
 
-	public function buscar_localidad()
+	public function buscar_localidad($buscar,$opcion)
 	{
-		$buscar=$_REQUEST['buscar'];
-		$opcion=$_REQUEST['opcion_buscar'];
-    echo $buscar;
-		echo $opcion;
 		if($opcion==1){
 			//Busca todos los centros de salud de la SSH (id_inst=12) con tipo de consulta externa (id_tipoesta=1)
 			$sql="select `cat_jurisdicciones`.`nombre_juris`, `cat_municipios`.`nombre_mpio`,`cat_clues`.`clv_clues`, `cat_clues`.`nombre_clues`
 						from `cat_clues`
 							left join `cat_jurisdicciones` on `cat_clues`.`id_juris` = `cat_jurisdicciones`.`id_juris`
 							left join `cat_municipios` on `cat_clues`.`id_mpio` = `cat_municipios`.`id_mpio`
-						where cat_clues.nombre_clues like '%.$buscar.%' and cat_clues.id_tipoesta=1 and cat_clues.id_inst=12
+						where cat_clues.nombre_clues like '%$buscar%' and cat_clues.id_tipoesta=1 and cat_clues.id_inst=12
 						order by cat_clues.id_juris asc;";
 		}
 		else if($opcion==2){
@@ -40,7 +38,7 @@ class Regio2019 extends ipsi{
 						from cat_regio2019
 						left join cat_jurisdicciones on cat_regio2019.id_juris_cs = cat_jurisdicciones.id_juris
 						left join cat_municipios on cat_regio2019.id_mpio_cs = cat_municipios.id_mpio
-						where cat_regio2019.nombre_localidad like '%.$buscar.%'
+						where cat_regio2019.nombre_localidad like '%$buscar%'
 						order by cat_regio2019.nombre_localidad asc;";
 		}
 		else if($opcion==3){
@@ -49,7 +47,7 @@ class Regio2019 extends ipsi{
 						from `cat_regio2019`
 							left join `cat_jurisdicciones` on `cat_regio2019`.`id_juris_cs` = `cat_jurisdicciones`.`id_juris`
 							left join `cat_municipios` on `cat_regio2019`.`id_mpio_cs` = `cat_municipios`.`id_mpio`
-						where cat_regio2019.nombre_localidad like '%.$buscar.%'
+						where cat_regio2019.nombre_localidad like '%$buscar%'
 						and cat_regio2019.nombre_localidad not in (select `cat_regio2019`.`nombre_localidad`
 						                                           from `cat_regio2019`
 																										   where  cat_regio2019.nombre_localidad like '%ageb%')

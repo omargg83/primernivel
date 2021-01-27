@@ -1,11 +1,10 @@
 <?php
-	//require_once("db_.php");
+	require_once("db_.php");
 	$buscar="";
 ?>
 
 <div class="container">
-<form is="f-submit" id="form_personal" db="a_regio2019/db_" fun="buscar_localidad" des="a_regio_2019/res_busqueda_ero" desid="buscar" v_buscar="<?php echo $buscar; ?>">
-	<input type="hidden" class="form-control form-control-sm" name="idusuario" id="idusuario" value="<?php echo $idusuario ;?>" placeholder="No" readonly>
+<form is="f-submit" id="form_busca" des="a_regio2019/res_busqueda_ero" dix='resultados'>
 	<div class='card'>
 		<div class='card-header'>
 			<b><i class='fas fa-dice-d20'></i>       Ejercicio de Regionalización Operativa 2019</b>
@@ -40,4 +39,9 @@
 
 	</div>
 </form>
+
+	<div id='resultados'>
+
+	</div>
+
 </div>

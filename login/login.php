@@ -1,5 +1,7 @@
-<?php @session_start();
-
+<?php
+	session_name("dbs610245#&%1");
+	@session_start();
+	
 	date_default_timezone_set("America/Mexico_City");
 	require_once("../init.php");
 

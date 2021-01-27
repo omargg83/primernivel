@@ -1,197 +1,177 @@
 /*
-	Libreria Propia V.1
+	Libreria Propia V.2
 	Ruben Omar García
 */
 
-	class MenuLink extends HTMLAnchorElement {
-		connectedCallback() {
-			this.addEventListener('click', (e) => {cargando(true);
-				let formData = new FormData();
+	$(document).on('click',"[is='menu-link']",function(e){
+		e.preventDefault();
 
-				let hash=e.currentTarget.hash.slice(1);
-				let arrayDeCadenas = hash.split("?");
-				let nhash=arrayDeCadenas[0];
-				if(arrayDeCadenas.length>1){
-					let query=arrayDeCadenas[1];
-					var vars = query.split("&");
-					for (var i=0; i < vars.length; i++) {
-					var pair = vars[i].split("=");
-						formData.append(pair[0],pair[1]);
-					}
-				}
-
-				let datos = new Object();
-				datos.des=nhash+".php";
-				datos.dix="contenido";
-				redirige_div(formData,datos);
-			});
+		let formData = new FormData();
+		let hash=e.currentTarget.hash.slice(1);
+		let arrayDeCadenas = hash.split("?");
+		let nhash=arrayDeCadenas[0];
+		if(arrayDeCadenas.length>1){
+			let query=arrayDeCadenas[1];
+			var vars = query.split("&");
+			for (var i=0; i < vars.length; i++) {
+			var pair = vars[i].split("=");
+				formData.append(pair[0],pair[1]);
+			}
 		}
-	}
-	customElements.define("menu-link", MenuLink, { extends: "a" });
 
-	class ConfirmLink extends HTMLAnchorElement {
-	  connectedCallback() {
-	    this.addEventListener('click', (e) => {
-	      proceso_db(e);
-	    });
-	  }
-	}
-	customElements.define("a-link", ConfirmLink, { extends: "a" });
-
-	class CiLink extends HTMLLIElement {
-	  connectedCallback() {
-	    this.addEventListener('click', (e) => {
-	      proceso_db(e);
-	    });
-	  }
-	}
-	customElements.define("li-link", CiLink, { extends: "li" });
-
-	class Buttonlink extends HTMLButtonElement  {
-		connectedCallback() {
-			this.addEventListener('click', (e) => {
-				proceso_db(e);
-			});
+		for(let contar=0;contar<e.currentTarget.attributes.length; contar++){
+			let arrayDeCadenas = e.currentTarget.attributes[contar].name.split("_");
+			if(arrayDeCadenas.length>1){
+				formData.append(arrayDeCadenas[1], e.currentTarget.attributes[contar].value);
+			}
 		}
-	}
-	customElements.define("b-link", Buttonlink, { extends: "button" });
 
-	class Formsubmit extends HTMLFormElement {
-		connectedCallback() {
-		 this.addEventListener('submit', (e) => {
-			 	e.preventDefault();
+		let datos = new Object();
+		datos.des=nhash+".php";
+		datos.dix="contenido";
+		redirige_div(formData,datos);
+	});
+	$(document).on('click',"[is*='li-link']",function(e){
+		e.preventDefault();
+		proceso_db(e);
+	});
+	$(document).on('click',"[is*='b-link']",function(e){
+		e.preventDefault();
+		proceso_db(e);
+	});
+	$(document).on('click',"[is*='a-link']",function(e){
+		e.preventDefault();
+		proceso_db(e);
+	});
+	$(document).on('submit',"[is*='f-submit']",function(e){
+		e.preventDefault();
+		 //////////id del formulario
+		 let id=e.currentTarget.attributes.id.nodeValue;
+		 let elemento = document.getElementById(id);
 
-				//////////id del formulario
-		 		let id=e.currentTarget.attributes.id.nodeValue;
-		 		let elemento = document.getElementById(id);
+		 /////////API que procesa el form
+		 let db;
+		 (elemento.attributes.db !== undefined) ? db=elemento.attributes.db.nodeValue : db="";
 
-				/////////API que procesa el form
-		 		let db;
-				(elemento.attributes.db !== undefined) ? db=elemento.attributes.db.nodeValue : db="";
+		 /////////funcion del api que procesa el form
+		 let fun;
+		 (elemento.attributes.fun !== undefined) ? fun=elemento.attributes.fun.nodeValue : fun="";
 
-				/////////funcion del api que procesa el form
-		 		let fun;
-				(elemento.attributes.fun !== undefined) ? fun=elemento.attributes.fun.nodeValue : fun="";
+		 /////////Div de destino despues de guardar
+		 let dix;
+		 (elemento.attributes.dix !== undefined) ? dix=elemento.attributes.dix.nodeValue : dix="trabajo";
 
-				/////////Div de destino despues de guardar
-				let dix;
-				(elemento.attributes.dix !== undefined) ? dix=elemento.attributes.dix.nodeValue : dix="trabajo";
+		 /////////div destino despues de guardar
+		 let des;
+		 (elemento.attributes.des !== undefined) ? des=elemento.attributes.des.nodeValue : des="";
 
-				/////////div destino despues de guardar
-		 		let des;
-				(elemento.attributes.des !== undefined) ? des=elemento.attributes.des.nodeValue : des="";
+		 let desid;
+		 (elemento.attributes.desid !== undefined) ? desid=elemento.attributes.desid.nodeValue : desid="";
 
-				let desid;
-				(elemento.attributes.desid !== undefined) ? desid=elemento.attributes.desid.nodeValue : desid="";
+		 ////////FORM pertenece a ventanamodal
+		 let cmodal;
+		 (elemento.attributes.cmodal !== undefined) ? cmodal=elemento.attributes.cmodal.nodeValue : cmodal="";
 
-				////////FORM pertenece a ventanamodal
-		 		let cmodal;
-				(elemento.attributes.cmodal !== undefined) ? cmodal=elemento.attributes.cmodal.nodeValue : cmodal="";
+		 let datos = new Object();
+		 datos.des=des+".php";
+		 datos.desid=desid;
+		 datos.db=db+".php";
+		 datos.dix=dix;
+		 datos.fun=fun;
+		 //datos.tp=tp;
+		 //datos.iddest=iddest;
+		 //datos.omodal=omodal;
+		 datos.cmodal=cmodal;
+		 var formDestino = new FormData();
 
-				let datos = new Object();
-				datos.des=des+".php";
-				datos.desid=desid;
-				datos.db=db+".php";
-				datos.dix=dix;
-				datos.fun=fun;
-				//datos.tp=tp;
-				//datos.iddest=iddest;
-				//datos.omodal=omodal;
-				datos.cmodal=cmodal;
-				var formDestino = new FormData();
+		 var formData = new FormData(elemento);
+		 formData.append("function", datos.fun);
 
-				var formData = new FormData(elemento);
-				formData.append("function", datos.fun);
+		 /////////esto es para todas las variables
+		 let variables = new Object();
+		 for(let contar=0;contar<elemento.attributes.length; contar++){
+			 let arrayDeCadenas = elemento.attributes[contar].name.split("_");
+			 if(arrayDeCadenas.length>1){
+				 formData.append(arrayDeCadenas[1], elemento.attributes[contar].value);
+				 formDestino.append(arrayDeCadenas[1], elemento.attributes[contar].value);
+			 }
+		 }
 
-				/////////esto es para todas las variables
-				let variables = new Object();
-				for(let contar=0;contar<elemento.attributes.length; contar++){
-					let arrayDeCadenas = elemento.attributes[contar].name.split("_");
-					if(arrayDeCadenas.length>1){
-						formData.append(arrayDeCadenas[1], elemento.attributes[contar].value);
-						formDestino.append(arrayDeCadenas[1], elemento.attributes[contar].value);
-					}
-				}
+		 if(db.length>4){
+			 Swal.fire({
+				 title: '¿Desea procesar los cambios realizados?',
+				 showCancelButton: true,
+				 confirmButtonColor: '#3085d6',
+				 cancelButtonColor: '#d33',
+				 confirmButtonText: 'Guardar'
+			 }).then((result) => {
+				 if (result.value) {
 
-				if(db.length>4){
-					Swal.fire({
-						title: '¿Desea procesar los cambios realizados?',
-						showCancelButton: true,
-						confirmButtonColor: '#3085d6',
-						cancelButtonColor: '#d33',
-						confirmButtonText: 'Guardar'
-					}).then((result) => {
-						if (result.value) {
-							cargando(true);
-							let xhr = new XMLHttpRequest();
-							xhr.open('POST',datos.db);
-							xhr.addEventListener('load',(data)=>{
-								if (!isJSON(data.target.response)){
-									console.log(data.target.response);
-									Swal.fire({
-										type: 'error',
-										title: "Error favor de verificar",
-										showConfirmButton: false,
-										timer: 1000
-									});
-									return;
-								}
+					 let xhr = new XMLHttpRequest();
+					 xhr.open('POST',datos.db);
+					 xhr.addEventListener('load',(data)=>{
+						 if (!isJSON(data.target.response)){
+							 console.log(data.target.response);
+							 Swal.fire({
+								 type: 'error',
+								 title: "Error favor de verificar",
+								 showConfirmButton: false,
+								 timer: 1000
+							 });
+							 return;
+						 }
 
-								var respon = JSON.parse(data.target.response);
-								if (respon.error==0){
-									if (datos.desid !== undefined && datos.desid.length>0) {
-										document.getElementById(datos.desid).value=respon.id1;
-										formDestino.append(datos.desid, respon.id1);
-									}
-									if (datos.des !== undefined && datos.des.length>4) {
-										redirige_div(formDestino,datos);
-									}
-									if(datos.cmodal==1){
-										$('#myModal').modal('hide');
-									}
-									cargando(false);
-									Swal.fire({
-										type: 'success',
-										title: "Se guardó correctamente ",
-										showConfirmButton: false,
-										timer: 1000
-									});
-								}
-								else{
-									Swal.fire({
-										type: 'info',
-										title: respon.terror,
-										showConfirmButton: false,
-										timer: 1000
-									});
-								}
-							});
-							xhr.onerror =  ()=>{
-								console.log("error");
-							};
-							xhr.send(formData);
-							cargando(false);
-						}
-					});
+						 var respon = JSON.parse(data.target.response);
+						 if (respon.error==0){
+							 if (datos.desid !== undefined && datos.desid.length>0) {
+								 document.getElementById(datos.desid).value=respon.id1;
+								 formDestino.append(datos.desid, respon.id1);
+							 }
+							 if (datos.des !== undefined && datos.des.length>4) {
+								 redirige_div(formDestino,datos);
+							 }
+							 if(datos.cmodal==1){
+								 $('#myModal').modal('hide');
+							 }
 
-				}
-				else{
-					cargando(true);
-					let xhr = new XMLHttpRequest();
-					xhr.open('POST',datos.des);
-					xhr.addEventListener('load',(data)=>{
-						document.getElementById(datos.dix).innerHTML = data.target.response;
-					});
-					xhr.onerror =  ()=>{
-						console.log("error");
-					};
-					xhr.send(formData);
-					cargando(false);
-				}
-		 })
-		}
-	}
-	customElements.define("f-submit", Formsubmit, { extends: "form" });
+							 Swal.fire({
+								 type: 'success',
+								 title: "Se guardó correctamente ",
+								 showConfirmButton: false,
+								 timer: 1000
+							 });
+						 }
+						 else{
+							 Swal.fire({
+								 type: 'info',
+								 title: respon.terror,
+								 showConfirmButton: false,
+								 timer: 1000
+							 });
+						 }
+					 });
+					 xhr.onerror =  ()=>{
+						 console.log("error");
+					 };
+					 xhr.send(formData);
+
+				 }
+			 });
+
+		 }
+		 else{
+
+			 let xhr = new XMLHttpRequest();
+			 xhr.open('POST',datos.des);
+			 xhr.addEventListener('load',(data)=>{
+				 document.getElementById(datos.dix).innerHTML = data.target.response;
+			 });
+			 xhr.onerror =  ()=>{
+				 console.log("error");
+			 };
+			 xhr.send(formData);
+		 }
+	});
 
 	class Formlogin extends HTMLFormElement {
 		connectedCallback() {
@@ -251,8 +231,6 @@
 
 	//////////////////////////Solo para un proceso antes del flujo ejem. al borrar que primero borre y luego redirive_div
 	function proceso_db(e){
-		cargando(true);
-
 		let des;	/////////////el destino
 		e.currentTarget.attributes.des!==undefined ? des=e.currentTarget.attributes.des.nodeValue : des="";
 
@@ -299,12 +277,10 @@
 		}
 		if(datos.cmodal==1){
 			$('#myModal').modal('hide');
-			cargando(false);
 			return;
 		}
 		if(datos.cmodal==2){
 			$('#myModal').modal('hide');
-			cargando(false);
 		}
 		//////////////poner aqui proceso en caso de existir funcion
 		if(fun.length>0){
@@ -322,7 +298,6 @@
 						let xhr = new XMLHttpRequest();
 						xhr.open('POST',datos.db);
 						xhr.addEventListener('load',(data)=>{
-							console.log(data.target.response);
 							if (!isJSON(data.target.response)){
 								Swal.fire({
 									type: 'error',
@@ -365,7 +340,6 @@
 		else{
 			redirige_div(formData,datos);
 		}
-		cargando(false);
 	}
 	//////////////////////////redirige si es necesario
 	function redirige_div(formData,datos){
@@ -373,6 +347,7 @@
 		//for(var pair of formData.entries()) {
    		//console.log(pair[0]+ ', '+ pair[1]);
 		//}
+		cargando(true);
 		let xhr = new XMLHttpRequest();
 		xhr.open('POST', datos.des);
 		xhr.addEventListener('load',(datares)=>{
@@ -382,6 +357,7 @@
 						title: "No encontrado: "+datos.des,
 						showConfirmButton: false,
 				})
+				cargando(false);
 				return 0;
 			}
 			else{
@@ -395,12 +371,13 @@
 			    eval(scripts[i].innerText);
 				}
 			}
+			cargando(false);
 		});
 		xhr.onerror = (e)=>{
+			cargando(false);
 			console.log(e);
 		};
 		xhr.send(formData);
-		cargando(false);
 	}
 	function cargando(valor) {
 		let element = document.getElementById("cargando_div");

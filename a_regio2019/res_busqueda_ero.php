@@ -3,10 +3,22 @@
   $buscar=$_REQUEST['buscar'];
   $opcion=$_REQUEST['opcion_buscar'];
 
+	/////////se guarda en un puntero $res el resultado
+	$res=$db->buscar_localidad($buscar,$opcion);
+	//echo print_r($res);
+	///foreach es un while que recorre el puntero y lo extrae en $v2 para mostrar
+	echo "<table>";
+	foreach($res as $v2){
+		echo "<tr>";
+		echo "<td>";
+		echo $v2->nombre_localidad;
+		echo "</td>";
+		echo "<tr>";
+	}
+	echo "</table>";
 ?>
 
 <div class="container">
-<!--- form is="f-submit" id="form_personal" db="a_regio2019/db_" des="a_regio2019/editar" desid="idusuario" v_idusuario=""--->
 	<input type="hidden" class="form-control form-control-sm" name="idusuario" id="idusuario" value="<?php echo $idusuario ;?>" placeholder="No" readonly>
 	<div class="row">
 		<div class="col-12">
@@ -33,6 +45,4 @@
 			</div>
 		</div>
 	</div>
-
-</form>
 </div>

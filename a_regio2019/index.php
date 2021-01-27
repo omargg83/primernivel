@@ -1,5 +1,5 @@
 <?php
-	//require_once("db_.php");
+	require_once("db_.php");
 ?>
 	<nav class='navbar navbar-expand-lg navbar-light bg-light'>
 	<a class='navbar-brand'><i class="fas fa-sitemap"></i>   Estudio de Regionalización Operativa 2019</a>
@@ -9,10 +9,10 @@
 		  <div class='collapse navbar-collapse' id='navbarSupportedContent'>
 			<ul class='navbar-nav mr-auto'>
 			<li class='nav-item active'>
-				<a class='nav-link barranav' is="a-link" des='a_regio2019/listado' title='Listado completo de todo el ERO' dix='trabajo' tp="router"><i class="fas fa-atlas"></i> Listado completo</a>
+				<a class='nav-link barranav' is="a-link" des='a_regio2019/listado' title='Listado completo de todo el ERO' dix='trabajo'><i class="fas fa-atlas"></i> Listado completo</a>
 			</li>
 			<li class='nav-item active'>
-				<a class='nav-link barranav' is="a-link" des='a_regio2019/busqueda_ero2' title='Búsqueda' dix='trabajo' tp="router"><i class='fas fa-dice-d20'></i>       Ejercicio de Regionalización Operativa 2019</a>
+				<a class='nav-link barranav' is="a-link" des='a_regio2019/busqueda_ero2' title='Búsqueda' dix='trabajo'><i class='fas fa-dice-d20'></i>       Ejercicio de Regionalización Operativa 2019</a>
 			</li>
 			</ul>
 

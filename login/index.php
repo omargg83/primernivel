@@ -1,4 +1,6 @@
-<?php @session_start();
+<?php
+  session_name("dbs610245#&%1");
+	@session_start();
   if(isset($_SESSION['idusuario']) and strlen($_SESSION['idusuario'])>0){
     header("location: /");
   }
