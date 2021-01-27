@@ -24,23 +24,22 @@ class a_pruebas extends ipsi{
 	public function clues_nousmer(){
 		$sql="select * FROM cat_clues LEFT JOIN cat_CSprCOVID19 ON cat_clues.id_clues = cat_CSprCOVID19.id_clues
 		WHERE (( id_juris = ".$_SESSION['id_juris'].") AND (cat_clues.id_clues = cat_CSprCOVID19.id_clues ))";
+		echo $sql;
 		$sth = $this->dbh->query($sql);
 		return $sth->fetchAll(PDO::FETCH_OBJ);
 	}
 
 	public function id_clues_pr($idcsprcovid19)
 	{
-			$sql="select * FROM cat_clues LEFT JOIN cat_CSprCOVID19 ON cat_clues.id_clues = cat_CSprCOVID19.id_clues
+		$sql="select * FROM cat_clues LEFT JOIN cat_CSprCOVID19 ON cat_clues.id_clues = cat_CSprCOVID19.id_clues
 		WHERE (( id_CSprCOVID19 = ".$idcsprcovid19.") AND (cat_clues.id_clues = cat_CSprCOVID19.id_clues ))";
 		$sth = $this->dbh->query($sql);
 		return $sth->fetch(PDO::FETCH_OBJ);
 	}
 
 	public function ultima_existencia($id){
-		$sql=" select `cat_csprcovid19_det`.`exis_pruebas` AS 'existencia', `cat_csprcovid19_det`.`fecha_reporte` AS 'fecha_ult_reporte'
-					FROM `cat_csprcovid19_det`
-					WHERE id_CSprCOVID19='".$id."' AND cat_csprcovid19_det.fecha_reporte = (select max(`cat_csprcovid19_det`.`fecha_reporte`)
-																																								FROM `cat_csprcovid19_det` WHERE id_CSprCOVID19='".$id."')";
+		$sql="select cat_csprcovid19_det.exis_pruebas AS existencia, cat_csprcovid19_det.fecha_reporte AS fecha_ult_reporte FROM cat_csprcovid19_det WHERE id_CSprCOVID19='".$id."' AND cat_csprcovid19_det.fecha_reporte = (select max(cat_csprcovid19_det.fecha_reporte) FROM cat_csprcovid19_det WHERE id_CSprCOVID19='".$id."')";
+		echo $sql;
 		$sth = $this->dbh->query($sql);
 		return $sth->fetch(PDO::FETCH_OBJ);
 	}

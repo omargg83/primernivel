@@ -10,6 +10,7 @@ if($idcsprcovid19>0){
   $ue = $db->ultima_existencia($idcsprcovid19);
   $clv_clu = $pr->clv_clues;
   $nombre_clu = $pr->nombre_clues;
+
   $ult_exis = $ue->existencia;
   $fecha_ult_exis = $ue->fecha_ult_reporte;
 }

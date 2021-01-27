@@ -1,6 +1,6 @@
 <?php
 	require_once("db_.php");
-  	$pd = $db->clues_nousmer();
+	$pd = $db->clues_nousmer();
  ?>
 
 <div class="container">
