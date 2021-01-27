@@ -37,8 +37,17 @@
     <body class="sb-nav-fixed">
 
         <div id="layoutSidenav">
+
+
             <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+							<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+						
+									<div class="sidenav__close-icon">
+							      <i class="fas fa-times sidenav__brand-close"></i>
+							    </div>
+
+
+
                     <div class="sb-sidenav-menu">
                         <div class="nav">
 
@@ -66,10 +75,9 @@
             	  <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+					<div class="menu-icon btn btn-link d-md-none rounded-circle mr-3">
+					 <i class="fas fa-bars header__menu"></i>
+				 </div>
 
           <!-- Topbar Mensaje bienvenida-->
         <p class="bienvenida">SISTEMA PARA EL REGISTRO DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN</p>
@@ -148,11 +156,6 @@
         <!-- Animation library for notifications   -->
         <link href="librerias15/animate.css" rel="stylesheet"/>
 
-        <!-- WYSWYG   -->
-        <link href="librerias15/summernote8.12/summernote-lite.css" rel="stylesheet" type="text/css">
-        <script src="librerias15/summernote8.12/summernote-lite.js"></script>
-        <script src="librerias15/summernote8.12/lang/summernote-es-ES.js"></script>
-
         <!--   Alertas   -->
         <script src="librerias15/swal/dist/sweetalert2.min.js"></script>
 
@@ -164,9 +167,6 @@
 
         <!--   Boostrap   -->
         <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&display=swap" rel="stylesheet">
-
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
 
         <script src="librerias15/js/bootstrap.js"></script>
 

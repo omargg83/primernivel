@@ -98,8 +98,15 @@ function sesion_ver(){
 				});
 
 		// Toggle the side navigation
-		$("#sidebarToggle").on("click", function(e) {
+		$(".menu-icon").on("click", function(e) {
 				e.preventDefault();
 				$("body").toggleClass("sb-sidenav-toggled");
 		});
+
+		$(".sidenav__close-icon").on("click", function(e) {
+				e.preventDefault();
+				$("body").toggleClass("sb-sidenav-toggled");
+		});
+
+
 })(jQuery);
