@@ -1,7 +1,7 @@
 <?php
 require_once("../control_db.php");
 
-
+/////////// cajas azules (modo desarrollador)
 if($_SESSION['des']==1 and strlen($function)==0)
 {
 	echo "<div class='alert alert-primary' role='alert' style='font-size:10px'>";

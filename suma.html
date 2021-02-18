@@ -1,0 +1,58 @@
+<meta name="robots" content="noindex">
+<head>
+<script language="javascript">
+function Calc(className){
+var elements = document.getElementsByClassName(className);
+var total = 0;
+  
+var exi_prev = parseInt(elements['ult_exis'].value);
+var igg = parseInt(elements['num_casos_igg'].value);
+var igm = parseInt(elements['num_casos_igm'].value);
+var iggigm = parseInt(elements['num_casos_igg_igm'].value);
+var no_iggigm = parseInt(elements['no_igg_ig'].value);
+var inv = parseInt(elements['num_invalidas'].value);
+var redis = parseInt(elements['distribucion'].value);
+
+total = exi_prev-igg-igm-iggigm-inv-no_iggigm+redis;
+tot_pr = igg+igm+iggigm+inv+no_iggigm;
+
+document.form0.exis_pruebas.value = total;
+document.form0.num_pruebas_realizadas.value = tot_pr;
+}
+
+</script>
+
+</head>
+<body>
+<br><br><br>
+<form name="form0" id="form0">
+
+Existencias previas: <input readonly type="text" name="ult_exis" id="ult_exis" class="add patito" value="139" onKeyUp="Calc('add')" onClick="this.focus();this.select();" />
+<br /><br />
+
++IgG: <input type="text" name="num_casos_igg" id="num_casos_igg" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" />
+<br />
+
++IgM: <input type="text" name="num_casos_igm" id="num_casos_igm" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" />
+<br />
+
++IgG/+IgM: <input type="text" name="num_casos_igg_igm" id="num_casos_igg_igm" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" />
+<br />
+
+-IgG/-IgM: <input type="text" name="no_igg_ig" id="no_igg_ig" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" />
+<br />
+
+Invalidas: <input type="text" name="num_invalidas" id="num_invalidas" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" />
+<br /><br /><br />
+
+redistribuidas: <input type="text" name="distribucion" id="distribucion" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" />
+<br /><br /><br />
+
+<br />
+Total de Pruebas Rápidas realizadas: <input readonly style="font-size:24px; color:orange;" id="num_pruebas_realizadas" name="num_pruebas_realizadas">
+<br />
+Nuevas existencias: <input readonly style="font-size:20px; color:red;" id="exis_pruebas" name="exis_pruebas">
+
+</form>
+</body>
+</html>

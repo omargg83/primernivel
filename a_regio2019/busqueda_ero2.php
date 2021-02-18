@@ -20,7 +20,7 @@
 					</div>
 					<div class="form-check form-check-inline">
 							<input class="form-check-input" type="radio" name="opcion_buscar" id="inlineRadio2" value=2 checked>
-							<label class="form-check-label" for="inlineRadio2">Buscar localidad <b>incluyendo</b> AGEBS</label>
+							<label class="form-check-label" for="inlineRadio2">Buscar localidad <b>INCLUYENDO</b> AGEBS</label>
 					</div>
 					<div class="form-check form-check-inline">
 							<input class="form-check-input" type="radio" name="opcion_buscar" id="inlineRadio3" value=3>

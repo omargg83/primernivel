@@ -41,8 +41,8 @@
 
             <div id="layoutSidenav_nav">
 							<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-						
-									<div class="sidenav__close-icon">
+
+									<div class="sidenav__close-icon" style="text-align: right;padding-right: 10px;">
 							      <i class="fas fa-times sidenav__brand-close"></i>
 							    </div>
 

@@ -1,6 +1,6 @@
 <?php
-$server=2;
-$_SESSION['des']=1;   ///////////////cambiar esta para acceder a modo desarrollador
+$server=5;  ////////// Base de datos a usar xD
+$_SESSION['des']=1;   ///////////////cambiar esta para acceder a modo desarrollador (cuadro azules)
 $_SESSION['pagina']=50; ///////registros por pagina
 if($server==2){
   //////////localhost

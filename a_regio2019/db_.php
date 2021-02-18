@@ -21,28 +21,31 @@ class Regio2019 extends ipsi{
 		parent::__construct();
 	}
 
-	public function buscar_localidad($buscar,$opcion)
+	public function buscar_localidad($buscar,$opcion,$pagina)
 	{
 		if($opcion==1){
 			//Busca todos los centros de salud de la SSH (id_inst=12) con tipo de consulta externa (id_tipoesta=1)
+			$pagina=$pagina*$_SESSION['pagina'];
 			$sql="select `cat_jurisdicciones`.`nombre_juris`, `cat_municipios`.`nombre_mpio`,`cat_clues`.`clv_clues`, `cat_clues`.`nombre_clues`
 						from `cat_clues`
 							left join `cat_jurisdicciones` on `cat_clues`.`id_juris` = `cat_jurisdicciones`.`id_juris`
 							left join `cat_municipios` on `cat_clues`.`id_mpio` = `cat_municipios`.`id_mpio`
 						where cat_clues.nombre_clues like '%$buscar%' and cat_clues.id_tipoesta=1 and cat_clues.id_inst=12
-						order by cat_clues.id_juris asc;";
+						order by cat_clues.id_juris asc limit $pagina,".$_SESSION['pagina']."";
 		}
 		else if($opcion==2){
 			//busca todas las localidades incluyendo AGEBs
+			$pagina=$pagina*$_SESSION['pagina'];
 			$sql="select cat_regio2019.id_catregio2019, cat_regio2019.nombre_localidad, cat_jurisdicciones.nombre_juris, cat_municipios.nombre_mpio
 						from cat_regio2019
 						left join cat_jurisdicciones on cat_regio2019.id_juris_cs = cat_jurisdicciones.id_juris
 						left join cat_municipios on cat_regio2019.id_mpio_cs = cat_municipios.id_mpio
 						where cat_regio2019.nombre_localidad like '%$buscar%'
-						order by cat_regio2019.nombre_localidad asc;";
+						order by cat_regio2019.nombre_localidad asc limit $pagina,".$_SESSION['pagina']."";
 		}
 		else if($opcion==3){
 			//busca todas las localidades SIN AGEBs
+			$pagina=$pagina*$_SESSION['pagina'];
 			$sql="select `cat_regio2019`.`id_catregio2019`,`cat_regio2019`.`nombre_localidad`,`cat_jurisdicciones`.`nombre_juris`, `cat_municipios`.`nombre_mpio`
 						from `cat_regio2019`
 							left join `cat_jurisdicciones` on `cat_regio2019`.`id_juris_cs` = `cat_jurisdicciones`.`id_juris`
@@ -51,7 +54,7 @@ class Regio2019 extends ipsi{
 						and cat_regio2019.nombre_localidad not in (select `cat_regio2019`.`nombre_localidad`
 						                                           from `cat_regio2019`
 																										   where  cat_regio2019.nombre_localidad like '%ageb%')
-						order by cat_regio2019.nombre_localidad asc;";
+						order by cat_regio2019.nombre_localidad asc limit $pagina,".$_SESSION['pagina']."";
 		}
 		$sth = $this->dbh->query($sql);
 		return $sth->fetchAll(PDO::FETCH_OBJ);

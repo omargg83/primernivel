@@ -19,7 +19,7 @@
 			<div class='cell'>Centro de Salud de referencia</div>
 			<div class='cell'>Institución</div>
 			<div class='cell'>Población Total</div>
-			<div class='cell'>-</div>
+			<div class='cell'></div>
 		</div>
 
 			<?php
@@ -35,13 +35,13 @@
 					$idcatregio2019=$localidad->id_catregio2019;
 			?>
 					<div class='body-row' draggable='true'>
-						<div class='cell' data-titulo='Localidad'><?php echo $nom_loc; ?></div>
-						<div class='cell' data-titulo='Localidad'><?php echo $juris_loc; ?></div>
-						<div class='cell' data-titulo='Localidad'><?php echo $mpio_loc; ?></div>
-						<div class='cell' data-titulo='Localidad'><?php echo $unidad; ?></div>
-						<div class='cell' data-titulo='Localidad'><?php echo $instit; ?></div>
-						<div class='cell' data-titulo='Localidad'><?php echo $poblacion; ?></div>
-						<div class='cell' data-titulo='Localidad'>
+						<div class='cell' data-titulo='Localidad'><b><?php echo $nom_loc; ?></b></div>
+						<div class='cell' data-titulo='Jurisdicción'><?php echo $juris_loc; ?></div>
+						<div class='cell' data-titulo='Municipio'><?php echo $mpio_loc; ?></div>
+						<div class='cell' data-titulo='CS referencia'><?php echo $unidad; ?></div>
+						<div class='cell' data-titulo='Institución'><b><?php echo $instit; ?></b></div>
+						<div class='cell' data-titulo='Población Total' style="text-align: center;"><?php echo $poblacion; ?></div>
+						<div class='cell' data-titulo=''>
 							<button class='btn btn-warning' type="button" is="b-link" des='a_regio2019/detalle_loc' dix='trabajo' tp="edit" v_idcatregio2019='<?php echo $idcatregio2019; ?>' title='Detalles de la localidad'>Detalles</button>
 						</div>
 
