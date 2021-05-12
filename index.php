@@ -1,19 +1,19 @@
 <?php
 	require_once("db_.php");
 
-	 /*$fechaGuardada = $_SESSION["ultimoAcceso"];
-	 $ahora = date("Y-n-j H:i:s");
+	 $fechaGuardada = $_SESSION["ultimoAcceso"];
+	 $ahora = date("Y-M-d H:i:s");
 	 $tiempo_transcurrido = (strtotime($ahora)-strtotime($fechaGuardada));
-		if($tiempo_transcurrido >= 30) {
+		if($tiempo_transcurrido >= 600) {
 		//si pasaron 10 minutos o más
 		 session_destroy(); // destruyo la sesión
 		 header("location: login/"); //envío al usuario a la pag. de autenticación
 		 //sino, actualizo la fecha de la sesión
 	 }else {
 	 $_SESSION["ultimoAcceso"] = $ahora;
- }*/
- //if(!isset($_SESSION['idusuario']) and strlen($_SESSION['idusuario'])==0 and $_SESSION['nivel_usuario']==0){
-	if(!isset($_SESSION['idusuario']) and strlen($_SESSION['idusuario'])==0){
+ }
+ if(!isset($_SESSION['idusuario']) and strlen($_SESSION['idusuario'])==0 and $_SESSION['nivel_usuario']==0){
+//	if(!isset($_SESSION['idusuario']) and strlen($_SESSION['idusuario'])==0){
 		header("location: login/");
 	}
 ?>
@@ -23,8 +23,8 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="description" content="SISTEMA PARA CONSULTA DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN" />
+        <meta name="author" content="DPNA-SSH" />
 				<?php
 				if ($_SESSION['nivel_usuario']==1){echo "<title>ADMIN - Sistema para el registro de información institucional de Primer Nivel de Atención</title>";}
 				else{echo "<title>Sistema para el registro de información institucional de Primer Nivel de Atención</title>";}
@@ -132,7 +132,7 @@
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <span class="nav-link dropdown-toggle" href="#top" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nombrec'];?></span>
 								 <?php
 

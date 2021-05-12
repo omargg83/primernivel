@@ -4,6 +4,13 @@
 ?>
 
 <div class="container">
+	<center>
+		<div class="list-group col-6">
+			<li class="list-group-item list-group-item-dark">
+				<a class='a link' title='Nueva sede de vacunación' id='new_personal'  is='a-link' des='a_datosvacuna/editar_sede' dix='trabajo' v_idsede='0'><i class='fas fa-plus'></i> Nueva sede para vacunación anti COVID-19</a>
+			</li>
+			<br>
+		</div>
 
 	<table class="table table-striped table-dark">
 		<thead>
@@ -33,4 +40,5 @@
 			?>
 		</tbody>
 	</table>
+</center>
 </div>

@@ -48,18 +48,23 @@
 					</div>
 				</div>
 				<div class='row'>
-					<div class="col-4">
+					<div class="col-3">
 						<label for="">Fecha recepción (aaaa-mm-dd):</label>
-						<input type="text" class="form-control form-control-sm" name="fecha_recepcion" id="fecha_recepcion" value="<?php echo $fecha_recepcion;?>" placeholder="Fecha de recepción (dd/mm/aaaa)" required>
+						<input type="text" class="form-control form-control-sm" name="fecha_recepcion" id="fecha_recepcion" value="<?php echo $fecha_recepcion;?>" placeholder="Fecha de recepción (aaaa-mm-dd)" required>
 					</div>
-					<div class="col-4">
+					<div class="col-3">
 						<label for="">Frascos recibidos:</label>
 						<input type="text" class="form-control form-control-sm" name="cant_frasco" id="cant_frasco" value="<?php echo $cant_frasco;?>" placeholder="Total de viales (frascos) recibidos" required>
 					</div>
-					<div class="col-4">
+					<div class="col-3">
 						<label for="">Dosis recibidas:</label>
 						<input type="text" class="form-control form-control-sm" name="cant_dosis" id="cant_dosis" value="<?php echo $cant_dosis;?>" placeholder="Total de viales (frascos) recibidos" required>
 					</div>
+					<div class="col-3">
+						<label for="">Lote(s) de viales:</label>
+						<input type="text" class="form-control form-control-sm" name="lote" id="lote" value="<?php echo $lote;?>" placeholder="Lote(s) recibido(s) en la remesa" required>
+					</div>
+
 				</div>
 				<div class='row'>
 					<div class="col-3">
@@ -100,7 +105,7 @@
 				<div class='row'>
 					<div class="col-12">
 						<button class="btn btn-warning" type="submit"><i class='far fa-save'></i>  Guardar </button>
-						<button class="btn btn-danger" type="button" is="b-link" des="a_datosvacuna/lista" dix="trabajo"><i class="fas fa-undo"></i> Regresar </button>
+						<button class="btn btn-danger" type="button" is="b-link" des="a_datosvacuna/lista_remesas" dix="trabajo"><i class="fas fa-undo"></i> Regresar </button>
 					</div>
 				</div>
 			</div>

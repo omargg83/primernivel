@@ -47,6 +47,16 @@ class Usuario extends ipsi{
 		$sth = $this->dbh->query($sql);
 		return $sth->fetchAll(PDO::FETCH_OBJ);
 	}
+	public function lista_juris(){
+		$sql="select * from `cat_jurisdicciones`";
+		$sth = $this->dbh->query($sql);
+		return $sth->fetchAll(PDO::FETCH_OBJ);
+	}
+	public function lista_mpio(){
+		$sql="select * from `cat_municipios` order by `nombre_mpio`";
+		$sth = $this->dbh->query($sql);
+		return $sth->fetchAll(PDO::FETCH_OBJ);
+	}
 	/*-----------------------------------------------------*/
 	public function proceso_editar($id){
 		$sql="select * from cat_proceso where id_proceso='$id'";
@@ -97,26 +107,47 @@ class Usuario extends ipsi{
 		$x="";
 		$arreglo = array();
 		$id_remesa=$_REQUEST['id_remesa'];
-		$arreglo+=array('nombre_remesa'=>$_REQUEST['nombre_remesa']);
-		$arreglo+=array('destinado'=>$_REQUEST['destinado']);
-  	/*$originalDate = $_REQUEST['fecha_recepcion'];
-	  $fecha_recepcion = date('Y-m-d H:i:s', strtotime($originalDate);
-		$arreglo+=array('fecha_recepcion'=>date('Y-m-d', strtotime($_REQUEST['$fecha_recepcion']));*/
+		$arreglo+=array('id_bio'=>$_REQUEST['id_bio']);
+		$arreglo+=array('id_proceso'=>$_REQUEST['id_proceso']);
 		$arreglo+=array('fecha_recepcion'=>$_REQUEST['fecha_recepcion']);
 		$arreglo+=array('cant_frasco'=>$_REQUEST['cant_frasco']);
 		$arreglo+=array('cant_dosis'=>$_REQUEST['cant_dosis']);
-		$arreglo+=array('id_bio'=>$_REQUEST['id_bio']);
-		$arreglo+=array('id_proceso'=>$_REQUEST['id_proceso']);
-		//$arreglo+=array('id_proceso'=>$_REQUEST['id_proceso']);
+		$arreglo+=array('lote'=>$_REQUEST['lote']);
+		$arreglo+=array('nombre_remesa'=>$_REQUEST['nombre_remesa']);
+		$arreglo+=array('destinado'=>$_REQUEST['destinado']);
 		if($id_remesa==0){
 			$x=$this->insert('cat_remesas', $arreglo);
 		}
 		else{
-			$x=$this->update('cat_remesas',array('id_remesa'=>$id_remesa), $arreglo);
+			$x=$this->update('cat_remesas',array('id_sede'=>$id_sede), $arreglo);
 		}
 		return $x;
 	}
-
+	/*-----------------------------------------------------*/
+	public function sede_editar($id){
+		$sql="select * from `cat_sedes` where id_sede='$id'";
+		$sth = $this->dbh->query($sql);
+		return $sth->fetch(PDO::FETCH_OBJ);
+	}
+	public function guardar_sede(){
+		$x="";
+		$arreglo = array();
+		$id_sede=$_REQUEST['id_sede'];
+		$arreglo+=array('id_remesa'=>$_REQUEST['id_remesa']);
+		$arreglo+=array('id_proceso'=>$_REQUEST['id_proceso']);
+		$arreglo+=array('nombre_sede'=>$_REQUEST['nombre_sede']);
+		$arreglo+=array('id_juris'=>$_REQUEST['id_juris']);
+		$arreglo+=array('id_mpio'=>$_REQUEST['id_mpio']);
+		$arreglo+=array('sede_activa'=>$_REQUEST['sede_activa']);
+		$arreglo+=array('clues_sede'=>$_REQUEST['clues_sede']);
+		if($id_sede==0){
+			$x=$this->insert('cat_sedes', $arreglo);
+		}
+		else{
+			$x=$this->update('cat_sedes',array('id_sede'=>$id_sede), $arreglo);
+		}
+		return $x;
+	}
 }
 
 $db = new Usuario();
