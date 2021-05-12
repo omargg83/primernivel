@@ -1,5 +1,5 @@
 <?php
-	session_name("dbs610245123");
+	session_name("dbs610245#&%1");
 	@session_start();
 
 	date_default_timezone_set("America/Mexico_City");
@@ -43,10 +43,8 @@
 					$_SESSION['nombre']=$CLAVE->nombre;
 					$_SESSION['nivel_usuario']=$CLAVE->nivel;
 					$_SESSION['nombrec']=$CLAVE->nombre." ".$CLAVE->ap_paterno." ".$CLAVE->ap_materno;
-					$_SESSION['cfondo']="#000000";
+					$_SESSION['cfondo']="#aaa";
 					$_SESSION['idclues']=$CLAVE->id_clues;
-					$ahora = date("Y-M-d H:i:s");
-					$_SESSION["ultimoAcceso"] = $ahora;
 
 					$sql="select * from cat_clues where id_clues=".$CLAVE->id_clues;
 					$sth = $this->dbh->prepare($sql);

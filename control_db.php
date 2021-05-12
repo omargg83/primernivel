@@ -1,5 +1,5 @@
 <?php
-	session_name("dbs610245#&%1");
+	session_name("dbs610245123");
 	@session_start();
 
 	if (isset($_REQUEST['function'])){$function=clean_var($_REQUEST['function']);}	else{ $function="";}

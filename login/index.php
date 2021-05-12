@@ -1,5 +1,5 @@
 <?php
-  session_name("dbs610245#&%1");
+  session_name("dbs610245123");
 	@session_start();
   if(isset($_SESSION['idusuario']) and strlen($_SESSION['idusuario'])>0){
     header("location: /");
@@ -26,10 +26,23 @@
  </head>
  <body>
    <div class="container">
+     <div>
+       <div class="card  card-container">
+
+         <div class="list-group" style="font-size:125%;">
+           <a href="#" class="list-group-item list-group-item-action active">
+             Reporte diario de vacunación de sede
+           </a>
+           <a href="../SEPH/index.php" class="list-group-item list-group-item-action"><i class="fas fa-chalkboard-teacher"></i> Personal educativo</a>
+           <a href="../50a59/index.php" class="list-group-item list-group-item-action"><i class="fas fa-user-check"></i> 50 a 59 años</a>
+           <a href="../60ymas/index.php" class="list-group-item list-group-item-action"><i class="fas fa-blind"></i> 60 años y más</a>
+         </div>
+      </div>
+   </div>
        <div class="card card-container login">
          <img id="profile-img" class="profile-img-card" src="../img/logo.png" />
          <p id="profile-name" class="profile-name-card"></p>
-         <b style="font-weight:900; text-align:center;">SISTEMA PARA EL REGISTRO DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN</b>
+         <b style="font-weight:900; text-align:center;">SISTEMA PARA CONSULTA DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN</b>
         <form is="f-login" id="form_login" db="login" fun="acceso" des="/">
            <span id="reauth-email" class="reauth-email"></span>
            <input type="text" id="inputEmail"  name="inputEmail" class="form-control" placeholder="Usuario" required autofocus>
@@ -38,7 +51,6 @@
          </form>
          <!-- /form -->
        </div>
-     </div>
  </body>
  	<!--   Core JS Files   -->
  	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>

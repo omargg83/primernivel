@@ -1,0 +1,223 @@
+@import url('font-awesome-index.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@font-face {
+  font-family: 'Roboto';
+}
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+  h1, h2, h3, h4, h5, body,textarea{
+  	font-family:Roboto;
+    font-size: 24px;
+  }
+	body{
+		background: #F8F8F9;
+		}
+  h1{
+    text-align: center;
+    color:black;
+    font-weight: bolder;
+    font-variant:small-caps;
+    max-width: 95%;
+    margin-top:15px;
+  }
+  h2{
+    text-align: center;
+    color:darkred;
+  }
+  h3{
+    text-align: center;
+    color:gray;
+    max-width: 80%;
+    font-size:90%;
+    margin-top:15px;
+  }
+
+	@media screen and (max-width:1980px){
+	input[type="submit"],input[type="button"]{letter-spacing: 6px;}
+	p{width:75%;}
+	img{max-width: 500px;}
+  img.esc_armas{max-width: 70%;}
+	h1{ font-size:200%;
+		  letter-spacing: 2.5px;}
+	}
+	@media screen and (max-width:980px){
+	p{width:85%;}
+	input[type="submit"],input[type="button"]{letter-spacing: 4px;}
+	img{max-width: 400px;}
+  img.esc_armas{max-width: 50%;}
+	h1{ font-size:200%;
+		  letter-spacing: 2.5px;}
+	}
+	@media screen and (max-width:768px)
+	{
+		  img{max-width: 320px;}
+      h1{
+		  font-size:120%;
+		  letter-spacing: 2px;
+      }
+	}
+  @media print
+  {
+    body { background-image: none;
+            margin: 0;
+            color: #000;
+            background-color: #fff}
+    img.esc_armas{max-width: 50%;}
+  }
+/*opciones generales*/
+input, select, textarea{
+  -webkit-border-radius: 4px !important;
+     -moz-border-radius: 4px !important;
+          border-radius: 4px !important;
+  -webkit-border-top: 4px !important;
+     -moz-border-top: 4px !important;
+          border-top: 4px !important;
+  -webkit-border-bottom: 4px !important;
+     -moz-border-bottom: 4px !important;
+          border-bottom: 4px !important;
+  text-decoration: none;
+  }
+  button{
+    -webkit-border-radius: 11px !important;
+       -moz-border-radius: 11px !important;
+            border-radius: 11px !important;
+    -webkit-border-top: 11px !important;
+       -moz-border-top: 11px !important;
+            border-top: 11px !important;
+    -webkit-border-bottom: 11px !important;
+       -moz-border-bottom: 11px !important;
+            border-bottom: 11px !important;
+		text-decoration: none;
+		}
+    button:hover {
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+  table {
+    background-color: #FFFFFF;
+  }
+  td{
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  td.add{
+    border-bottom-color: black;
+    border-bottom: 1px;
+    border-bottom-style:solid;
+    border-left-color: black;
+    border-left: 1px;
+    border-left-style:solid;
+  }
+  tr.encabezado{
+    background-color: #001a2b;
+    color:white;
+    border:3px;
+    border-color: white;
+    font-weight:900;
+  }
+
+  tr.reporte{
+    background-color: white;
+    color:black;
+    font-weight:900;
+  }
+
+  input[type="text"].add{
+    background-color: #EEEEF2;
+    text-align: center;
+    border:0;
+    margin: 15px,1px,15px,1px;
+    min-width: 50px;
+    max-width: 55px;
+    padding-top:15px;
+    padding-bottom:15px;
+    font-size: 20px;
+  }
+  label.add{
+    text-align: center;
+    border:0;
+    margin: 15px,1px,15px,1px;
+    min-width: 50px;
+    max-width: 55px;
+    padding-top:15px;
+    padding-bottom:15px;
+    font-size: 20px;
+  }
+  input.totales{
+    background-color: white;
+    color: #001a2b;
+    font-size: 20px;
+    text-align: center;
+    border:0;
+    padding-top:15px;
+    padding-bottom:15px;
+    min-width: 80px;
+    max-width: 100px;
+    font-size: 150%;
+    font-weight: bolder;
+  }
+  label.totales{
+    color: #001a2b;
+    font-size: 20px;
+    text-align: center;
+    border:0;
+    padding-top:15px;
+    padding-bottom:15px;
+    min-width: 80px;
+    max-width: 100px;
+    font-size: 150%;
+    font-weight: bolder;
+  }
+  input[type="text"].arriba,input[type="password"].arriba, select.arriba, textarea{
+    background-color: #EEEEF2;
+    width: 100%;
+    text-align: left;
+    border:0;
+    margin: 15px,1px,15px,1px;
+    padding-top:15px;
+    padding-left:10px;
+    padding-bottom:15px;
+    padding-right:10px;
+    font-size: 105%;
+  }
+  textarea{
+    resize: vertical;
+  }
+  label.arriba{
+    width: 100%;
+    text-align: left;
+    border:0;
+    margin: 15px,1px,15px,1px;
+    padding-top:15px;
+    padding-left:10px;
+    padding-bottom:15px;
+    padding-right:10px;
+    font-weight: bolder;
+    font-size: 105%;
+  }
+  input[type=button], input[type=submit], input[type=reset], button, label.enviado {
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    border:0;
+    margin: 15px,5px,15px,5px;
+    padding-top:15px;
+    padding-left:5px;
+    padding-right:5px;
+    padding-bottom:15px;
+    font-size: 105%;
+    font-weight: bold;
+	  letter-spacing: 1px;
+    cursor: pointer;
+}

@@ -1,18 +1,5 @@
 <?php
 	require_once("db_.php");
-
-	 /*$fechaGuardada = $_SESSION["ultimoAcceso"];
-	 $ahora = date("Y-n-j H:i:s");
-	 $tiempo_transcurrido = (strtotime($ahora)-strtotime($fechaGuardada));
-		if($tiempo_transcurrido >= 30) {
-		//si pasaron 10 minutos o más
-		 session_destroy(); // destruyo la sesión
-		 header("location: login/"); //envío al usuario a la pag. de autenticación
-		 //sino, actualizo la fecha de la sesión
-	 }else {
-	 $_SESSION["ultimoAcceso"] = $ahora;
- }*/
- //if(!isset($_SESSION['idusuario']) and strlen($_SESSION['idusuario'])==0 and $_SESSION['nivel_usuario']==0){
 	if(!isset($_SESSION['idusuario']) and strlen($_SESSION['idusuario'])==0){
 		header("location: login/");
 	}
@@ -87,7 +74,7 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <a onclick='salir()' href='#' class="btn btn-block" style="color:white;"><i class="fas fa-sign-out-alt"></i> Salir</a>
+                        <a onclick='salir()' href='#' class="btn btn-block"><i class="fas fa-sign-out-alt"></i> Salir</a>
                     </div>
                 </nav>
             </div>
@@ -125,15 +112,15 @@
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i style="color:black; font-size:150%;" class="fas fa-home" ></i>
+                <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter"></span>
+                <span class="badge badge-danger badge-counter">3+</span>
               </a>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <span class="nav-link dropdown-toggle" href="#top" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nombrec'];?></span>
+              <span class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['nombrec']; ?></span>
 								 <?php
 
 										 //echo "<a class='topcuenta' is='menu-link' href='#a_usuarios/editar' v_idusuario='".$_SESSION['idusuario']."'>Mi cuenta</a></span>";
@@ -142,7 +129,7 @@
 
 
 								<span class="mr-2 d-none d-lg-inline text-gray-600 small">|</span>
-								<span class="mr-2 d-none d-lg-inline text-gray-600 small"><a onclick='salir()' href="#" class="topcuenta"> <i class='fas fa-sign-out-alt'></i> Salir</a></span>
+								<span class="mr-2 d-none d-lg-inline text-gray-600 small"><a onclick='salir()' href="#" class="topcuenta">Salir</a></span>
                 <!--img class="img-profile rounded-circle" src="<?php echo $_SESSION['foto']; ?>"-->
               </span>
             </li>

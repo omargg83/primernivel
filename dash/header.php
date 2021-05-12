@@ -5,7 +5,7 @@
             <i class="fas fa-align-left"></i>
         </button>
 				<div class='p-3'>
-        	hola <?php echo $_SESSION['nombre']; ?>, que bueno tenerte de vuelta
+        	hola <?php echo $_SESSION['nombre']; ?>, que bueno tenerte de vuelta.
 				</div>
         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-align-justify"></i>
@@ -15,7 +15,7 @@
             <ul class="nav navbar-nav ml-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick='salir()'><i class="fas fa-sign-out-alt"></i>Salir</a>
+                    <a class="nav-link" href="#" onclick='salir()'><i class="fas fa-sign-out-alt"></i> Salir</a>
                 </li>
             </ul>
         </div>

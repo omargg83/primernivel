@@ -1,0 +1,263 @@
+@import url('font-awesome-index.css');
+@font-face {
+  font-family: "Roboto";
+  src: url('../fonts/Roboto/roboto-light-webfont2ee0.eot?1423657803');
+  src: url('../fonts/Roboto/roboto-light-webfontb806.eot?&amp;1423657803#iefix') format('embedded-opentype'), url('../fonts/Roboto/roboto-light-webfont2ee0.woff?1423657803') format('woff'), url('../fonts/Roboto/roboto-light-webfont2ee0.ttf?1423657803') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, body{
+	font-family:Roboto;
+	font-weight:300;
+}
+
+#titulo{
+	width:100%;
+	height:100%;
+	color:#fff;
+	display:flex;
+}
+
+.centrar{
+	height:100%;
+	display:table;
+	box-sizing:border-box;
+}
+
+#logo{
+	width:20%;
+	height:100%;
+}
+
+#contenido{
+	height:80%;
+}
+
+.container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow:hidden;
+	top: 0px;
+	left: 0px;
+	text-align: left;
+	background: #001A2B;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(180deg, rgb(0, 26, 43), rgb(52, 80, 98));
+	background: linear-gradient(180deg, rgb(0, 26, 43), rgb(52, 80, 98));
+}
+
+#login{
+	height:100%;
+	box-sizing:border-box;
+	padding:40px 30px;
+	display:flex;
+}
+
+.colorful {
+}
+
+#contenedor{
+	width:100%;
+	height:100%;
+	display:table;
+	box-sizing:border-box;
+	padding:10px;
+}
+
+#texto{
+	width:100%;
+	height:100%;
+	box-sizing:border-box;
+}
+
+#ficha{
+	width:80%;
+	display:table-cell;
+	height:100%;
+	vertical-align:middle;
+	text-align:center;
+	color:#fff;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.form-2 {
+    /* Size and position */
+    width: 340px;
+    margin: 30px auto 30px;
+    padding: 15px;
+    position: relative;
+	text-align:left;
+    /* Styles */
+    background: #E5E8E9;
+    border-radius: 4px;
+    color: #7e7975;
+    box-shadow:
+        0 2px 2px rgba(0,0,0,0.2),        
+        0 1px 5px rgba(0,0,0,0.2),        
+        0 0 0 12px rgba(255,255,255,0.4); 
+}
+
+.form-2 h1 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #bdb5aa;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #001a2b;
+    text-shadow: 0 2px 0 rgba(255,255,255,0.8);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.8);
+}
+
+.form-2 h1 .log-in,
+.form-2 h1 .sign-up {
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.form-2 h1 .log-in {
+    color: #6c6763;
+    padding-right: 2px;
+}
+
+.form-2 h1 .sign-up {
+    color: #ffb347;
+    padding-left: 2px;
+}
+
+.form-2 .float {
+    width: 49%;
+    float: left;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,1);
+}
+
+.form-2 .float:first-of-type {
+    padding-right: 5px;
+}
+
+.form-2 .float:last-of-type {
+    padding-left: 5px;
+}
+
+.form-2 label {
+    display: block;
+    padding: 0 0 5px 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+    font-size: 11px;
+}
+
+.form-2 label i {
+    margin-right: 5px; /* Gap between icon and text */
+    display: inline-block;
+    width: 10px;
+}
+
+.form-2 input[type=text],
+.form-2 input[type=password] {
+    font-family: Roboto, Calibri, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.form-2 input[type=text]:hover,
+.form-2 input[type=password]:hover {
+    border-color: #bbb;
+}
+
+.form-2 label:hover ~ input {
+    border-color: #bbb;
+}
+
+.form-2 input[type=text]:focus,
+.form-2 input[type=password]:focus {
+    border-color: #001a2b;
+    outline: none; /* Remove Chrome's outline */
+}
+
+.form-2 input[type=submit],
+.form-2 .log-twitter {
+    /* Size and position */
+	margin-top:20px;
+    width: 35%;
+    height: 30px;
+    float: left;
+    position: relative;
+
+    /* Styles */
+    box-shadow: inset 0 1px rgba(255,255,255,0.3);
+    border-radius: 3px;
+    cursor: pointer;
+
+    /* Font styles */
+    font-size: 14px;
+    line-height: 30px; /* Same as height */
+    text-align: center;
+}
+
+.form-2 input[type=submit] {
+    /*margin-left: 1%;*/
+	background: #6AC11E;
+    border: 1px solid #498911;
+    color: #fff;
+    text-shadow: 0 1px rgba(255,255,255,0.3);
+}
+
+.form-2 input[type=submit]:hover,
+.form-2 .log-twitter:hover {
+    box-shadow: 
+        inset 0 1px rgba(255,255,255,0.3), 
+        inset 0 20px 40px rgba(255,255,255,0.15);
+}
+
+.form-2 input[type=submit]:active,
+.form-2 .log-twitter:active{
+    top: 1px;
+}
+
+/* Fallback fro broswers that don't support box shadows */
+.no-boxshadow .form-2 input[type=submit]:hover {
+    background: #ffb347;
+}
+
+.no-boxshadow .form-2 .log-twitter:hover {
+    background: #2a8ac4;
+}
+
+.form-2 p:last-of-type {
+    clear: both;    
+}
+
+.form-2 .opt {
+    text-align: right;
+    margin-right: 3px;
+}
