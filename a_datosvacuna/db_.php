@@ -119,7 +119,7 @@ class Usuario extends ipsi{
 			$x=$this->insert('cat_remesas', $arreglo);
 		}
 		else{
-			$x=$this->update('cat_remesas',array('id_sede'=>$id_sede), $arreglo);
+			$x=$this->update('cat_remesas',array('id_remesa'=>$id_remesa), $arreglo);
 		}
 		return $x;
 	}

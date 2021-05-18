@@ -270,7 +270,7 @@
 	<tr style="color:black;">
 		<td colspan="2" style="text-align: right;"><b>Observaciones:</b></td>
 		<td colspan="30">
-			<textarea rows="4" cols="120"  readonly style="resize: vertical; max-height:100px;"><?php echo $observa;?></textarea>
+			<label readonly><?php echo $observa;?></label>
 		</td>
 	</tr>
 </table>

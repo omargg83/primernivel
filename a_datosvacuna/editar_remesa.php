@@ -70,7 +70,7 @@
 					<div class="col-3">
 						<label for="">Biológico recepcionado:</label>
 						<select class="form-control form-control-sm" name='id_bio' id='id_bio' required>";
-							<option value="" disabled selected hidden>Biologico</option>
+							<option value="" disabled selected hidden>Remesa de biológico que se aplicará en sede</option>
 							<?php
 								foreach($lista_bio as $pd2){
 									if($id_bio==$pd2->id_bio){
@@ -89,11 +89,11 @@
 							<option value="" disabled selected hidden>Proceso</option>
 							<?php
 								foreach($lista_procesos as $pd3){
-									if($id_proceso==$pd3->id_proceso){
-										echo"<option value='".$pd3->$id_proceso."' selected class='form-control'>".$pd3->nombre_proceso."</option> ";
+									if($id_proceso == $pd3->id_proceso){
+										echo"<option value='".$pd3->id_proceso."' selected class='form-control'>".$pd3->nombre_proceso."</option> ";
 									}
 									else{
-											 echo"<option value='".$pd3->$id_proceso."' class='form-control'>".$pd3->nombre_proceso."</option>";
+											 echo"<option value='".$pd3->id_proceso."' class='form-control'>".$pd3->nombre_proceso."</option>";
 										 }
 										}
 							?>

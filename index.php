@@ -74,6 +74,9 @@
 										if ( ($_SESSION['nivel_usuario']==1)||($_SESSION['nivel_usuario']==2) ){
 												echo"<a class='nav-link' is='menu-link' href='#a_datosvacuna/index' title='Configuración de remesas, sedes, procesos de vacunación contra COVID-19'><div class='sb-nav-link-icon'><i class='fas fa-cog'></i></div>Datos vacuna COVID-19</a>";
 										}
+										if ( ($_SESSION['nivel_usuario']==1)||($_SESSION['nivel_usuario']==2) ){
+												echo"<a class='nav-link' is='menu-link' href='#a_reportes_vac_covid/index' title='Reportes la vacunación contra COVID-19'><div class='sb-nav-link-icon'><i class='fas fa-file-powerpoint'></i></div>Reportes Generales</a>";
+										}
 										/*if (($_SESSION['nivel_usuario']==1)||($_SESSION['nivel_usuario']==2)||($_SESSION['nivel_usuario']==3)){
 											  echo "<a class='nav-link' is='menu-link' href='#a_regio2019/index' title='Regionalización Operativa 2019'><div class='sb-nav-link-icon'><i class='fas fa-sitemap'></i></div>ERO 2019</a>";
 										}
