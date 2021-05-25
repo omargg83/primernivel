@@ -126,7 +126,6 @@ input, select, textarea{
     border-color: white;
     font-weight:900;
   }
-
   tr.reporte{
     background-color: white;
     color:black;
@@ -167,17 +166,30 @@ input, select, textarea{
     font-size: 150%;
     font-weight: bolder;
   }
+  input[type="text"].total_frascos{
+    background: transparent;
+    border: none;
+    color: #black;
+    font-size: 120%;
+    text-align: center;
+    margin: 15px,1px,15px,1px;
+    min-width: 50px;
+    max-width: 55px;
+    padding-top:15px;
+    padding-bottom:15px;
+    font-weight: bolder;
+  }
   label.totales{
     color: #001a2b;
     font-size: 20px;
     text-align: center;
     border:0;
-    padding-top:15px;
-    padding-bottom:15px;
-    min-width: 80px;
+    padding: 10px;
+    min-width: 800px;
     max-width: 100px;
     font-size: 150%;
     font-weight: bolder;
+    background: transparent;
   }
   input[type="text"].arriba,input[type="password"].arriba, select.arriba, textarea{
     background-color: #EEEEF2;

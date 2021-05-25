@@ -23,8 +23,23 @@ $(document).ready(function () {
         var val = $(this).val();
         if (val == 4) {
             $("#num_dosis").html("<option value='4'>Única</option>");
-        } else{
+            $('#Frs_dosis_completas').text("(10 dosis por frasco)");
+            $('#Frs_dosis_incompletas').text("(9 dosis por frasco)");
+        }
+        else if (val == 1) {
             $("#num_dosis").html("<option value='1'>1ª dosis</option><option value='2'>2ª dosis</option>");
+            $('#Frs_dosis_completas').text("(6 dosis por frasco)");
+            $('#Frs_dosis_incompletas').text("(5 dosis por frasco)");
+        }
+        else if (val == 2) {
+            $("#num_dosis").html("<option value='1'>1ª dosis</option><option value='2'>2ª dosis</option>");
+            $('#Frs_dosis_completas').text("(10 dosis por frasco)");
+            $('#Frs_dosis_incompletas').text("(9 dosis por frasco)");
+        }
+        else{
+            $("#num_dosis").html("<option value='1'>1ª dosis</option><option value='2'>2ª dosis</option>");
+            $('#Frs_dosis_completas').text("");
+            $('#Frs_dosis_incompletas').text("");
         }
     });
 });
@@ -95,6 +110,10 @@ $(document).ready(function () {
       M_total_EG = MEG_50+MEG_55+MEG_60+MEG_65+MEG_70+MEG_75+MEG_80;
       document.form0.H_tot_EG.value = H_total_EG;
       document.form0.M_tot_EG.value = M_total_EG;
+      var FDC = parseInt(elements['Frs_dosis_completas'].value);
+      var FDI = parseInt(elements['Frs_dosis_incompletas'].value);
+      FTJ = FDC+FDI;
+      document.form0.frascos_totales.value = FTJ;
   }
 </script>
 
@@ -154,10 +173,9 @@ $(document).ready(function () {
     <td colspan="2">75 A 79 AÑOS</td>
     <td colspan="2">80 Y MÁS AÑOS</td>
     <td colspan="2">SUBTOTAL</td>
-    <td rowspan="2" style="padding-left:10px; padding-right:10px;">BRIGADISTAS</td>
-    <td rowspan="2" style="padding-left:10px; padding-right:10px;">PERSONAL DE SALUD</td>
+    <td rowspan="2" style="padding-left:10px; padding-right:10px;">Brigadistas</td>
     <td rowspan="2" style="padding-left:10px; padding-right:10px;">TOTAL</td>
-    <td rowspan="2" style="padding-left:10px; padding-right:10px;">Mermas/ Pérdidas en Operación</td>
+    <td colspan="2" style="padding-left:10px; padding-right:10px;">Detalles de los viales usados en la jornada</td>
    </tr>
    <tr class="encabezado">
     <td width="3%">H</td><td width="3%">M</td>
@@ -168,6 +186,10 @@ $(document).ready(function () {
     <td width="3%">H</td><td width="3%">M</td>
     <td width="3%">H</td><td width="3%">M</td>
     <td width="3%">H</td><td width="3%">M</td>
+    <td style="background-color: #66e0ff;border:2px;border-color: black;font-weight:500;padding-left:10px;padding-right:15px;color:black; text-align:right;"><b>FRASCOS TOTALES</b> utilizados</td>
+    <td style="border-right-color: black;border-right: 1px;border-right-style:solid;background-color: #66e0ff"><input type=text class="total_frascos" readonly id="frascos_totales" name="frascos_totales"/></td>
+
+
    </tr>
    <tr class="reporte">
       <td class="add" rowspan="3" style="padding-left:10px; padding-right:10px;min-width:180px;text-align:center;">
@@ -197,10 +219,10 @@ $(document).ready(function () {
       <td class="add"><input type="text" name="M_80" id="M_80" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input class="totales" readonly id="H_tot_vac" name="H_tot_vac"></td>
       <td class="add"><input class="totales" readonly id="M_tot_vac" name="M_tot_vac"></td>
-      <td rowspan="3" class="add"><input type="text" name="briga" id="briga" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
-      <td rowspan="3" class="add"><input type="text" name="personal_salud" id="personal_salud" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="briga" id="briga" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td rowspan="3" class="add"><input class="totales" readonly id="total" name="total"></td>
-      <td class="add" style="border-right-color: black;border-right: 1px;border-right-style:solid;"><input type="text" name="merma" id="merma" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td style="background-color: #80ffcc;border:2px;border-color: black;font-weight:500;padding-left:10px;padding-right:10px;color:black;">Número de frascos con <br>dosis <b style="font-weight:900;font-size:120%;">COMPLETAS</b><br><label id="Frs_dosis_completas" style="font-weight:900;"></label></td>
+      <td style="border-right-color: black;border-right: 1px;border-right-style:solid;background-color: #80ffcc"><input type="text" name="Frs_dosis_completas" id="Frs_dosis_completas" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" required /></td>
     </tr>
     <tr class="reporte">
       <td class="add" style="position:sticky;left:0;z-index:2;background:white;padding-left:10px;padding-right:10px;font-weight:900;">ESAVI <B>NO</B> GRAVE</td>
@@ -220,7 +242,9 @@ $(document).ready(function () {
       <td class="add"><input type="text" name="MENG_80" id="MENG_80" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input class="totales" readonly id="H_tot_ENG" name="H_tot_ENG"></td>
       <td class="add"><input class="totales" readonly id="M_tot_ENG" name="M_tot_ENG"></td>
-      <td class="encabezado" style="border-right-color: black;border-right: 1px;border-right-style:solid; background-color:black; color:white;">Frascos totales usados</td>
+      <td class="encabezado" style="border-right-color:#001a2b;border-right:1px;border-right-style:solid;background-color:#001a2b; color:white;">Personal de Salud</td>
+      <td style="background-color: #ff8080;border:2px;border-color: black;font-weight:500;padding-left:10px;padding-right:10px;color:black;">Número de frascos con <br>dosis <b style="font-weight:900;font-size:120%;">INCOMPLETAS</b><br><label id="Frs_dosis_incompletas" style="font-weight:900;"></label></td>
+      <td style="border-right-color: black;border-right: 1px;border-right-style:solid;background-color: #ff8080"><input type="text" name="Frs_dosis_incompletas" id="Frs_dosis_incompletas" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" required /></td>
     </tr>
     <tr class="reporte">
       <td class="add" style="position:sticky;left:0;z-index:2;background:white;padding-left:10px;padding-right:10px;">ESAVI <B>GRAVE</B></td>
@@ -240,7 +264,9 @@ $(document).ready(function () {
       <td class="add"><input type="text" name="MEG_80" id="MEG_80" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input class="totales" readonly id="H_tot_EG" name="H_tot_EG"></td>
       <td class="add"><input class="totales" readonly id="M_tot_EG" name="M_tot_EG"></td>
-      <td class="add" style="border-right-color: black;border-right: 1px;border-right-style:solid;"><input type="text" name="frascos" id="frascos" class="add" value="" required /></td>
+      <td class="add"><input type="text" name="personal_salud" id="personal_salud" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add">Pérdidas en Operación</td>
+      <td class="add"><input type="text" name="merma" id="merma" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" required /></td>
     </tr>
     <tr class="reporte">
       <td colspan="12"style="text-align: right;"><b>Observaciones:</b></td>
