@@ -19,20 +19,25 @@
 		<br>
 		<table class="table table-striped" style="border: 1px solid darkgray; color:black;">
 	  <thead class="thead-dark" style="font-weight:bold;font-size:80%;">
-				<th scope="row" style="text-align:center;">Jurisdicción</th scope="row" style="text-align:center;">
-				<th scope="row" style="text-align:center;">Municipio</th scope="row" style="text-align:center;">
-				<th scope="row" style="text-align:center;">Sede</th scope="row" style="text-align:center;">
-				<th scope="row" style="text-align:center;">Dosis aplicadas a población</th scope="row" style="text-align:center;">
-				<th scope="row" style="text-align:center;">Brigadistas vacunados</th scope="row" style="text-align:center;">
-				<th scope="row" style="text-align:center;">Personal de salud</th scope="row" style="text-align:center;">
-				<th scope="row" style="text-align:center;">Total de Dosis aplicadas</th scope="row" style="text-align:center;">
-				<th scope="row" style="text-align:center;">ESAVIs No Graves</th scope="row" style="text-align:center;">
-				<th scope="row" style="text-align:center;">ESAVIs Graves</th scope="row" style="text-align:center;">
+				<th scope="row" style="text-align:center;">Jurisdicción</th>
+				<th scope="row" style="text-align:center;">Municipio</th>
+				<th scope="row" style="text-align:center;">Sede</th>
+				<th scope="row" style="text-align:center;">Dosis aplicadas a población</th>
+					<?php
+						if($tabla==2){
+								echo "<th scope='row' style='text-align:center;'>Dosis aplicadas a Mujeres Embarazadas</th scope='row' style='text-align:center;'>";
+						}	?>
+				<th scope="row" style="text-align:center;">Brigadistas vacunados</th>
+				<th scope="row" style="text-align:center;">Personal de salud</th>
+				<th scope="row" style="text-align:center;">Total de Dosis aplicadas</th>
+				<th scope="row" style="text-align:center;">ESAVIs No Graves</th>
+				<th scope="row" style="text-align:center;">ESAVIs Graves</th>
 				<th scope="row" style="text-align:center;">Mermas / Perdidas en Operación</th>
 			</thead>
 			<tbody>
 			<?php
 				$tot_vac_pob=0;
+				$tot_vac_emb=0;
 				$tot_brig=0;
 				$tot_per_sal=0;
 				$tot_dosis=0;
@@ -51,6 +56,12 @@
 							foreach($pd3 as $key3){
 						?>
 							<td style="text-align:center;"><?php $tot_vac_pob+=$key3->total_vac_pob; echo number_format($key3->total_vac_pob); ?></td>
+							<?php
+								if($tabla==2){
+										$tot_vac_emb+=$key3->total_vac_emb;
+										echo "<td style='text-align:center;''>".number_format($key3->total_vac_emb)."</td>";
+								}
+							?>
 							<td style="text-align:center;"><?php $tot_brig+=$key3->total_brig; echo number_format($key3->total_brig); ?></td>
 							<td style="text-align:center;"><?php $tot_per_sal+=$key3->total_per_sal; echo number_format($key3->total_per_sal); ?></td>
 							<td style="font-weight:bolder;text-align:center;"><?php $tot_dosis+=$key3->total_dosis; echo number_format($key3->total_dosis); ?></td>
@@ -67,6 +78,10 @@
 					<tr style="background-color:#ffeb9c; color:black; font-weight:bolder;">
 							<th scope="row" colspan="3" style="text-align:center;">TOTALES</th>
 							<th scope="row" style="text-align:center;"><?php echo number_format($tot_vac_pob); ?></th>
+							<?php
+								if($tabla==2){
+										echo "<th scope='row' style='text-align:center;'>".number_format($tot_vac_emb)."</th>";
+								}	?>
 							<th scope="row" style="text-align:center;"><?php echo number_format($tot_brig); ?></th>
 							<th scope="row" style="text-align:center;"><?php echo number_format($tot_per_sal); ?></th>
 							<th scope="row" style="text-align:center;"><?php echo number_format($tot_dosis); ?></th>

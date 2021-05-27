@@ -70,50 +70,90 @@ $(document).ready(function () {
     var personal_salud = parseInt(elements['personal_salud'].value);
       total_H_vac = H_50+H_55+H_60+H_65+H_70+H_75+H_80;
       total_M_vac = M_50+M_55+M_60+M_65+M_70+M_75+M_80;
-      total_final = total_H_vac+total_M_vac+briga+personal_salud;
-      document.form0.H_tot_vac.value = total_H_vac;
-      document.form0.M_tot_vac.value = total_M_vac;
-      document.form0.total.value = total_final;
-      var HENG_50 = parseInt(elements['HENG_50'].value);
-      var MENG_50 = parseInt(elements['MENG_50'].value);
-      var HENG_55 = parseInt(elements['HENG_55'].value);
-      var MENG_55 = parseInt(elements['MENG_55'].value);
-      var HENG_60 = parseInt(elements['HENG_60'].value);
-      var MENG_60 = parseInt(elements['MENG_60'].value);
-      var HENG_65 = parseInt(elements['HENG_65'].value);
-      var MENG_65 = parseInt(elements['MENG_65'].value);
-      var HENG_70 = parseInt(elements['HENG_70'].value);
-      var MENG_70 = parseInt(elements['MENG_70'].value);
-      var HENG_75 = parseInt(elements['HENG_75'].value);
-      var MENG_75 = parseInt(elements['MENG_75'].value);
-      var HENG_80 = parseInt(elements['HENG_80'].value);
-      var MENG_80 = parseInt(elements['MENG_80'].value);
-      H_total_ENG = HENG_50+HENG_55+HENG_60+HENG_65+HENG_70+HENG_75+HENG_80;
-      M_total_ENG = MENG_50+MENG_55+MENG_60+MENG_65+MENG_70+MENG_75+MENG_80;
-      document.form0.H_tot_ENG.value = H_total_ENG;
-      document.form0.M_tot_ENG.value = M_total_ENG;
-      var HEG_50 = parseInt(elements['HEG_50'].value);
-      var MEG_50 = parseInt(elements['MEG_50'].value);
-      var HEG_55 = parseInt(elements['HEG_55'].value);
-      var MEG_55 = parseInt(elements['MEG_55'].value);
-      var HEG_60 = parseInt(elements['HEG_60'].value);
-      var MEG_60 = parseInt(elements['MEG_60'].value);
-      var HEG_65 = parseInt(elements['HEG_65'].value);
-      var MEG_65 = parseInt(elements['MEG_65'].value);
-      var HEG_70 = parseInt(elements['HEG_70'].value);
-      var MEG_70 = parseInt(elements['MEG_70'].value);
-      var HEG_75 = parseInt(elements['HEG_75'].value);
-      var MEG_75 = parseInt(elements['MEG_75'].value);
-      var HEG_80 = parseInt(elements['HEG_80'].value);
-      var MEG_80 = parseInt(elements['MEG_80'].value);
-      H_total_EG = HEG_50+HEG_55+HEG_60+HEG_65+HEG_70+HEG_75+HEG_80;
-      M_total_EG = MEG_50+MEG_55+MEG_60+MEG_65+MEG_70+MEG_75+MEG_80;
-      document.form0.H_tot_EG.value = H_total_EG;
-      document.form0.M_tot_EG.value = M_total_EG;
-      var FDC = parseInt(elements['Frs_dosis_completas'].value);
-      var FDI = parseInt(elements['Frs_dosis_incompletas'].value);
-      FTJ = FDC+FDI;
-      document.form0.frascos_totales.value = FTJ;
+
+    var ME_18 = parseInt(elements['ME_18'].value);
+    var ME_25 = parseInt(elements['ME_25'].value);
+    var ME_30 = parseInt(elements['ME_30'].value);
+    var ME_35 = parseInt(elements['ME_35'].value);
+    var ME_40 = parseInt(elements['ME_40'].value);
+    var ME_45 = parseInt(elements['ME_45'].value);
+    var ME_50 = parseInt(elements['ME_50'].value);
+    var ME_55 = parseInt(elements['ME_55'].value);
+    var ME_total_vac = 0;
+    ME_total_vac = ME_18+ME_25+ME_30+ME_35+ME_40+ME_45+ME_50+ME_55;
+    document.form0.ME_tot_vac.value = ME_total_vac;
+
+    total_final = total_H_vac+total_M_vac+briga+personal_salud+ME_total_vac;
+
+    document.form0.H_tot_vac.value = total_H_vac;
+    document.form0.M_tot_vac.value = total_M_vac;
+    document.form0.total.value = total_final;
+    var HENG_50 = parseInt(elements['HENG_50'].value);
+    var MENG_50 = parseInt(elements['MENG_50'].value);
+    var HENG_55 = parseInt(elements['HENG_55'].value);
+    var MENG_55 = parseInt(elements['MENG_55'].value);
+    var HENG_60 = parseInt(elements['HENG_60'].value);
+    var MENG_60 = parseInt(elements['MENG_60'].value);
+    var HENG_65 = parseInt(elements['HENG_65'].value);
+    var MENG_65 = parseInt(elements['MENG_65'].value);
+    var HENG_70 = parseInt(elements['HENG_70'].value);
+    var MENG_70 = parseInt(elements['MENG_70'].value);
+    var HENG_75 = parseInt(elements['HENG_75'].value);
+    var MENG_75 = parseInt(elements['MENG_75'].value);
+    var HENG_80 = parseInt(elements['HENG_80'].value);
+    var MENG_80 = parseInt(elements['MENG_80'].value);
+    H_total_ENG = HENG_50+HENG_55+HENG_60+HENG_65+HENG_70+HENG_75+HENG_80;
+    M_total_ENG = MENG_50+MENG_55+MENG_60+MENG_65+MENG_70+MENG_75+MENG_80;
+    document.form0.H_tot_ENG.value = H_total_ENG;
+    document.form0.M_tot_ENG.value = M_total_ENG;
+
+    var MEENG_18 = parseInt(elements['MEENG_18'].value);
+    var MEENG_25 = parseInt(elements['MEENG_25'].value);
+    var MEENG_30 = parseInt(elements['MEENG_30'].value);
+    var MEENG_35 = parseInt(elements['MEENG_35'].value);
+    var MEENG_40 = parseInt(elements['MEENG_40'].value);
+    var MEENG_45 = parseInt(elements['MEENG_45'].value);
+    var MEENG_50 = parseInt(elements['MEENG_50'].value);
+    var MEENG_55 = parseInt(elements['MEENG_55'].value);
+    var MEENG_total_vac = 0;
+    MEENG_total_vac = MEENG_18+MEENG_25+MEENG_30+MEENG_35+MEENG_40+MEENG_45+MEENG_50+MEENG_55;
+    document.form0.MEENG_tot_vac.value = MEENG_total_vac;
+
+    var HEG_50 = parseInt(elements['HEG_50'].value);
+    var MEG_50 = parseInt(elements['MEG_50'].value);
+    var HEG_55 = parseInt(elements['HEG_55'].value);
+    var MEG_55 = parseInt(elements['MEG_55'].value);
+    var HEG_60 = parseInt(elements['HEG_60'].value);
+    var MEG_60 = parseInt(elements['MEG_60'].value);
+    var HEG_65 = parseInt(elements['HEG_65'].value);
+    var MEG_65 = parseInt(elements['MEG_65'].value);
+    var HEG_70 = parseInt(elements['HEG_70'].value);
+    var MEG_70 = parseInt(elements['MEG_70'].value);
+    var HEG_75 = parseInt(elements['HEG_75'].value);
+    var MEG_75 = parseInt(elements['MEG_75'].value);
+    var HEG_80 = parseInt(elements['HEG_80'].value);
+    var MEG_80 = parseInt(elements['MEG_80'].value);
+    H_total_EG = HEG_50+HEG_55+HEG_60+HEG_65+HEG_70+HEG_75+HEG_80;
+    M_total_EG = MEG_50+MEG_55+MEG_60+MEG_65+MEG_70+MEG_75+MEG_80;
+    document.form0.H_tot_EG.value = H_total_EG;
+    document.form0.M_tot_EG.value = M_total_EG;
+
+    var MEEG_18 = parseInt(elements['MEEG_18'].value);
+    var MEEG_25 = parseInt(elements['MEEG_25'].value);
+    var MEEG_30 = parseInt(elements['MEEG_30'].value);
+    var MEEG_35 = parseInt(elements['MEEG_35'].value);
+    var MEEG_40 = parseInt(elements['MEEG_40'].value);
+    var MEEG_45 = parseInt(elements['MEEG_45'].value);
+    var MEEG_50 = parseInt(elements['MEEG_50'].value);
+    var MEEG_55 = parseInt(elements['MEEG_55'].value);
+    var MEEG_total_vac = 0;
+    MEEG_total_vac = MEEG_18+MEEG_25+MEEG_30+MEEG_35+MEEG_40+MEEG_45+MEEG_50+MEEG_55;
+    document.form0.MEEG_tot_vac.value = MEEG_total_vac;
+
+    var FDC = parseInt(elements['Frs_dosis_completas'].value);
+    var FDI = parseInt(elements['Frs_dosis_incompletas'].value);
+    FTJ = FDC+FDI;
+    document.form0.frascos_totales.value = FTJ;
   }
 </script>
 
@@ -173,6 +213,7 @@ $(document).ready(function () {
     <td colspan="2">75 A 79 AÑOS</td>
     <td colspan="2">80 Y MÁS AÑOS</td>
     <td colspan="2">SUBTOTAL</td>
+    <td colspan="9" class="embarazadas">MUJERES EMBARAZADAS</td>
     <td rowspan="2" style="padding-left:10px; padding-right:10px;">Brigadistas</td>
     <td rowspan="2" style="padding-left:10px; padding-right:10px;">TOTAL</td>
     <td colspan="2" style="padding-left:10px; padding-right:10px;">Detalles de los viales usados en la jornada</td>
@@ -186,7 +227,16 @@ $(document).ready(function () {
     <td width="3%">H</td><td width="3%">M</td>
     <td width="3%">H</td><td width="3%">M</td>
     <td width="3%">H</td><td width="3%">M</td>
-    <td style="background-color: #66e0ff;border:2px;border-color: black;font-weight:500;padding-left:10px;padding-right:15px;color:black; text-align:right;"><b>FRASCOS TOTALES</b> utilizados</td>
+    <td width="3%" class="embarazadas">18 A 24 AÑOS</td>
+    <td width="3%" class="embarazadas">25 A 29 AÑOS</td>
+    <td width="3%" class="embarazadas">30 A 34 AÑOS</td>
+    <td width="3%" class="embarazadas">25 A 39 AÑOS</td>
+    <td width="3%" class="embarazadas">40 A 44 AÑOS</td>
+    <td width="3%" class="embarazadas">45 A 49 AÑOS</td>
+    <td width="3%" class="embarazadas">50 A 54 AÑOS</td>
+    <td width="3%" class="embarazadas">55 Y MAS AÑOS</td>
+    <td width="3%" class="embarazadas">SUBTOTAL</td>
+    <td style="background-color: #66e0ff;border:2px;border-color: black;font-weight:500;padding-left:5px;padding-right:5px;color:black; text-align:center;"><b>FRASCOS TOTALES</b> utilizados</td>
     <td style="border-right-color: black;border-right: 1px;border-right-style:solid;background-color: #66e0ff"><input type=text class="total_frascos" readonly id="frascos_totales" name="frascos_totales"/></td>
 
 
@@ -195,11 +245,11 @@ $(document).ready(function () {
       <td class="add" rowspan="3" style="padding-left:10px; padding-right:10px;min-width:180px;text-align:center;">
         <select name="fecha_reporte" id="fecha_reporte" class="arriba" required style="width:100%;">
           <option value="" disabled selected hidden>Fecha a reportar</option>
-          <option value="2021-05-04">04/mayo/2021</option>
-          <option value="2021-05-05">05/mayo/2021</option>
-          <option value="2021-05-06">06/mayo/2021</option>
-          <option value="2021-05-07">07/mayo/2021</option>
-          <option value="2021-05-08">08/mayo/2021</option>
+          <option value="2021-05-25">25/mayo/2021</option>
+          <option value="2021-05-26">26/mayo/2021</option>
+          <option value="2021-05-27">27/mayo/2021</option>
+          <option value="2021-05-28">28/mayo/2021</option>
+          <option value="2021-05-29">29/mayo/2021</option>
         </select>
       </td>
       <td class="add" style="position:sticky;left:0;z-index:2;background:white;padding-left:10px;padding-right:10px;font-weight:900;">VACUNAS</td>
@@ -219,6 +269,16 @@ $(document).ready(function () {
       <td class="add"><input type="text" name="M_80" id="M_80" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input class="totales" readonly id="H_tot_vac" name="H_tot_vac"></td>
       <td class="add"><input class="totales" readonly id="M_tot_vac" name="M_tot_vac"></td>
+
+      <td class="add"><input type="text" name="ME_18" id="ME_18" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="ME_25" id="ME_25" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="ME_30" id="ME_30" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="ME_35" id="ME_35" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="ME_40" id="ME_40" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="ME_45" id="ME_45" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="ME_50" id="ME_50" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="ME_55" id="ME_55" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input class="totales" readonly id="ME_tot_vac" name="ME_tot_vac"></td>
       <td class="add"><input type="text" name="briga" id="briga" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td rowspan="3" class="add"><input class="totales" readonly id="total" name="total"></td>
       <td style="background-color: #80ffcc;border:2px;border-color: black;font-weight:500;padding-left:10px;padding-right:10px;color:black;">Número de frascos con <br>dosis <b style="font-weight:900;font-size:120%;">COMPLETAS</b><br><label id="Frs_dosis_completas" style="font-weight:900;"></label></td>
@@ -242,6 +302,17 @@ $(document).ready(function () {
       <td class="add"><input type="text" name="MENG_80" id="MENG_80" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input class="totales" readonly id="H_tot_ENG" name="H_tot_ENG"></td>
       <td class="add"><input class="totales" readonly id="M_tot_ENG" name="M_tot_ENG"></td>
+
+      <td class="add"><input type="text" name="MEENG_18" id="MEENG_18" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEENG_25" id="MEENG_25" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEENG_30" id="MEENG_30" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEENG_35" id="MEENG_35" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEENG_40" id="MEENG_40" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEENG_45" id="MEENG_45" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEENG_50" id="MEENG_50" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEENG_55" id="MEENG_55" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input class="totales" readonly id="MEENG_tot_vac" name="MEENG_tot_vac"></td>
+
       <td class="encabezado" style="border-right-color:#001a2b;border-right:1px;border-right-style:solid;background-color:#001a2b; color:white;">Personal de Salud</td>
       <td style="background-color: #ff8080;border:2px;border-color: black;font-weight:500;padding-left:10px;padding-right:10px;color:black;">Número de frascos con <br>dosis <b style="font-weight:900;font-size:120%;">INCOMPLETAS</b><br><label id="Frs_dosis_incompletas" style="font-weight:900;"></label></td>
       <td style="border-right-color: black;border-right: 1px;border-right-style:solid;background-color: #ff8080"><input type="text" name="Frs_dosis_incompletas" id="Frs_dosis_incompletas" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" required /></td>
@@ -264,16 +335,27 @@ $(document).ready(function () {
       <td class="add"><input type="text" name="MEG_80" id="MEG_80" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input class="totales" readonly id="H_tot_EG" name="H_tot_EG"></td>
       <td class="add"><input class="totales" readonly id="M_tot_EG" name="M_tot_EG"></td>
+
+      <td class="add"><input type="text" name="MEEG_18" id="MEEG_18" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEEG_25" id="MEEG_25" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEEG_30" id="MEEG_30" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEEG_35" id="MEEG_35" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEEG_40" id="MEEG_40" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEEG_45" id="MEEG_45" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEEG_50" id="MEEG_50" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEEG_55" id="MEEG_55" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input class="totales" readonly id="MEEG_tot_vac" name="MEEG_tot_vac"></td>
+
       <td class="add"><input type="text" name="personal_salud" id="personal_salud" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add">Pérdidas en Operación</td>
       <td class="add"><input type="text" name="merma" id="merma" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" required /></td>
     </tr>
     <tr class="reporte">
       <td colspan="12"style="text-align: right;"><b>Observaciones:</b></td>
-      <td colspan="8">
-        <textarea id="observa" name="observa" rows="4" cols="50" placeholder="Describa a detalle incidencias ocurridas en la sede de vacunación durante la fecha que se informa (ejem. número TOTAL de frascos, número de frascos con dosis incompletas, movimiento de biológico a otras sedes, causas de perdidas en la operación, temperatura del biológico al momento de recepción, etc.) " required style="width:100%;"></textarea>
+      <td colspan="15">
+        <textarea id="observa" name="observa" rows="3" cols="50" placeholder="Describa a detalle incidencias ocurridas en la sede de vacunación durante la jornada que se informa (ejem. movimiento de biológico a otras sedes, causas de perdidas en la operación, temperatura del biológico, etc.) " required style="width:100%;"></textarea>
       </td>
-      <td colspan="2"><input type="submit" value="ENVIAR INFORME"></td>
+      <td colspan="4"><input type="submit" value="ENVIAR INFORME"></td>
     </tr>
  </table>
 </form>

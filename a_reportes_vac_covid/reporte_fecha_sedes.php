@@ -7,8 +7,9 @@
   $pd= $db->sedes_dia_seleccionado($fechareporte,$tabla,$idproceso);
 ?>
 <div class="container">
-  	<input type='hidden' value='<?php echo $fechareporte; ?>' readonly><input type='hidden' value='<?php echo $idproceso; ?>' readonly>
-    <input type='hidden' value='<?php echo $tabla; ?>' readonly>
+  	<input type='text' value='<?php echo $fechareporte; ?>' readonly>
+		<input type='text' value='<?php echo $idproceso; ?>' readonly>
+    <input type='text' value='<?php echo $tabla; ?>' readonly>
   <div class='card'>
     <div class='card-header  text-white bg-info' style="font-size:105%;">
         <?php foreach($np as $key0){ echo $key0->nombre_proceso; }?> sedes del dia <b><?php echo date("d / M / Y", strtotime($fechareporte));?></b>
@@ -27,9 +28,36 @@
       ?>
         <tr style="color:black;">
           <td>
-            <button class='btn btn-secondary' type='button' is='b-link' des='a_reportes_vac_covid/reporte_fecha_sedes' dix='trabajo' tp='edit' v_idregistro='<?php echo $key->idregistro; ?>' v_tabla='<?php echo $tabla; ?>' title=''>
-              <i class="fas fa-hospital-user"></i> Ver informe
+						<?php
+							if($tabla==1){
+						?>
+						<button class='btn btn-secondary' type='button' is='b-link' des='a_consul_vac_covid/ver_inf_vac_60ymas' dix='trabajo' tp="edit" v_iddetvac='<?php echo $key->idregistro; ?>' title=''>
+              <i class="fas fa-hospital-user"></i> Ver informe <?php //echo $key->idregistro; ?>
             </button>
+						<?php
+							}
+						?>
+
+						<?php
+							if($tabla==2){
+						?>
+						<button class='btn btn-secondary' type='button' is='b-link' des='a_consul_vac_covid/ver_inf_vac_50ymas' dix='trabajo' tp="edit" v_iddetvac='<?php echo $key->idregistro; ?>' title=''>
+							<i class="fas fa-hospital-user"></i> Ver informe <?php //echo $key->idregistro; ?>
+						</button>
+						<?php
+							}
+						?>
+
+						<?php
+							if($tabla==3){
+						?>
+						<button class='btn btn-secondary' type='button' is='b-link' des='a_consul_vac_covid/ver_inf_vac_seph' dix='trabajo' tp="edit" v_iddetvac='<?php echo $key->idregistro; ?>' title=''>
+              <i class="fas fa-hospital-user"></i> Ver informe <?php //echo $key->idregistro; ?>
+            </button>
+						<?php
+							}
+						?>
+
           </td>
           <td scope="row" style="text-align:center;"><?php echo $key->nombre_juris; ?></td>
 					<td scope="row" style="text-align:center;"><?php echo $key->nombre_mpio; ?></td>

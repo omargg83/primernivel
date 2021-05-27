@@ -119,6 +119,13 @@ input, select, textarea{
     border-left: 1px;
     border-left-style:solid;
   }
+  td.embarazadas{
+    background-color:#003d66;
+    color:white;
+    font-weight:700;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
   tr.encabezado{
     background-color: #001a2b;
     color:white;

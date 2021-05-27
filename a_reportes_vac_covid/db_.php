@@ -118,13 +118,17 @@ class Usuario extends ipsi{
 		}
 		public function reporte_50a59($id){
 			$sql="select *, sum(`H_50`+`H_55`+`H_60`+`H_65`+`H_70`+`H_75`+`H_80`) AS 'H_tot_vac',
-					sum(`M_50`+`M_55`+`M_60`+`M_65`+`M_70`+`M_75`+`M_80`) AS 'M_tot_vac',
-					sum(`HENG_50`+`HENG_55`+`HENG_60`+`HENG_65`+`HENG_70`+`HENG_75`+`HENG_80`) AS 'H_tot_ENG',
-					sum(`MENG_50`+`MENG_55`+`MENG_60`+`MENG_65`+`MENG_70`+`MENG_75`+`MENG_80`) AS 'M_tot_ENG',
-					sum(`HEG_50`+`HEG_55`+`HEG_60`+`HEG_65`+`HEG_70`+`HEG_75`+`HEG_80`) AS 'H_tot_EG',
-					sum(`MEG_50`+`MEG_55`+`MEG_60`+`MEG_65`+`MEG_70`+`MEG_75`+`MEG_80`) AS 'M_tot_EG',
-					sum(`H_50`+`H_55`+`H_60`+`H_65`+`H_70`+`H_75`+`H_80`+`M_50`+`M_55`+`M_60`+`M_65`+`M_70`+`M_75`+`M_80`+`briga`+`personal_salud`) AS 'total'
-					from `det_vac_50a59` where `id_det_vac_50a59`= ".$id.";";
+						sum(`M_50`+`M_55`+`M_60`+`M_65`+`M_70`+`M_75`+`M_80`) AS 'M_tot_vac',
+						sum(`HENG_50`+`HENG_55`+`HENG_60`+`HENG_65`+`HENG_70`+`HENG_75`+`HENG_80`) AS 'H_tot_ENG',
+						sum(`MENG_50`+`MENG_55`+`MENG_60`+`MENG_65`+`MENG_70`+`MENG_75`+`MENG_80`) AS 'M_tot_ENG',
+						sum(`HEG_50`+`HEG_55`+`HEG_60`+`HEG_65`+`HEG_70`+`HEG_75`+`HEG_80`) AS 'H_tot_EG',
+						sum(`MEG_50`+`MEG_55`+`MEG_60`+`MEG_65`+`MEG_70`+`MEG_75`+`MEG_80`) AS 'M_tot_EG',
+						sum(`H_50`+`H_55`+`H_60`+`H_65`+`H_70`+`H_75`+`H_80`+`M_50`+`M_55`+`M_60`+`M_65`+`M_70`+`M_75`+`M_80`+`briga`+`personal_salud`+`ME_18`+`ME_25`+`ME_30`+`ME_35`+`ME_40`+`ME_45`+`ME_50`+`ME_55`) AS 'total',
+						sum(`ME_18`+`ME_25`+`ME_30`+`ME_35`+`ME_40`+`ME_45`+`ME_50`+`ME_55`) AS 'ME_tot_vac',
+						sum(`MEENG_18`+`MEENG_25`+`MEENG_30`+`MEENG_35`+`MEENG_40`+`MEENG_45`+`MEENG_50`+`MEENG_55`) AS 'ME_tot_ENG',
+						sum(`MEEG_18`+`MEEG_25`+`MEEG_30`+`MEEG_35`+`MEEG_40`+`MEEG_45`+`MEEG_50`+`MEEG_55`) AS 'ME_tot_EG',
+						sum(`Frs_dosis_completas`+`Frs_dosis_incompletas`) as 'total_frascos'
+				  	from `det_vac_50a59` where `id_det_vac_50a59`= ".$id.";";
 			//echo $sql;
 			$sth = $this->dbh->query($sql);
 			return $sth->fetchAll(PDO::FETCH_OBJ);
@@ -315,12 +319,13 @@ class Usuario extends ipsi{
 						}
 						else if($tabla==2){
 								$sql="select sum(`H_50`+`H_55`+`H_60`+`H_65`+`H_70`+`H_80`+`H_75`+`M_50`+`M_55`+`M_60`+`M_65`+`M_70`+`M_80`+`M_75`) AS 'total_vac_pob',
-										sum(`briga`) AS 'total_brig',
-										sum(`personal_salud`) AS 'total_per_sal',
-										sum(`H_50`+`H_55`+`H_60`+`H_65`+`H_70`+`H_80`+`H_75`+`M_50`+`M_55`+`M_60`+`M_65`+`M_70`+`M_80`+`M_75`+`briga`+`personal_salud`) AS 'total_dosis',
-										sum(`HENG_50`+`HENG_55`+`HENG_60`+`HENG_65`+`HENG_70`+`HENG_80`+`HENG_75`+`MENG_50`+`MENG_55`+`MENG_60`+`MENG_65`+`MENG_70`+`MENG_80`+`MENG_75`) AS 'total_ENG',
-										sum(`HEG_50`+`HEG_55`+`HEG_60`+`HEG_65`+`HEG_70`+`HEG_80`+`HEG_75`+`MEG_50`+`MEG_65`+`MEG_50`+`MEG_65`+`MEG_70`+`MEG_80`+`MEG_75`) AS 'total_EG',
-										sum(`merma`) AS 'total_mermas'
+													sum(`ME_18`+`ME_25`+`ME_30`+`ME_35`+`ME_40`+`ME_45`+`ME_50`+`ME_55`) AS 'total_vac_emb',
+													sum(`briga`) AS 'total_brig',
+													sum(`personal_salud`) AS 'total_per_sal',
+													sum(`H_50`+`H_55`+`H_60`+`H_65`+`H_70`+`H_80`+`H_75`+`M_50`+`M_55`+`M_60`+`M_65`+`M_70`+`M_80`+`M_75`+`briga`+`personal_salud`+`ME_18`+`ME_25`+`ME_30`+`ME_35`+`ME_40`+`ME_45`+`ME_50`+`ME_55`) AS 'total_dosis',
+													sum(`HENG_50`+`HENG_55`+`HENG_60`+`HENG_65`+`HENG_70`+`HENG_80`+`HENG_75`+`MENG_50`+`MENG_55`+`MENG_60`+`MENG_65`+`MENG_70`+`MENG_80`+`MENG_75`+`MEENG_18`+`MEENG_25`+`MEENG_30`+`MEENG_35`+`MEENG_40`+`MEENG_45`+`MEENG_50`+`MEENG_55`) AS 'total_ENG',
+													sum(`HEG_50`+`HEG_55`+`HEG_60`+`HEG_65`+`HEG_70`+`HEG_80`+`HEG_75`+`MEG_50`+`MEG_65`+`MEG_50`+`MEG_65`+`MEG_70`+`MEG_80`+`MEG_75`+`MEEG_18`+`MEEG_25`+`MEEG_30`+`MEEG_35`+`MEEG_40`+`MEEG_45`+`MEEG_50`+`MEEG_55`) AS 'total_EG',
+													sum(`merma`) AS 'total_mermas'
 										from `det_vac_50a59`
 										where `det_vac_50a59`.`id_det_vac_50a59`= '$id' and `det_vac_50a59`.`fecha_reporte`='$fechar'";
 								$sth = $this->dbh->query($sql);

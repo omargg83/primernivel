@@ -72,6 +72,17 @@
     $MEG_75 = $_POST['MEG_75'];
     $HEG_80 = $_POST['HEG_80'];
     $MEG_80 = $_POST['MEG_80'];
+
+    $ME_18 = $_POST['ME_18'];
+    $ME_25 = $_POST['ME_25'];
+    $ME_30 = $_POST['ME_30'];
+    $ME_35 = $_POST['ME_35'];
+    $ME_40 = $_POST['ME_40'];
+    $ME_45 = $_POST['ME_45'];
+    $ME_50 = $_POST['ME_50'];
+    $ME_55 = $_POST['ME_55'];
+    $ME_tot_vac = $_POST['ME_tot_vac'];
+
     $briga = $_POST['briga'];
     $personal_salud = $_POST['personal_salud'];
     $merma = $_POST['merma'];
@@ -82,15 +93,35 @@
      $total= $_POST['total'];
      $H_tot_ENG= $_POST['H_tot_ENG'];
      $M_tot_ENG= $_POST['M_tot_ENG'];
+
+     $MEENG_18 = $_POST['MEENG_18'];
+     $MEENG_25 = $_POST['MEENG_25'];
+     $MEENG_30 = $_POST['MEENG_30'];
+     $MEENG_35 = $_POST['MEENG_35'];
+     $MEENG_40 = $_POST['MEENG_40'];
+     $MEENG_45 = $_POST['MEENG_45'];
+     $MEENG_50 = $_POST['MEENG_50'];
+     $MEENG_55 = $_POST['MEENG_55'];
+     $MEENG_tot_vac = $_POST['MEENG_tot_vac'];
+
      $H_tot_EG= $_POST['H_tot_EG'];
      $M_tot_EG= $_POST['M_tot_EG'];
+     $MEEG_18 = $_POST['MEEG_18'];
+     $MEEG_25 = $_POST['MEEG_25'];
+     $MEEG_30 = $_POST['MEEG_30'];
+     $MEEG_35 = $_POST['MEEG_35'];
+     $MEEG_40 = $_POST['MEEG_40'];
+     $MEEG_45 = $_POST['MEEG_45'];
+     $MEEG_50 = $_POST['MEEG_50'];
+     $MEEG_55 = $_POST['MEEG_55'];
+     $MEEG_tot_vac = $_POST['MEEG_tot_vac'];
      date_default_timezone_set('America/Mexico_City');
      $hora_captura = date('Y-m-d H:i:s');
      $frascos_totales = $_POST['frascos_totales'];
      $Frs_dosis_completas = $_POST['Frs_dosis_completas'];
      $Frs_dosis_incompletas = $_POST['Frs_dosis_incompletas'];
 
-       $sql = "INSERT INTO `det_vac_50a59` (`hora_captura`,`id_sede`, `nombre_captura_inf`, `id_bio`, `num_dosis`, `fecha_reporte`, `H_50`, `M_50`, `H_55`, `M_55`,`HENG_50`, `MENG_50`, `HENG_55`, `MENG_55`,`HEG_50`, `MEG_50`, `HEG_55`, `MEG_55`, `H_60`, `M_60`, `H_65`, `M_65`,`HENG_60`, `MENG_60`, `HENG_65`, `MENG_65`, `HEG_60`, `MEG_60`, `HEG_65`, `MEG_65`,`H_70`, `M_70`, `H_75`, `M_75`,`HENG_70`, `MENG_70`, `HENG_75`, `MENG_75`, `HEG_70`, `MEG_70`, `HEG_75`, `MEG_75`,`H_80`, `M_80`,`HENG_80`, `MENG_80`,`HEG_80`, `MEG_80`,`briga`, `personal_salud`, `merma`, `Frs_dosis_completas`, `Frs_dosis_incompletas`, `observa`) VALUES ('".$hora_captura."','".$id_sede."','".$nombre_captura_inf."','".$id_bio."','".$num_dosis."','".$originalDate."',".$H_50.",".$M_50.",".$H_55.",".$M_55.",".$HENG_50.",".$MENG_50.",".$HENG_55.",".$MENG_55.",".$HEG_50.",".$MEG_50.",".$HEG_55.",".$MEG_55.",'".$H_60."','".$M_60."','".$H_65."','".$M_65."','".$HENG_60."','".$MENG_60."','".$HENG_65."','".$MENG_65."','".$HEG_60."','".$MEG_60."','".$HEG_65."','".$MEG_65."','".$H_70."','".$M_70."','".$H_75."','".$M_75."','".$HENG_70."','".$MENG_70."','".$HENG_75."','".$MENG_75."','".$HEG_70."','".$MEG_70."','".$HEG_75."','".$MEG_75."','".$H_80."','".$M_80."','".$HENG_80."','".$MENG_80."','".$HEG_80."','".$MEG_80."',".$briga.",".$personal_salud.",".$merma.",".$Frs_dosis_completas.",".$Frs_dosis_incompletas.",'".$observa."');";
+       $sql = "INSERT INTO `det_vac_50a59` (`hora_captura`,`id_sede`, `nombre_captura_inf`, `id_bio`, `num_dosis`, `fecha_reporte`, `H_50`, `M_50`, `H_55`, `M_55`,`HENG_50`, `MENG_50`, `HENG_55`, `MENG_55`,`HEG_50`, `MEG_50`, `HEG_55`, `MEG_55`, `H_60`, `M_60`, `H_65`, `M_65`,`HENG_60`, `MENG_60`, `HENG_65`, `MENG_65`, `HEG_60`, `MEG_60`, `HEG_65`, `MEG_65`,`H_70`, `M_70`, `H_75`, `M_75`,`HENG_70`, `MENG_70`, `HENG_75`, `MENG_75`, `HEG_70`, `MEG_70`, `HEG_75`, `MEG_75`,`H_80`, `M_80`,`HENG_80`, `MENG_80`,`HEG_80`, `MEG_80`,`briga`, `personal_salud`, `merma`, `Frs_dosis_completas`, `Frs_dosis_incompletas`, `observa`, `ME_18`, `ME_25`, `ME_30`, `ME_35`, `ME_40`, `ME_45`, `ME_50`, `ME_55`,`MEENG_18`, `MEENG_25`, `MEENG_30`, `MEENG_35`, `MEENG_40`, `MEENG_45`, `MEENG_50`, `MEENG_55`,`MEEG_18`, `MEEG_25`, `MEEG_30`, `MEEG_35`, `MEEG_40`, `MEEG_45`, `MEEG_50`, `MEEG_55` ) VALUES ('".$hora_captura."','".$id_sede."','".$nombre_captura_inf."','".$id_bio."','".$num_dosis."','".$originalDate."',".$H_50.",".$M_50.",".$H_55.",".$M_55.",".$HENG_50.",".$MENG_50.",".$HENG_55.",".$MENG_55.",".$HEG_50.",".$MEG_50.",".$HEG_55.",".$MEG_55.",'".$H_60."','".$M_60."','".$H_65."','".$M_65."','".$HENG_60."','".$MENG_60."','".$HENG_65."','".$MENG_65."','".$HEG_60."','".$MEG_60."','".$HEG_65."','".$MEG_65."','".$H_70."','".$M_70."','".$H_75."','".$M_75."','".$HENG_70."','".$MENG_70."','".$HENG_75."','".$MENG_75."','".$HEG_70."','".$MEG_70."','".$HEG_75."','".$MEG_75."','".$H_80."','".$M_80."','".$HENG_80."','".$MENG_80."','".$HEG_80."','".$MEG_80."',".$briga.",".$personal_salud.",".$merma.",".$Frs_dosis_completas.",".$Frs_dosis_incompletas.",'".$observa."',".$ME_18.",".$ME_25.",".$ME_30.",".$ME_35.",".$ME_40.",".$ME_45.",".$ME_50.",".$ME_55.",".$MEENG_18.",".$MEENG_25.",".$MEENG_30.",".$MEENG_35.",".$MEENG_40.",".$MEENG_45.",".$MEENG_50.",".$MEENG_55.",".$MEEG_18.",".$MEEG_25.",".$MEEG_30.",".$MEEG_35.",".$MEEG_40.",".$MEEG_45.",".$MEEG_50.",".$MEEG_55.");";
        $result = mysqli_query($link,$sql);
 
 ?>
@@ -137,6 +168,7 @@
     <td colspan="2">75 A 79 AÑOS</td>
     <td colspan="2">80 Y MÁS AÑOS</td>
     <td colspan="2">SUBTOTAL</td>
+    <td colspan="9" class="embarazadas">MUJERES EMBARAZADAS</td>
     <td rowspan="2" style="padding-left:10px; padding-right:10px;">Brigadistas</td>
     <td rowspan="2" style="padding-left:10px; padding-right:10px;">TOTAL</td>
     <td colspan="2" style="padding-left:10px; padding-right:10px;">Detalles de los viales usados en la jornada</td>
@@ -150,6 +182,15 @@
     <td width="3%">H</td><td width="3%">M</td>
     <td width="3%">H</td><td width="3%">M</td>
     <td width="3%">H</td><td width="3%">M</td>
+    <td width="3%" class="embarazadas">18 A 24 AÑOS</td>
+    <td width="3%" class="embarazadas">25 A 29 AÑOS</td>
+    <td width="3%" class="embarazadas">30 A 34 AÑOS</td>
+    <td width="3%" class="embarazadas">25 A 39 AÑOS</td>
+    <td width="3%" class="embarazadas">40 A 44 AÑOS</td>
+    <td width="3%" class="embarazadas">45 A 49 AÑOS</td>
+    <td width="3%" class="embarazadas">50 A 54 AÑOS</td>
+    <td width="3%" class="embarazadas">55 Y MAS AÑOS</td>
+    <td width="3%" class="embarazadas">SUBTOTAL</td>
     <td style="background-color: #66e0ff;border:2px;border-color: black;font-weight:500;padding-left:10px;padding-right:15px;color:black; text-align:center;"><b>FRASCOS TOTALES</b> utilizados</td>
     <td style="border-right-color: black;border-right: 1px;border-right-style:solid;background-color: #66e0ff"><label class="totales"><?php echo $frascos_totales; ?></label></td>
 
@@ -173,6 +214,15 @@
       <td class="add"><label class="add"><?php echo $M_80; ?></label></td>
       <td class="add"><label class="totales"><?php echo $H_tot_vac; ?></label></td>
       <td class="add"><label class="totales"><?php echo $M_tot_vac ?></label></td>
+      <td class="add"><label class="add"><?php echo $ME_18; ?></label></td>
+      <td class="add"><label class="add"><?php echo $ME_25; ?></label></td>
+      <td class="add"><label class="add"><?php echo $ME_30; ?></label></td>
+      <td class="add"><label class="add"><?php echo $ME_35; ?></label></td>
+      <td class="add"><label class="add"><?php echo $ME_40; ?></label></td>
+      <td class="add"><label class="add"><?php echo $ME_45; ?></label></td>
+      <td class="add"><label class="add"><?php echo $ME_50; ?></label></td>
+      <td class="add"><label class="add"><?php echo $ME_55; ?></label></td>
+      <td class="add"><label class="add"><?php echo $ME_tot_vac; ?></label></td>
       <td class="add"><label class="add"><?php echo $briga; ?></label></td>
       <td class="add" rowspan="3"><label class="totales"><?php echo $total; ?></label></td>
       <td style="background-color: #80ffcc;border:2px;border-color: black;font-weight:500;padding-left:10px;padding-right:10px;color:black;">Número de frascos con <br>dosis <b style="font-weight:900;font-size:120%;">COMPLETAS</b></td>
@@ -196,6 +246,15 @@
       <td class="add"><label class="add"><?php echo $MENG_80; ?></label></td>
       <td class="add"><label class="totales"><?php echo $H_tot_ENG; ?></label></td>
       <td class="add"><label class="totales"><?php echo $M_tot_ENG; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEENG_18; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEENG_25; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEENG_30; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEENG_35; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEENG_40; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEENG_45; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEENG_50; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEENG_55; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEENG_tot_vac; ?></label></td>
       <td class="encabezado" style="border-right-color:#001a2b;border-right:1px;border-right-style:solid;background-color:#001a2b; color:white;">Personal de Salud</td>
       <td style="background-color: #ff8080;border:2px;border-color: black;font-weight:500;padding-left:10px;padding-right:10px;color:black;">Número de frascos con <br>dosis <b style="font-weight:900;font-size:120%;">INCOMPLETAS</b></td>
       <td style="border-right-color: black;border-right: 1px;border-right-style:solid;background-color: #ff8080"><label class="totales"><?php echo $Frs_dosis_incompletas; ?></label></td>
@@ -219,13 +278,22 @@
       <td class="add"><label class="add"><?php echo $MEG_80; ?></label></td>
       <td class="add"><label class="totales"><?php echo $H_tot_EG; ?></label></td>
       <td class="add"><label class="totales"><?php echo $M_tot_EG; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEEG_18; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEEG_25; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEEG_30; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEEG_35; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEEG_40; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEEG_45; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEEG_50; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEEG_55; ?></label></td>
+      <td class="add"><label class="add"><?php echo $MEEG_tot_vac; ?></label></td>
       <td class="add"><label class="totales"><?php echo $personal_salud; ?></label></td>
       <td class="add">Pérdidas en Operación</td>
       <td class="add" style="border-right-color: black;border-right: 1px;border-right-style:solid;"><label class="totales"><?php echo $merma; ?></label></td>
     </tr>
     <tr class="reporte">
-      <td colspan="8" style="text-align: right;"><b>Observaciones:</b></td>
-      <td colspan="12">
+      <td colspan="2" style="text-align: right;"><b>Observaciones:</b></td>
+      <td colspan="16">
         <textarea readonly rows="2" cols="50"style="width:100%;"><?php echo $observa;?></textarea>
       </td>
     </tr>

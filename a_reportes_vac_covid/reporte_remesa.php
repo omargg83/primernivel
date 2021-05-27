@@ -7,7 +7,7 @@
 <div class="container">
 <center>
 <div style="color:black;">
-	<input type='hidden' value='remesaID : <?php echo $idremesa; ?>' readonly>
+	<input type='text' value='remesaID : <?php echo $idremesa; ?>' readonly>
 		<table style="background-color: white;">
 			<th class='card-header text-white bg-dark' colspan="10" style="text-align:center;">
 				Avance en la aplicación de vacuna anti COVID-19
@@ -27,15 +27,16 @@
 		<table class="table table-striped" style="border: 1px solid darkgray; color:black;">
 	  <thead class="thead-dark" style="font-weight:bold;font-size:80%;">
 				<th scope="row" style="text-align:center;">Jurisdicción</th scope="row" style="text-align:center;">
-				<th scope="row" style="text-align:center;">Municipio</th scope="row" style="text-align:center;">
+				<th scope="row" >Municipio</th scope="row" style="text-align:center;">
 				<th scope="row" style="text-align:center;">Sede</th scope="row" style="text-align:center;">
 				<th scope="row" style="text-align:center;">Dosis aplicadas a población</th scope="row" style="text-align:center;">
+				<th scope="row" style="text-align:center;">Dosis aplicadas a mujeres embarazadas</th scope="row" style="text-align:center;">
 				<th scope="row" style="text-align:center;">Brigadistas vacunados</th scope="row" style="text-align:center;">
 				<th scope="row" style="text-align:center;">Personal de salud</th scope="row" style="text-align:center;">
 				<th scope="row" style="text-align:center;">Total de Dosis aplicadas</th scope="row" style="text-align:center;">
 				<th scope="row" style="text-align:center;">ESAVIs No Graves</th scope="row" style="text-align:center;">
 				<th scope="row" style="text-align:center;">ESAVIs Graves</th scope="row" style="text-align:center;">
-				<th scope="row" style="text-align:center;">Mermas / Perdidas en Operación</th>
+				<th scope="row" style="text-align:center;">Mermas - Perdidas en Operación</th>
 			</thead>
 			<tbody>
 			<?php

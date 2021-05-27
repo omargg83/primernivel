@@ -64,10 +64,36 @@
 		$MEG_75=$key->MEG_75;
 		$HEG_80=$key->HEG_80;
 		$MEG_80=$key->MEG_80;
+		$ME_18=$key->ME_18;
+		$ME_25=$key->ME_25;
+		$ME_30=$key->ME_30;
+		$ME_35=$key->ME_35;
+		$ME_40=$key->ME_40;
+		$ME_45=$key->ME_45;
+		$ME_50=$key->ME_50;
+		$ME_55=$key->ME_55;
+		$MEEG_18=$key->MEEG_18;
+		$MEENG_18=$key->MEENG_18;
+		$MEEG_25=$key->MEEG_25;
+		$MEENG_25=$key->MEENG_25;
+		$MEEG_30=$key->MEEG_30;
+		$MEENG_30=$key->MEENG_30;
+		$MEEG_35=$key->MEEG_35;
+		$MEENG_35=$key->MEENG_35;
+		$MEEG_40=$key->MEEG_40;
+		$MEENG_40=$key->MEENG_40;
+		$MEEG_45=$key->MEEG_45;
+		$MEENG_45=$key->MEENG_45;
+		$MEEG_50=$key->MEEG_50;
+		$MEENG_50=$key->MEENG_50;
+		$MEEG_55=$key->MEEG_55;
+		$MEENG_55=$key->MEENG_55;
 		$briga=$key->briga;
 		$personal_salud=$key->personal_salud;
 		$merma=$key->merma;
 		$observa=$key->observa;
+		$Frs_dosis_completas=$key->Frs_dosis_completas;
+		$Frs_dosis_incompletas=$key->Frs_dosis_incompletas;
 		//variablesdetotales
 		$H_tot_vac=$key->H_tot_vac;
 		$M_tot_vac=$key->M_tot_vac;
@@ -75,7 +101,11 @@
 		$H_tot_ENG=$key->H_tot_ENG;
 		$M_tot_ENG=$key->M_tot_ENG;
 		$H_tot_EG=$key->H_tot_EG;
-		$M_tot_EG=$key->M_tot_EG ;
+		$M_tot_EG=$key->M_tot_EG;
+		$ME_tot_vac=$key->ME_tot_vac;
+		$ME_tot_ENG=$key->ME_tot_ENG;
+		$ME_tot_EG=$key->ME_tot_EG;
+		$total_frascos=$key->total_frascos;
 	 }
 
 ?>
@@ -120,10 +150,10 @@
 	<th colspan="2" style="background-color: #001a2b;">75 A 79 AÑOS</th>
 	<th colspan="2" style="background-color: #001a2b;">80 Y MAS AÑOS</th>
 	<th colspan="2" style="background-color: #001a2b;">SUBTOTAL</th>
-	<th rowspan="2" style="background-color: #001a2b;">BRIGADISTAS</th>
-	<th rowspan="2" style="background-color: #001a2b;">PERSONAL DE SALUD</th>
-	<th rowspan="2" style="background-color: #001a2b;">TOTAL</th>
-	<th rowspan="2" style="background-color: #001a2b;">MERMAS/ PÉRDIDAS EN LA OPERACIÓN</th>
+	<th colspan="9" style="background-color: #003d66;">MUJERES EMBARAZADAS</th>
+	<th rowspan="2" style="background-color: #001a2b;padding-left:10px; padding-right:10px;">Brigadistas</th>
+	<th rowspan="2" style="background-color: #001a2b;padding-left:10px; padding-right:10px;">TOTAL</th>
+	<th colspan="2" style="background-color: #001a2b;padding-left:10px; padding-right:10px;">Detalles de los viales usados en la jornada</th>
  </tr>
  <tr style="color:white;text-align:center;border-color:white;">
 	<th style="background-color: #001a2b;" width="3%">H</th><th style="background-color: #001a2b;" width="3%">M</th>
@@ -134,6 +164,17 @@
 	<th style="background-color: #001a2b;" width="3%">H</th><th style="background-color: #001a2b;" width="3%">M</th>
 	<th style="background-color: #001a2b;" width="3%">H</th><th style="background-color: #001a2b;" width="3%">M</th>
 	<th style="background-color: #001a2b;" width="3%">H</th><th style="background-color: #001a2b;" width="3%">M</th>
+	<th style="background-color: #003d66;" width="3%">18 A 24 AÑOS</th>
+	<th style="background-color: #003d66;" width="3%">25 A 29 AÑOS</th>
+	<th style="background-color: #003d66;" width="3%">30 A 34 AÑOS</th>
+	<th style="background-color: #003d66;" width="3%">25 A 39 AÑOS</th>
+	<th style="background-color: #003d66;" width="3%">40 A 44 AÑOS</th>
+	<th style="background-color: #003d66;" width="3%">45 A 49 AÑOS</th>
+	<th style="background-color: #003d66;" width="3%">50 A 54 AÑOS</th>
+	<th style="background-color: #003d66;" width="3%">55 Y MAS AÑOS</th>
+	<th style="background-color: #003d66;" width="3%">SUBTOTAL</th>
+	<th style="background-color: #66e0ff;border:2px;border-color: black;font-weight:500;padding-left:10px;padding-right:15px;color:black;text-align:center;"><b>Frascos totales</b> utilizados</th>
+	<th style="min-width:80px;border-right-color: black;border-right: 1px;border-right-style:solid;background-color: #66e0ff;color:black;font-size:120%;"><label class="totales"><?php echo $total_frascos; ?></label></th>
  </tr>
  <tr style="color:black;">
 	 <th rowspan="3" td class="add" style="text-align: center;"><label class="arriba" style="width:100%;"><?php echo $fecha_reporte;?></label></th>
@@ -154,10 +195,19 @@
 		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $M_80; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;font-weight:900;"><label class="totales"><?php echo $H_tot_vac; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;font-weight:900;"><label class="totales"><?php echo $M_tot_vac ?></label></td>
-		<td style="vertical-align:middle;text-align:center;" rowspan="3"><label class="add"><?php echo $briga; ?></label></td>
-		<td style="vertical-align:middle;text-align:center;" rowspan="3"><label class="add"><?php echo $personal_salud; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $ME_18; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $ME_25; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $ME_30; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $ME_35; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $ME_40; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $ME_45; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $ME_50; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $ME_55; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;font-weight:900;"><label><?php echo $ME_tot_vac; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $briga; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;font-weight:900;" rowspan="3"><label class="totales"><?php echo $total; ?></label></td>
-		<td style="vertical-align:middle;text-align:center;" rowspan="3" style="border-right-color: black;border-right: 1px;border-right-style:solid;"><label class="add"><?php echo $merma; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;background-color: #80ffcc;border:2px;border-color: black;font-weight:500;padding-left:10px;padding-right:10px;color:black;">Frascos con dosis <b>completas</b></td>
+		<td style="vertical-align:middle;text-align:center;border-right-color: black;border-right: 1px;border-right-style:solid;background-color: #80ffcc"><label style="font-weight:bolder;"><?php echo $Frs_dosis_completas; ?></td>
 	</tr>
 	<tr style="color:black;">
 		<td class="add" style="position:sticky;left:0;z-index:2;background:white;padding-left:10px;padding-right:10px;font-weight:900;">ESAVI <B>NO</B> GRAVE</td>
@@ -177,6 +227,18 @@
 		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MENG_80; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;font-weight:900;"><label class="totales"><?php echo $H_tot_ENG; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;font-weight:900;"><label class="totales"><?php echo $M_tot_ENG; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEENG_18; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEENG_25; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEENG_30; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEENG_35; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEENG_40; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEENG_45; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEENG_50; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEENG_55; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;font-weight:900;"><label><?php echo $ME_tot_ENG; ?></label></td>
+		<th style="vertical-align:middle;text-align:center;background-color: #001a2b;padding-left:10px; padding-right:10px;color:white;">Personal de Salud</th>
+		<td style="vertical-align:middle;text-align:center;background-color: #ff8080;border:2px;border-color: black;font-weight:500;padding-left:10px;padding-right:10px;color:black;">Frascos con dosis <b>incompletas</b></td>
+		<td style="vertical-align:middle;text-align:center;border-right-color: black;border-right: 1px;border-right-style:solid;background-color: #ff8080"><label style="font-weight:bolder;"><?php echo $Frs_dosis_incompletas; ?></label></td>
 	</tr>
 	<tr style="color:black;">
 		<td class="add" style="position:sticky;left:0;z-index:2;background:white;padding-left:10px;padding-right:10px;font-weight:900;">ESAVI <B>GRAVE</B></td>
@@ -196,6 +258,18 @@
 		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEG_80; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;font-weight:900;"><label class="totales"><?php echo $H_tot_EG; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;font-weight:900;"><label class="totales"><?php echo $M_tot_EG; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEEG_18; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEEG_25; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEEG_30; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEEG_35; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEEG_40; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEEG_45; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEEG_50; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEEG_55; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;font-weight:900;"><label><?php echo $ME_tot_EG; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $personal_salud; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;">Pérdidas en Operación</td>
+		<td style="vertical-align:middle;text-align:center;border-right-color: black;border-right: 1px;border-right-style:solid;"><label style="font-weight:bolder;"><?php echo $merma; ?></label></td>
 	</tr>
 	<tr style="color:black;">
 		<td colspan="2" style="text-align: right;"><b>Observaciones:</b></td>
