@@ -7,7 +7,7 @@
 		$nombre_bio=$pd->nombre_bio;
 	}
 ?>
-
+<script src="librerias15/swal/dist/sweetalert2.min.js"></script>
 <div class="container">
 <form is="f-submit" id="form_personal" db="a_datosvacuna/db_" fun="guardar_bio" des="a_datosvacuna/editar_bio" desid="idbio" v_idbio="<?php echo $id_bio; ?>">
 	<input type="hidden" class="form-control form-control-sm" name="id_bio" id="id_bio" value="<?php echo $id_bio ;?>" placeholder="No" readonly>

@@ -6,6 +6,7 @@
 		$pd2 = $db->fechas_sede_50a59($id_sede);
 		$pd3 = $db->fechas_sede_60ymas($id_sede);
 		$pd4 = $db->fechas_sede_SEPH($id_sede);
+		$pd5 = $db->fechas_sede_40a49($id_sede);
 	}
 ?>
 <div class="container">
@@ -44,7 +45,7 @@
 						<th scope="row" style="font-weight: 800;vertical-align: middle;"><?php $originalDate = $key->fecha_reporte;
 								$newDate = date("d / M / Y", strtotime($originalDate)); echo $newDate; ?>
 						</th>
-						<td scope="row" style="vertical-align: middle;">Vacunación contra COVID-19 a población de<b style="font-weight: bold;font-size: 110%"> 50 a 59 años  <?php if($key->num_dosis==4){echo " única dosis";}else{echo $key->num_dosis."ª dosis";} ?></b></td>
+						<td scope="row" style="vertical-align: middle;">Vacunación contra COVID-19 a población de<b style="font-weight: bold;font-size: 110%"> 50 a 59 años - <?php if($key->num_dosis==4){echo " única dosis";}else{echo $key->num_dosis."ª dosis";} ?></b></td>
 					</tr>
 			<?php	}
 			foreach($pd3 as $key){ ?>
@@ -55,9 +56,19 @@
 					<th scope="row" style="font-weight: 800;vertical-align: middle;"><?php $originalDate = $key->fecha_reporte;
 							$newDate = date("d / M / Y", strtotime($originalDate)); echo $newDate; ?>
 					</th>
-					<td scope="row" style="vertical-align: middle;">Vacunación contra COVID-19 a población de<b style="font-weight: bold;font-size: 110%"> 60 años y más  <?php if($key->num_dosis==4){echo " única dosis";}else{echo $key->num_dosis."ª dosis";} ?></b></td>
+					<td scope="row" style="vertical-align: middle;">Vacunación contra COVID-19 a población de<b style="font-weight: bold;font-size: 110%"> 60 años y más - <?php if($key->num_dosis==4){echo " única dosis";}else{echo $key->num_dosis."ª dosis";} ?></b></td>
 				</tr>
-		<?php	}	?>
+		<?php	}	foreach($pd5 as $key){ ?>
+			<tr>
+				<td>
+					<button class='btn btn-warning' type="button" is="b-link" des='a_consul_vac_covid/ver_inf_vac_40ymas' dix='trabajo' tp="edit" v_iddetvac='<?php echo $key->id_det_vac_40a49; ?>' title='Visualizar reporte'>Visualizar reporte</button>
+				</td>
+				<th scope="row" style="font-weight: 800;vertical-align: middle;"><?php $originalDate = $key->fecha_reporte;
+						$newDate = date("d / M / Y", strtotime($originalDate)); echo $newDate; ?>
+				</th>
+				<td scope="row" style="vertical-align: middle;">Vacunación contra COVID-19 a población de<b style="font-weight: bold;font-size: 110%"> 40 a 49 años - <?php if($key->num_dosis==4){echo " única dosis";}else{echo $key->num_dosis."ª dosis";} ?></b></td>
+			</tr>
+	<?php	}	?>
 		</tbody>
 	</table>
 </div>

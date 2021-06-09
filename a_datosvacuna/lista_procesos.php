@@ -11,7 +11,7 @@
 	</li>
 	<br>
 </div>
-	<table class="table table-striped table-dark" style="max-width:60%;">
+	<table class="table table-striped" style="max-width:60%;">
 		<thead>
 	    <tr>
 	      <th scope="col"></th>

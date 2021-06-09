@@ -23,11 +23,11 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="SISTEMA PARA CONSULTA DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN" />
+        <meta name="description" content="SISTEMA DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN" />
         <meta name="author" content="DPNA-SSH" />
 				<?php
-				if ($_SESSION['nivel_usuario']==1){echo "<title>ADMIN - Sistema para el registro de información institucional de Primer Nivel de Atención</title>";}
-				else{echo "<title>Sistema para el registro de información institucional de Primer Nivel de Atención</title>";}
+				if ($_SESSION['nivel_usuario']==1){echo "<title>ADMIN - Sistema de Información Institucional de Primer Nivel de Atención</title>";}
+				else{echo "<title>Sistema de Información Institucional de Primer Nivel de Atención</title>";}
 				?>
         <link href="style.css" rel="stylesheet" />
 
@@ -103,7 +103,7 @@
 				 </div>
 
           <!-- Topbar Mensaje bienvenida-->
-        <p class="bienvenida">SISTEMA PARA EL REGISTRO DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN</p>
+        <p class="bienvenida">SISTEMA DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN</p>
 				<!--p class="bienvenida"> Hola, <?php echo $_SESSION['nombrec']; ?>, Que bueno tenerte de vuelta </p-->
 
           <!-- Topbar Navbar -->

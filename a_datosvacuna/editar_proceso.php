@@ -7,7 +7,7 @@
 		$nombre_proceso=$pd->nombre_proceso;
 	}
 ?>
-
+<script src="librerias15/swal/dist/sweetalert2.min.js"></script>
 <div class="container">
 <form is="f-submit" id="form_personal" db="a_datosvacuna/db_" fun="guardar_proceso" des="a_datosvacuna/editar_proceso" desid="idproceso" v_idproceso="<?php echo $id_proceso; ?>">
 	<input type="hidden" class="form-control form-control-sm" name="id_proceso" id="id_proceso" value="<?php echo $id_proceso ;?>" placeholder="No" readonly>

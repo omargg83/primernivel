@@ -9,13 +9,16 @@
 		  <div class='collapse navbar-collapse' id='navbarSupportedContent'>
 			<ul class='navbar-nav mr-auto'>
 			<li class='nav-item active'>
-				<a class='nav-link barranav' is="a-link" des='a_consul_vac_covid/listaseph' dix='trabajo' tp="router"><i class="fas fa-chalkboard-teacher"></i> Personal educativo</a>
+				<a class='nav-link barranav' is="a-link" des='a_consul_vac_covid/lista40a49' dix='trabajo' tp="router"><i class="fas fa-user-shield"></i> 40 a 49 años</a>
 			</li>
 			<li class='nav-item active'>
 				<a class='nav-link barranav' is="a-link" des='a_consul_vac_covid/lista50a59' dix='trabajo' tp="router"><i class="fas fa-user-check"></i> 50 a 59 años</a>
 			</li>
 			<li class='nav-item active'>
 				<a class='nav-link barranav' is="a-link" des='a_consul_vac_covid/lista60ymas' dix='trabajo' tp="router"><i class="fas fa-blind"></i> 60 y más</a>
+			</li>
+			<li class='nav-item active'>
+				<a class='nav-link barranav' is="a-link" des='a_consul_vac_covid/listaseph' dix='trabajo' tp="router"><i class="fas fa-chalkboard-teacher"></i> Personal educativo</a>
 			</li>
 
 			</ul>

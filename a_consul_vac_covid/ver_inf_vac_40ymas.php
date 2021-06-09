@@ -2,13 +2,13 @@
 	require_once("db_.php");
 	$id_sede=$_REQUEST['iddetvac'];
 	if($id_sede>0){
-		$pd = $db->reporte_50a59($id_sede);
+		$pd = $db->reporte_40a49($id_sede);
 	}
 ?>
 <div class="container">
 	<table style="width:95%">
 		<tr>
-			<th width="80%"><h2>AVANCE EN LA APLICACIÓN DE VACUNA ANTI COVID-19 A POBLACIÓN DE 50 A 59 AÑOS</h2></th>
+			<th width="80%"><h2>AVANCE EN LA APLICACIÓN DE VACUNA ANTI COVID-19 A POBLACIÓN DE 40 A 49 AÑOS</h2></th>
 			<td width="20%"><img src="img/esc_armas.png" style="margin-top:12px;max-width: 50%;"></td>
 		<tr></table>
 	<HR align=center width=95% color=#000000>
@@ -22,6 +22,10 @@
 		$nombre_captura_inf=$key->nombre_captura_inf;
 		$id_bio=$key->id_bio;
 		$num_dosis=$key->num_dosis;
+		$H_40=$key->H_40;
+		$M_40=$key->M_40;
+		$H_45=$key->H_45;
+		$M_45=$key->M_45;
 		$H_50=$key->H_50;
 		$M_50=$key->M_50;
 		$H_55=$key->H_55;
@@ -36,6 +40,10 @@
 		$M_75=$key->M_75;
 		$H_80=$key->H_80;
 		$M_80=$key->M_80;
+		$HENG_40=$key->HENG_40;
+		$MENG_40=$key->MENG_40;
+		$HENG_45=$key->HENG_45;
+		$MENG_45=$key->MENG_45;
 		$HENG_50=$key->HENG_50;
 		$MENG_50=$key->MENG_50;
 		$HENG_55=$key->HENG_55;
@@ -50,6 +58,10 @@
 		$MENG_75=$key->MENG_75;
 		$HENG_80=$key->HENG_80;
 		$MENG_80=$key->MENG_80;
+		$HEG_40=$key->HEG_40;
+		$MEG_40=$key->MEG_40;
+		$HEG_45=$key->HEG_45;
+		$MEG_45=$key->MEG_45;
 		$HEG_50=$key->HEG_50;
 		$MEG_50=$key->MEG_50;
 		$HEG_55=$key->HEG_55;
@@ -142,6 +154,8 @@
 <tr style="color:white;text-align:center;border-color:white;">
 	<th rowspan="2" style="background-color: #001a2b;">FECHA</th>
 	<th rowspan="2" style="background-color: #001a2b;">EVENTO</th>
+	<th colspan="2" style="background-color: #001a2b;">40 A 44 AÑOS</th>
+	<th colspan="2" style="background-color: #001a2b;">45 A 49 AÑOS</th>
 	<th colspan="2" style="background-color: #001a2b;">50 A 54 AÑOS</th>
 	<th colspan="2" style="background-color: #001a2b;">55 A 59 AÑOS</th>
 	<th colspan="2" style="background-color: #001a2b;">60 A 64 AÑOS</th>
@@ -156,6 +170,8 @@
 	<th colspan="2" style="background-color: #001a2b;padding-left:10px; padding-right:10px;">Detalles de los viales usados en la jornada</th>
  </tr>
  <tr style="color:white;text-align:center;border-color:white;">
+	<th style="background-color: #001a2b;" width="3%">H</th><th style="background-color: #001a2b;" width="3%">M</th>
+ 	<th style="background-color: #001a2b;" width="3%">H</th><th style="background-color: #001a2b;" width="3%">M</th>
 	<th style="background-color: #001a2b;" width="3%">H</th><th style="background-color: #001a2b;" width="3%">M</th>
 	<th style="background-color: #001a2b;" width="3%">H</th><th style="background-color: #001a2b;" width="3%">M</th>
 	<th style="background-color: #001a2b;" width="3%">H</th><th style="background-color: #001a2b;" width="3%">M</th>
@@ -179,10 +195,14 @@
  <tr style="color:black;">
 	 <th rowspan="3" td class="add" style="text-align: center;"><label class="arriba" style="width:100%;"><?php echo $fecha_reporte;?></label></th>
 	 <td class="add" style="position:sticky;left:0;z-index:2;background:white;padding-left:10px;padding-right:10px;font-weight:900;">VACUNAS</td>
-		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $H_50; ?></label></td>
-		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $M_50; ?></label></td>
-		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $H_55; ?></label></td>
-		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $M_55; ?></label></td>
+	 <td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $H_40; ?></label></td>
+	 <td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $M_40; ?></label></td>
+	 <td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $H_45; ?></label></td>
+	 <td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $M_45; ?></label></td>
+	 <td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $H_50; ?></label></td>
+	 <td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $M_50; ?></label></td>
+	 <td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $H_55; ?></label></td>
+	 <td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $M_55; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $H_60; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $M_60; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $H_65; ?></label></td>
@@ -211,6 +231,10 @@
 	</tr>
 	<tr style="color:black;">
 		<td class="add" style="position:sticky;left:0;z-index:2;background:white;padding-left:10px;padding-right:10px;font-weight:900;">ESAVI <B>NO</B> GRAVE</td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $HENG_40; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MENG_40; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $HENG_45; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MENG_45; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $HENG_50; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MENG_50; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $HENG_55; ?></label></td>
@@ -242,6 +266,10 @@
 	</tr>
 	<tr style="color:black;">
 		<td class="add" style="position:sticky;left:0;z-index:2;background:white;padding-left:10px;padding-right:10px;font-weight:900;">ESAVI <B>GRAVE</B></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $HEG_40; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEG_40; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $HEG_45; ?></label></td>
+		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEG_45; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $HEG_50; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $MEG_50; ?></label></td>
 		<td style="vertical-align:middle;text-align:center;"><label class="add"><?php echo $HEG_55; ?></label></td>
@@ -273,7 +301,7 @@
 	</tr>
 	<tr style="color:black;">
 		<td colspan="2" style="text-align: right;"><b>Observaciones:</b></td>
-		<td colspan="16">
+		<td colspan="20">
 			<textarea rows="4" cols="120"  readonly style="resize: vertical; max-height:100px;"><?php echo $observa;?></textarea>
 		</td>
 	</tr>

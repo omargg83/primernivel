@@ -45,6 +45,7 @@ $(document).ready(function () {
 });
   function Calc(className){
     var elements = document.getElementsByClassName(className);
+
     var total_H_vac = 0;
     var total_M_vac = 0;
     var total_final = 0;
@@ -52,6 +53,10 @@ $(document).ready(function () {
     var M_total_ENG = 0;
     var H_total_EG = 0;
     var M_total_EG = 0;
+    var H_40 = parseInt(elements['H_40'].value);
+    var M_40 = parseInt(elements['M_40'].value);
+    var H_45 = parseInt(elements['H_45'].value);
+    var M_45 = parseInt(elements['M_45'].value);
     var H_50 = parseInt(elements['H_50'].value);
     var M_50 = parseInt(elements['M_50'].value);
     var H_55 = parseInt(elements['H_55'].value);
@@ -68,8 +73,8 @@ $(document).ready(function () {
     var M_80 = parseInt(elements['M_80'].value);
     var briga = parseInt(elements['briga'].value);
     var personal_salud = parseInt(elements['personal_salud'].value);
-      total_H_vac = H_50+H_55+H_60+H_65+H_70+H_75+H_80;
-      total_M_vac = M_50+M_55+M_60+M_65+M_70+M_75+M_80;
+    total_H_vac = H_40+H_45+H_50+H_55+H_60+H_65+H_70+H_75+H_80;
+    total_M_vac = M_40+M_45+M_50+M_55+M_60+M_65+M_70+M_75+M_80;
 
     var ME_18 = parseInt(elements['ME_18'].value);
     var ME_25 = parseInt(elements['ME_25'].value);
@@ -88,6 +93,11 @@ $(document).ready(function () {
     document.form0.H_tot_vac.value = total_H_vac;
     document.form0.M_tot_vac.value = total_M_vac;
     document.form0.total.value = total_final;
+
+    var HENG_40 = parseInt(elements['HENG_40'].value);
+    var MENG_40 = parseInt(elements['MENG_40'].value);
+    var HENG_45 = parseInt(elements['HENG_45'].value);
+    var MENG_45 = parseInt(elements['MENG_45'].value);
     var HENG_50 = parseInt(elements['HENG_50'].value);
     var MENG_50 = parseInt(elements['MENG_50'].value);
     var HENG_55 = parseInt(elements['HENG_55'].value);
@@ -102,8 +112,8 @@ $(document).ready(function () {
     var MENG_75 = parseInt(elements['MENG_75'].value);
     var HENG_80 = parseInt(elements['HENG_80'].value);
     var MENG_80 = parseInt(elements['MENG_80'].value);
-    H_total_ENG = HENG_50+HENG_55+HENG_60+HENG_65+HENG_70+HENG_75+HENG_80;
-    M_total_ENG = MENG_50+MENG_55+MENG_60+MENG_65+MENG_70+MENG_75+MENG_80;
+    H_total_ENG = HENG_40+HENG_45+HENG_50+HENG_55+HENG_60+HENG_65+HENG_70+HENG_75+HENG_80;
+    M_total_ENG = MENG_40+MENG_45+MENG_50+MENG_55+MENG_60+MENG_65+MENG_70+MENG_75+MENG_80;
     document.form0.H_tot_ENG.value = H_total_ENG;
     document.form0.M_tot_ENG.value = M_total_ENG;
 
@@ -119,6 +129,10 @@ $(document).ready(function () {
     MEENG_total_vac = MEENG_18+MEENG_25+MEENG_30+MEENG_35+MEENG_40+MEENG_45+MEENG_50+MEENG_55;
     document.form0.MEENG_tot_vac.value = MEENG_total_vac;
 
+    var HEG_40 = parseInt(elements['HEG_40'].value);
+    var MEG_40 = parseInt(elements['MEG_40'].value);
+    var HEG_45 = parseInt(elements['HEG_45'].value);
+    var MEG_45 = parseInt(elements['MEG_45'].value);
     var HEG_50 = parseInt(elements['HEG_50'].value);
     var MEG_50 = parseInt(elements['MEG_50'].value);
     var HEG_55 = parseInt(elements['HEG_55'].value);
@@ -133,8 +147,8 @@ $(document).ready(function () {
     var MEG_75 = parseInt(elements['MEG_75'].value);
     var HEG_80 = parseInt(elements['HEG_80'].value);
     var MEG_80 = parseInt(elements['MEG_80'].value);
-    H_total_EG = HEG_50+HEG_55+HEG_60+HEG_65+HEG_70+HEG_75+HEG_80;
-    M_total_EG = MEG_50+MEG_55+MEG_60+MEG_65+MEG_70+MEG_75+MEG_80;
+    H_total_EG = HEG_40+HEG_45+HEG_50+HEG_55+HEG_60+HEG_65+HEG_70+HEG_75+HEG_80;
+    M_total_EG = MEG_40+MEG_45+MEG_50+MEG_55+MEG_60+MEG_65+MEG_70+MEG_75+MEG_80;
     document.form0.H_tot_EG.value = H_total_EG;
     document.form0.M_tot_EG.value = M_total_EG;
 
@@ -161,7 +175,7 @@ $(document).ready(function () {
 <body>
   <CENTER>
     <IMG SRC="../images/encabezado.png" style="margin-top:12px;">
-  	<h1>AVANCE EN LA APLICACIÓN DE VACUNA ANTI COVID-19 A POBLACIÓN DE <b class="c5059">50 A 59 AÑOS</b></h1>
+  	<h1>AVANCE EN LA APLICACIÓN DE VACUNA ANTI COVID-19 A POBLACIÓN DE <u style="background-color: #9966cc; color:white;">40 a 49 AÑOS</u></h1>
     <HR align=center width=90% color=#000000>
 <form name="form0" id="form0"  method="POST" action="envia_informe.php">
   <table align=center style="width:90%" border="0">
@@ -172,7 +186,7 @@ $(document).ready(function () {
         <option value="" disabled selected hidden> — Seleccione la sede a reportar — </option>
         <?php
               $sql="select `cat_sedes`.*, `cat_municipios`.`nombre_mpio` FROM `cat_sedes` LEFT JOIN `cat_municipios` ON `cat_sedes`.`id_mpio` = `cat_municipios`.`id_mpio`
-              WHERE `cat_sedes`.`id_proceso`= 2 and `cat_sedes`.`sede_activa`= 1 order by `cat_municipios`.`nombre_mpio` ASC, `cat_sedes`.`nombre_sede`";
+              WHERE `cat_sedes`.`id_proceso`= 4 and `cat_sedes`.`sede_activa`= 1 order by `cat_municipios`.`nombre_mpio` ASC, `cat_sedes`.`nombre_sede`";
               $result = mysqli_query($link,$sql);
               while($row = mysqli_fetch_array($result)) {
                   echo"<option value='".$row['id_sede']."'>".$row['nombre_mpio']." – ".$row['nombre_sede']."</option>"; }?>
@@ -205,6 +219,8 @@ $(document).ready(function () {
   <tr class="encabezado">
     <td rowspan="2">FECHA</td>
     <td rowspan="2">EVENTO</td>
+    <td colspan="2" class="c4049">40 A 44 AÑOS</td>
+    <td colspan="2" class="c4049">45 A 49 AÑOS</td>
     <td colspan="2" class="c5059">50 A 54 AÑOS</td>
     <td colspan="2" class="c5059">55 A 59 AÑOS</td>
     <td colspan="2" class="c60mas">60 A 64 AÑOS</td>
@@ -219,13 +235,15 @@ $(document).ready(function () {
     <td colspan="2" style="padding-left:10px; padding-right:10px;">Detalles de los viales usados en la jornada</td>
    </tr>
    <tr class="encabezado">
-     <td width="3%" class="c5059">H</td><td width="3%" class="c5059">M</td>
-     <td width="3%" class="c5059">H</td><td width="3%" class="c5059">M</td>
-     <td width="3%" class="c60mas">H</td><td width="3%" class="c60mas">M</td>
-     <td width="3%" class="c60mas">H</td><td width="3%" class="c60mas">M</td>
-     <td width="3%" class="c60mas">H</td><td width="3%" class="c60mas">M</td>
-     <td width="3%" class="c60mas">H</td><td width="3%" class="c60mas">M</td>
-     <td width="3%" class="c60mas">H</td><td width="3%" class="c60mas">M</td>
+    <td width="3%" class="c4049">H</td><td width="3%" class="c4049">M</td>
+    <td width="3%" class="c4049">H</td><td width="3%" class="c4049">M</td>
+    <td width="3%" class="c5059">H</td><td width="3%" class="c5059">M</td>
+    <td width="3%" class="c5059">H</td><td width="3%" class="c5059">M</td>
+    <td width="3%" class="c60mas">H</td><td width="3%" class="c60mas">M</td>
+    <td width="3%" class="c60mas">H</td><td width="3%" class="c60mas">M</td>
+    <td width="3%" class="c60mas">H</td><td width="3%" class="c60mas">M</td>
+    <td width="3%" class="c60mas">H</td><td width="3%" class="c60mas">M</td>
+    <td width="3%" class="c60mas">H</td><td width="3%" class="c60mas">M</td>
     <td width="3%">H</td><td width="3%">M</td>
     <td width="3%" class="embarazadas">18 A 24 AÑOS</td>
     <td width="3%" class="embarazadas">25 A 29 AÑOS</td>
@@ -254,6 +272,10 @@ $(document).ready(function () {
         </select>
       </td>
       <td class="add" style="position:sticky;left:0;z-index:2;background:white;padding-left:10px;padding-right:10px;font-weight:900;">VACUNAS</td>
+      <td class="add"><input type="text" name="H_40" id="H_40" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="M_40" id="M_40" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="H_45" id="H_45" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="M_45" id="M_45" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input type="text" name="H_50" id="H_50" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input type="text" name="M_50" id="M_50" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input type="text" name="H_55" id="H_55" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
@@ -287,6 +309,10 @@ $(document).ready(function () {
     </tr>
     <tr class="reporte">
       <td class="add" style="position:sticky;left:0;z-index:2;background:white;padding-left:10px;padding-right:10px;font-weight:900;">ESAVI <B>NO</B> GRAVE</td>
+      <td class="add"><input type="text" name="HENG_40" id="HENG_40" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MENG_40" id="MENG_40" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="HENG_45" id="HENG_45" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MENG_45" id="MENG_45" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input type="text" name="HENG_50" id="HENG_50" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input type="text" name="MENG_50" id="MENG_50" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input type="text" name="HENG_55" id="HENG_55" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
@@ -320,6 +346,10 @@ $(document).ready(function () {
     </tr>
     <tr class="reporte">
       <td class="add" style="position:sticky;left:0;z-index:2;background:white;padding-left:10px;padding-right:10px;">ESAVI <B>GRAVE</B></td>
+      <td class="add"><input type="text" name="HEG_40" id="HEG_40" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEG_40" id="MEG_40" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="HEG_45" id="HEG_45" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
+      <td class="add"><input type="text" name="MEG_45" id="MEG_45" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input type="text" name="HEG_50" id="HEG_50" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input type="text" name="MEG_50" id="MEG_50" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>
       <td class="add"><input type="text" name="HEG_55" id="HEG_55" class="add" value="0" onKeyUp="Calc('add')" onClick="this.focus();this.select();" /></td>

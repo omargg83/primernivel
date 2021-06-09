@@ -115,7 +115,7 @@
 <td width="25%" style="text-align: right;padding-right:5px;"><b>Sede de Vacunación:</b></td>
 <td width="55%" style="text-align: left;">
 	<label class="arriba">
-		<?php	$pd2 = $db->nombre_sede($id_sede); foreach($pd2 as $key2){echo $key2->nombre_sede;}	?>
+		<?php	$pd2 = $db->nombre_sede($id_sede); foreach($pd2 as $key2){echo $key2->nombre_mpio." - ".$key2->nombre_sede;;}	?>
 	</label>
 </td>
 <td  width="20%" style="padding-left:10px; text-align: center; vertical-align:bottom;"><b>Biológico aplicado:</b></td>
@@ -123,15 +123,15 @@
 <tr>
  <td style="text-align: right;"><b>Responsable del informe:</b></td>
  <td  style="text-align: left;"><label class="arriba" style="width:100%;"><?php echo $nombre_captura_inf;?></label></td>
- <td style="padding-left:10px;vertical-align:top;text-align: center;">
+ <td style="padding-left:10px;vertical-align:top;text-align: center; background-color:#ccffe5;">
 		 <label class="arriba" style="width:100%;">
 			 <?php
 			 		$pd3 = $db->nombre_bio($id_bio);
 					foreach($pd3 as $key3){
 						$idbio=$key3->id_bio;
 						$nombre_bio=$key3->nombre_bio;
-					  if($idbio==4){echo $nombre_bio."<br>Dosis única";}
-						else{echo $nombre_bio."<br>".$num_dosis."ª DOSIS";}}
+						if($idbio==4){echo $nombre_bio."<br><b>Dosis única</b>";}
+						else{echo $nombre_bio."<br><b style='font-weight:900;'>".$num_dosis."ª DOSIS </b>";}}
 				 ?>
 		 </label></td>
  </td>

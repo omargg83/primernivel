@@ -34,11 +34,14 @@ class Usuario extends ipsi{
 		$sth = $this->dbh->query($sql);
 		return $sth->fetchAll(PDO::FETCH_OBJ);
 	}
-	public function lista_sedes(){
-		$sql="select `cat_sedes`.*, `cat_municipios`.`nombre_mpio`, `cat_proceso`.`nombre_proceso` FROM `cat_sedes`
-					LEFT JOIN `cat_municipios` ON `cat_sedes`.`id_mpio` = `cat_municipios`.`id_mpio`
-					LEFT JOIN `cat_proceso` ON `cat_sedes`.`id_proceso` = `cat_proceso`.`id_proceso`
-					order by `cat_municipios`.`nombre_mpio` ASC, `cat_sedes`.`nombre_sede`,`cat_proceso`.`id_proceso` DESC";
+	public function lista_sedes($id){
+		$sql="select `cat_sedes`.*, `cat_jurisdicciones`.`nombre_juris`, `cat_municipios`.`nombre_mpio`, `cat_proceso`.`id_proceso`
+					from `cat_sedes`
+						left join `cat_jurisdicciones` on `cat_sedes`.`id_juris` = `cat_jurisdicciones`.`id_juris`
+						left join `cat_municipios` on `cat_sedes`.`id_mpio` = `cat_municipios`.`id_mpio`
+						left join `cat_proceso` on `cat_sedes`.`id_proceso` = `cat_proceso`.`id_proceso`
+					where `cat_sedes`.`id_proceso`='$id'
+					order by `cat_jurisdicciones`.`nombre_juris`,`cat_municipios`.`nombre_mpio` asc, `cat_sedes`.`nombre_sede` desc";
 		$sth = $this->dbh->query($sql);
 		return $sth->fetchAll(PDO::FETCH_OBJ);
 	}

@@ -8,10 +8,10 @@
      <br><br>
  	<div class='card'>
  		<div class='card-header text-white bg-dark'>
-		    SISTEMA PARA CONSULTA DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN
+		    SISTEMA DE INFORMACIÓN INSTITUCIONAL DE PRIMER NIVEL DE ATENCIÓN
  		</div>
  		<div class='card-body'>
-      <h3>Bienvenido <strong><?php echo $_SESSION['nombrec']; ?> </strong>, por favor no olvide dar clic en <b> <i class='fas fa-sign-out-alt'></i> Salir</b> para terminar su sesión en la plataforma. </h3>
+      <h3>Bienvenido, por favor no olvide dar clic en <b> <i class='fas fa-sign-out-alt'></i> Salir</b> para terminar su sesión en la plataforma. </h3>
     </div>
     <div class='card-footer'>
 			<div class='row'>

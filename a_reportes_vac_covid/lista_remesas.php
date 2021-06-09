@@ -6,7 +6,7 @@
 ?>
 <div class="container">
 <div style="color:black;">
-	<input type='hidden' value='<?php echo $idproceso; ?>' readonly>
+		<input type="hidden" name="id_proceso" id="id_proceso" value="<?php echo $idproceso ;?>" placeholder="No" readonly>
 		<div class='card'>
 			<div class='card-header  text-white bg-info' style="font-size:105%;">
 				<b><?php foreach($pd as $key){ echo $key->nombre_proceso; }?></b>
@@ -25,7 +25,7 @@
 						?>
 						<div class='row' >
 							<div class="col-2">
-								<button class='btn btn-warning' type="button" is="b-link" des='a_reportes_vac_covid/reporte_remesa' dix='trabajo' tp="edit" v_idremesa='<?php echo $key2->id_remesa; ?>' title=''><i class='fas fa-check'></i> Seleccionar </button>
+								<button class='btn btn-warning' type="button" is="b-link" des='a_reportes_vac_covid/reporte_remesa' dix='trabajo' tp="edit" v_idproceso='<?php echo $idproceso; ?>' v_idremesa='<?php echo $key2->id_remesa; ?>' title=''><i class='fas fa-check'></i> Seleccionar </button>
 							</div>
 							<div class="col-4"><?php echo $key2->nombre_remesa; ?></div>
 							<div class="col-2"><?php echo $key2->nombre_bio; ?></div>

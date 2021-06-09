@@ -19,8 +19,8 @@
 			$id_bio = $pd->id_bio;
 			$id_proceso = $pd->id_proceso;
 			$fecha_recepcion = $pd->fecha_recepcion;
-			$cant_frasco = $pd->cant_frasco;
-			$cant_dosis = $pd->cant_dosis;
+			$cant_frasco = number_format($pd->cant_frasco);
+			$cant_dosis = number_format($pd->cant_dosis);
 			$lote = $pd->lote;
 			$nombre_remesa = $pd->nombre_remesa;
 			$destinado = $pd->destinado;
@@ -28,6 +28,7 @@
 			$lista_procesos = $db->lista_procesos();
 		}
 ?>
+<script src="librerias15/swal/dist/sweetalert2.min.js"></script>
 	<div class="container">
 	<form is="f-submit" id="form_personal" db="a_datosvacuna/db_" fun="guardar_remesa" des="a_datosvacuna/editar_remesa" desid="idremesa" v_idremesa="<?php echo $id_remesa; ?>">
 		<input type="hidden" class="form-control form-control-sm" name="id_remesa" id="id_remesa" value="<?php echo $id_remesa;?>" placeholder="No" readonly>

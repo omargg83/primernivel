@@ -11,7 +11,7 @@
 		</li>
 		<br>
 	</div>
-	<table class="table table-striped table-dark">
+	<table class="table table-striped">
 		<thead>
 	    <tr>
 	      <th scope="col"></th>
@@ -26,7 +26,7 @@
 			?>
 					<tr>
 						<td  style="vertical-align: middle;">
-							<button class='btn btn-warning' type="button" is="b-link" des='a_datosvacuna/editar_remesa' dix='trabajo' tp="edit" v_idremesa='<?php echo $key->id_remesa; ?>' title='Ver datos de remesa'>Detalles remesa</button>
+							<button class='btn btn-warning' type="button" is="b-link" des='a_datosvacuna/editar_remesa' dix='trabajo' tp="edit" v_idremesa='<?php echo $key->id_remesa; ?>' title='Ver datos de remesa'><i class="fas fa-eye"></i> Ver datos</button>
 						</td>
 						<td style="vertical-align: middle;"><?php echo $key->nombre_remesa; ?></td>
 						<td style="vertical-align: middle;"><?php echo $key->nombre_bio; ?></td>

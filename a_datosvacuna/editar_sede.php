@@ -25,6 +25,7 @@
 			$lista_procesos = $db->lista_procesos();
 		}
 ?>
+<script src="librerias15/swal/dist/sweetalert2.min.js"></script>
 	<div class="container">
 	<form is="f-submit" id="form_personal" db="a_datosvacuna/db_" fun="guardar_sede" des="a_datosvacuna/editar_sede" desid="idsede" v_idsede="<?php echo $idsede; ?>">
 		<input type="hidden" class="form-control form-control-sm" name="id_sede" id="id_sede" value="<?php echo $idsede;?>" placeholder="No" readonly>

@@ -1,5 +1,6 @@
 <?php
 	require_once("db_.php");
+	$idproceso=$_REQUEST['idproceso'];
 	$idremesa=$_REQUEST['idremesa'];
 	$pd= $db->datos_remesa($idremesa);
 	$pd2 = $db->sedes_activas_remesa($idremesa);
@@ -7,7 +8,9 @@
 <div class="container">
 <center>
 <div style="color:black;">
-	<input type='text' value='remesaID : <?php echo $idremesa; ?>' readonly>
+	<input type="hidden" name="id_proceso" id="id_proceso" value="<?php echo $idproceso ;?>" placeholder="No" readonly>
+	<input type="hidden" name="id_remesa" id="id_remesa" value="<?php echo $idremesa ;?>" placeholder="No" readonly>
+
 		<table style="background-color: white;">
 			<th class='card-header text-white bg-dark' colspan="10" style="text-align:center;">
 				Avance en la aplicación de vacuna anti COVID-19
@@ -30,7 +33,10 @@
 				<th scope="row" >Municipio</th scope="row" style="text-align:center;">
 				<th scope="row" style="text-align:center;">Sede</th scope="row" style="text-align:center;">
 				<th scope="row" style="text-align:center;">Dosis aplicadas a población</th scope="row" style="text-align:center;">
-				<th scope="row" style="text-align:center;">Dosis aplicadas a mujeres embarazadas</th scope="row" style="text-align:center;">
+				<?php
+					if($idproceso!=3)
+					{ echo "<th scope='row' style='text-align:center;'>Dosis aplicadas a mujeres embarazadas</th scope='row' style='text-align:center;'>";}
+				?>
 				<th scope="row" style="text-align:center;">Brigadistas vacunados</th scope="row" style="text-align:center;">
 				<th scope="row" style="text-align:center;">Personal de salud</th scope="row" style="text-align:center;">
 				<th scope="row" style="text-align:center;">Total de Dosis aplicadas</th scope="row" style="text-align:center;">
@@ -41,6 +47,7 @@
 			<tbody>
 			<?php
 				$tot_vac_pob=0;
+				$tot_vac_emb=0;
 				$tot_brig=0;
 				$tot_per_sal=0;
 				$tot_dosis=0;
@@ -55,10 +62,17 @@
 					<th scope="row" style="font-size:85%;"><?php echo $key2->nombre_sede; ?></th>
 						<?php
 							$idsede=$key2->id_sede;
-							$pd3 = $db->rep_remesa_sede($idsede); //jala los totales de la tabla
+							$pd3 = $db->rep_remesa_sede($idproceso,$idsede); //jala los totales de la tabla
 							foreach($pd3 as $key3){
 						?>
 							<td style="text-align:center;"><?php $tot_vac_pob+=$key3->total_vac_pob; echo number_format($key3->total_vac_pob); ?></td>
+						<?php
+								if($idproceso!=3)
+								{
+										echo "<td style='text-align:center;'>".number_format($key3->total_vac_emb)."</td>";
+										$tot_vac_emb+=$key3->total_vac_emb;
+								}
+							?>
 							<td style="text-align:center;"><?php $tot_brig+=$key3->total_brig; echo number_format($key3->total_brig); ?></td>
 							<td style="text-align:center;"><?php $tot_per_sal+=$key3->total_per_sal; echo number_format($key3->total_per_sal); ?></td>
 							<td style="font-weight:bolder;text-align:center;"><?php $tot_dosis+=$key3->total_dosis; echo number_format($key3->total_dosis); ?></td>
@@ -75,6 +89,13 @@
 					<tr style="background-color:#add8e6; color:black; font-weight:bolder;">
 							<th scope="row" colspan="3" style="text-align:center;">TOTALES</th>
 							<th scope="row" style="text-align:center;"><?php echo number_format($tot_vac_pob); ?></th>
+							<?php
+									if($idproceso!=3)
+									{
+											echo "<th scope='row' style='text-align:center;'>".number_format($tot_vac_emb)."</th>";
+									}
+								?>
+
 							<th scope="row" style="text-align:center;"><?php echo number_format($tot_brig); ?></th>
 							<th scope="row" style="text-align:center;"><?php echo number_format($tot_per_sal); ?></th>
 							<th scope="row" style="text-align:center;"><?php echo number_format($tot_dosis); ?></th>

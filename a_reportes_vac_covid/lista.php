@@ -21,6 +21,7 @@
 												if($icono==1){echo"<i class='fas fa-blind'></i> ";}
 												else if($icono==2){echo"<i class='fas fa-user-check'></i> ";}
 												else if($icono==3){echo"<i class='fas fa-chalkboard-teacher'></i> ";}
+												else if($icono==4){echo"<i class='fas fa-user-shield'></i> ";}
 									 echo $key->nombre_proceso;?>
 								</li>
 							<?php

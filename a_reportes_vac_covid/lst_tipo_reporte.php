@@ -5,7 +5,7 @@
 ?>
 <div class="container">
 <div style="color:black;">
-	<input type='hidden' value='<?php echo $idproceso; ?>' readonly>
+	<input type="hidden" name="id_proceso" id="id_proceso" value="<?php echo $idproceso ;?>" placeholder="No" readonly>
 	<div class='card'>
 		<div class='card-header  text-white bg-info' style="font-size:105%;">
 			<b><?php foreach($pd as $key){echo $key->nombre_proceso;}?></b>

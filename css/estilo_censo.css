@@ -240,3 +240,48 @@ input, select, textarea{
 	  letter-spacing: 1px;
     cursor: pointer;
 }
+
+.c1825{
+  background-color:#749c2d;
+  color:white;
+}
+.c1825 td{
+  border:1px solid silver;
+  text-align: center;
+}
+
+.c3039{
+  background-color:#79443b;
+  color:white;
+}
+.c3039 td{
+  border:1px solid silver;
+  text-align: center;
+}
+
+.c4049{
+  background-color:#9966cc;
+  color:white;
+}
+.c4049 td{
+  border:1px solid silver;
+  text-align: center;
+}
+
+.c5059{
+  background-color:#ff681f;
+  color:white;
+}
+.c5059 td{
+  border:1px solid silver;
+  text-align: center;
+}
+
+.c60mas{
+  background-color:#87a96b;
+  color:white;
+}
+.c60mas td{
+  border:1px solid silver;
+  text-align: center;
+}

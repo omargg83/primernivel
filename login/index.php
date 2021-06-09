@@ -28,14 +28,14 @@
    <div class="container">
      <div>
        <div class="card  card-container">
-
          <div class="list-group" style="font-size:125%;">
            <a href="#" class="list-group-item list-group-item-action active">
              Reporte diario de vacunación de sede
            </a>
-           <a href="../SEPH/index.php" class="list-group-item list-group-item-action"><i class="fas fa-chalkboard-teacher"></i> Personal educativo</a>
+           <a href="../40a49/index.php" class="list-group-item list-group-item-action"><i class="fas fa-user-shield"></i> 40 a 49 años</a>
            <a href="../50a59/index.php" class="list-group-item list-group-item-action"><i class="fas fa-user-check"></i> 50 a 59 años</a>
            <a href="../60ymas/index.php" class="list-group-item list-group-item-action"><i class="fas fa-blind"></i> 60 años y más</a>
+           <!--a href="../SEPH/index.php" class="list-group-item list-group-item-action"><i class="fas fa-chalkboard-teacher"></i> Personal educativo</a-->
          </div>
       </div>
    </div>

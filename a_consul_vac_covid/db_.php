@@ -37,11 +37,11 @@ class Usuario extends ipsi{
 				$sth = $this->dbh->query($sql);
 				return $sth->fetchAll(PDO::FETCH_OBJ);			}
 		}
-	 public function usuario_lista_vac_sedes50a59(){
+	 public function usuario_lista_vac_sedes40a49(){
 			if ($_SESSION['id_juris']==18)			{
 				$sql="select `cat_sedes`.*, `cat_municipios`.`nombre_mpio` FROM `cat_sedes`
 								LEFT JOIN `cat_municipios` ON `cat_sedes`.`id_mpio` = `cat_municipios`.`id_mpio`
-								WHERE `cat_sedes`.`id_proceso` = 2
+								WHERE `cat_sedes`.`id_proceso` = 4
 								ORDER BY `id_mpio` ASC, `cat_sedes`.`nombre_sede` ASC;";
 				//echo $sql;
 				$sth = $this->dbh->query($sql);
@@ -49,12 +49,30 @@ class Usuario extends ipsi{
 			else{
 				$sql="select `cat_sedes`.*, `cat_municipios`.`nombre_mpio` FROM `cat_sedes`
 						  LEFT JOIN `cat_municipios` ON `cat_sedes`.`id_mpio` = `cat_municipios`.`id_mpio` WHERE id_juris = ".$_SESSION['id_juris']."
-							AND `cat_sedes`.`id_proceso` = 2
+							AND `cat_sedes`.`id_proceso` = 4
 							ORDER BY `cat_municipios`.`nombre_mpio` ASC, `cat_sedes`.`nombre_sede` ASC;";
 				//echo $sql;
 				$sth = $this->dbh->query($sql);
 				return $sth->fetchAll(PDO::FETCH_OBJ);			}
 		}
+		public function usuario_lista_vac_sedes50a59(){
+ 			if ($_SESSION['id_juris']==18)			{
+ 				$sql="select `cat_sedes`.*, `cat_municipios`.`nombre_mpio` FROM `cat_sedes`
+ 								LEFT JOIN `cat_municipios` ON `cat_sedes`.`id_mpio` = `cat_municipios`.`id_mpio`
+ 								WHERE `cat_sedes`.`id_proceso` = 2
+ 								ORDER BY `id_mpio` ASC, `cat_sedes`.`nombre_sede` ASC;";
+ 				//echo $sql;
+ 				$sth = $this->dbh->query($sql);
+ 				return $sth->fetchAll(PDO::FETCH_OBJ);			}
+ 			else{
+ 				$sql="select `cat_sedes`.*, `cat_municipios`.`nombre_mpio` FROM `cat_sedes`
+ 						  LEFT JOIN `cat_municipios` ON `cat_sedes`.`id_mpio` = `cat_municipios`.`id_mpio` WHERE id_juris = ".$_SESSION['id_juris']."
+ 							AND `cat_sedes`.`id_proceso` = 2
+ 							ORDER BY `cat_municipios`.`nombre_mpio` ASC, `cat_sedes`.`nombre_sede` ASC;";
+ 				//echo $sql;
+ 				$sth = $this->dbh->query($sql);
+ 				return $sth->fetchAll(PDO::FETCH_OBJ);			}
+ 		}
 		public function usuario_lista_vac_sedes_seph(){
 				if ($_SESSION['id_juris']==18)			{
 					$sql="select `cat_sedes`.*, `cat_municipios`.`nombre_mpio` FROM `cat_sedes`
@@ -84,6 +102,12 @@ class Usuario extends ipsi{
 						$sql="select * FROM cat_bio WHERE id_bio=".$id.";";
 						$sth = $this->dbh->query($sql);
 						return $sth->fetchAll(PDO::FETCH_OBJ);}
+
+		public function fechas_sede_40a49($id){
+		 				$sql="select `id_det_vac_40a49`,`fecha_reporte`,`num_dosis` from `det_vac_40a49` where `id_sede`= ".$id.";";
+		 				//echo $sql;
+		 				$sth = $this->dbh->query($sql);
+		 				return $sth->fetchAll(PDO::FETCH_OBJ);}
 
 		 public function fechas_sede_50a59($id){
 				$sql="select `id_det_vac_50a59`,`fecha_reporte`,`num_dosis` from `det_vac_50a59` where `id_sede`= ".$id.";";
@@ -116,6 +140,25 @@ class Usuario extends ipsi{
 			$sth = $this->dbh->query($sql);
 			return $sth->fetchAll(PDO::FETCH_OBJ);
 		}
+
+		public function reporte_40a49($id){
+			$sql="select *, sum(`H_40`+`H_45`+`H_50`+`H_55`+`H_60`+`H_65`+`H_70`+`H_75`+`H_80`) AS 'H_tot_vac',
+						sum(`M_40`+`M_45`+`M_50`+`M_55`+`M_60`+`M_65`+`M_70`+`M_75`+`M_80`) AS 'M_tot_vac',
+						sum(`HENG_40`+`HENG_45`+`HENG_50`+`HENG_55`+`HENG_60`+`HENG_65`+`HENG_70`+`HENG_75`+`HENG_80`) AS 'H_tot_ENG',
+						sum(`MENG_40`+`MENG_45`+`MENG_50`+`MENG_55`+`MENG_60`+`MENG_65`+`MENG_70`+`MENG_75`+`MENG_80`) AS 'M_tot_ENG',
+						sum(`HEG_40`+`HEG_45`+`HEG_50`+`HEG_55`+`HEG_60`+`HEG_65`+`HEG_70`+`HEG_75`+`HEG_80`) AS 'H_tot_EG',
+						sum(`MEG_40`+`MEG_45`+`MEG_50`+`MEG_55`+`MEG_60`+`MEG_65`+`MEG_70`+`MEG_75`+`MEG_80`) AS 'M_tot_EG',
+						sum(`H_40`+`H_45`+`H_50`+`H_55`+`H_60`+`H_65`+`H_70`+`H_75`+`H_80`+`M_40`+`M_45`+`M_50`+`M_55`+`M_60`+`M_65`+`M_70`+`M_75`+`M_80`+`briga`+`personal_salud`+`ME_18`+`ME_25`+`ME_30`+`ME_35`+`ME_40`+`ME_45`+`ME_50`+`ME_55`) AS 'total',
+						sum(`ME_18`+`ME_25`+`ME_30`+`ME_35`+`ME_40`+`ME_45`+`ME_50`+`ME_55`) AS 'ME_tot_vac',
+						sum(`MEENG_18`+`MEENG_25`+`MEENG_30`+`MEENG_35`+`MEENG_40`+`MEENG_45`+`MEENG_50`+`MEENG_55`) AS 'ME_tot_ENG',
+						sum(`MEEG_18`+`MEEG_25`+`MEEG_30`+`MEEG_35`+`MEEG_40`+`MEEG_45`+`MEEG_50`+`MEEG_55`) AS 'ME_tot_EG',
+						sum(`Frs_dosis_completas`+`Frs_dosis_incompletas`) as 'total_frascos'
+				  	from `det_vac_40a49` where `id_det_vac_40a49`= ".$id.";";
+			//echo $sql;
+			$sth = $this->dbh->query($sql);
+			return $sth->fetchAll(PDO::FETCH_OBJ);
+		}
+
 		public function reporte_50a59($id){
 			$sql="select *, sum(`H_50`+`H_55`+`H_60`+`H_65`+`H_70`+`H_75`+`H_80`) AS 'H_tot_vac',
 						sum(`M_50`+`M_55`+`M_60`+`M_65`+`M_70`+`M_75`+`M_80`) AS 'M_tot_vac',
@@ -134,14 +177,18 @@ class Usuario extends ipsi{
 			return $sth->fetchAll(PDO::FETCH_OBJ);
 		}
 		public function reporte_60ymas($id){
-			$sql="select *, sum(`H_60`+`H_65`+`H_70`+`H_75`+`H_80`) AS 'H_tot_vac',
-						sum(`M_60`+`M_65`+`M_70`+`M_75`+`M_80`) AS 'M_tot_vac',
-						sum(`HENG_60`+`HENG_65`+`HENG_70`+`HENG_75`+`HENG_80`) AS 'H_tot_ENG',
-						sum(`MENG_60`+`MENG_65`+`MENG_70`+`MENG_75`+`MENG_80`) AS 'M_tot_ENG',
-						sum(`HEG_60`+`HEG_65`+`HEG_70`+`HEG_75`+`HEG_80`) AS 'H_tot_EG',
-						sum(`MEG_60`+`MEG_65`+`MEG_70`+`MEG_75`+`MEG_80`) AS 'M_tot_EG',
-						sum(`H_60`+`H_65`+`H_70`+`H_75`+`H_80`+`M_60`+`M_65`+`M_70`+`M_75`+`M_80`+`briga`+`personal_salud`) AS 'total'
-						from `det_vac_60ymas` where `id_det_vac_60ymas`= ".$id.";";
+			$sql="select *, sum(`H_50`+`H_55`+`H_60`+`H_65`+`H_70`+`H_75`+`H_80`) AS 'H_tot_vac',
+						sum(`M_50`+`M_55`+`M_60`+`M_65`+`M_70`+`M_75`+`M_80`) AS 'M_tot_vac',
+						sum(`HENG_50`+`HENG_55`+`HENG_60`+`HENG_65`+`HENG_70`+`HENG_75`+`HENG_80`) AS 'H_tot_ENG',
+						sum(`MENG_50`+`MENG_55`+`MENG_60`+`MENG_65`+`MENG_70`+`MENG_75`+`MENG_80`) AS 'M_tot_ENG',
+						sum(`HEG_50`+`HEG_55`+`HEG_60`+`HEG_65`+`HEG_70`+`HEG_75`+`HEG_80`) AS 'H_tot_EG',
+						sum(`MEG_50`+`MEG_55`+`MEG_60`+`MEG_65`+`MEG_70`+`MEG_75`+`MEG_80`) AS 'M_tot_EG',
+						sum(`H_50`+`H_55`+`H_60`+`H_65`+`H_70`+`H_75`+`H_80`+`M_50`+`M_55`+`M_60`+`M_65`+`M_70`+`M_75`+`M_80`+`briga`+`personal_salud`+`ME_18`+`ME_25`+`ME_30`+`ME_35`+`ME_40`+`ME_45`+`ME_50`+`ME_55`) AS 'total',
+						sum(`ME_18`+`ME_25`+`ME_30`+`ME_35`+`ME_40`+`ME_45`+`ME_50`+`ME_55`) AS 'ME_tot_vac',
+						sum(`MEENG_18`+`MEENG_25`+`MEENG_30`+`MEENG_35`+`MEENG_40`+`MEENG_45`+`MEENG_50`+`MEENG_55`) AS 'ME_tot_ENG',
+						sum(`MEEG_18`+`MEEG_25`+`MEEG_30`+`MEEG_35`+`MEEG_40`+`MEEG_45`+`MEEG_50`+`MEEG_55`) AS 'ME_tot_EG',
+						sum(`Frs_dosis_completas`+`Frs_dosis_incompletas`) as 'total_frascos'
+				  	from `det_vac_60ymas` where `id_det_vac_60ymas`= ".$id.";";
 			//echo $sql;
 			$sth = $this->dbh->query($sql);
 			return $sth->fetchAll(PDO::FETCH_OBJ);

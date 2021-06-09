@@ -24,7 +24,7 @@
 				<th scope="row" style="text-align:center;">Sede</th>
 				<th scope="row" style="text-align:center;">Dosis aplicadas a población</th>
 					<?php
-						if($tabla==2){
+						if($tabla!=3){
 								echo "<th scope='row' style='text-align:center;'>Dosis aplicadas a Mujeres Embarazadas</th scope='row' style='text-align:center;'>";
 						}	?>
 				<th scope="row" style="text-align:center;">Brigadistas vacunados</th>
@@ -57,7 +57,7 @@
 						?>
 							<td style="text-align:center;"><?php $tot_vac_pob+=$key3->total_vac_pob; echo number_format($key3->total_vac_pob); ?></td>
 							<?php
-								if($tabla==2){
+								if($tabla!=3){
 										$tot_vac_emb+=$key3->total_vac_emb;
 										echo "<td style='text-align:center;''>".number_format($key3->total_vac_emb)."</td>";
 								}
@@ -79,7 +79,7 @@
 							<th scope="row" colspan="3" style="text-align:center;">TOTALES</th>
 							<th scope="row" style="text-align:center;"><?php echo number_format($tot_vac_pob); ?></th>
 							<?php
-								if($tabla==2){
+								if($tabla!=3){
 										echo "<th scope='row' style='text-align:center;'>".number_format($tot_vac_emb)."</th>";
 								}	?>
 							<th scope="row" style="text-align:center;"><?php echo number_format($tot_brig); ?></th>

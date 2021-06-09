@@ -1,25 +1,14 @@
 <?php
 	require_once("db_.php");
-	$pd = $db->lista_sedes();
+	$pd = $db->lista_procesos();
 ?>
 
 <div class="container">
 	<center>
-		<div class="list-group col-6">
-			<li class="list-group-item list-group-item-dark">
-				<a class='a link' title='Nueva sede de vacunación' id='new_personal'  is='a-link' des='a_datosvacuna/editar_sede' dix='trabajo' v_idsede='0'><i class='fas fa-plus'></i> Nueva sede para vacunación anti COVID-19</a>
-			</li>
-			<br>
-		</div>
-
-	<table class="table table-striped table-dark">
+	<table class="table table-striped" style="color:black;">
 		<thead>
 	    <tr>
-	      <th scope="col" style="vertical-align: middle;text-align:center;"></th>
-				<th scope="col" style="vertical-align: middle;text-align:center;">Municipio</th>
-				<th scope="col" style="vertical-align: middle;text-align:center;">Sede</th>
-	      <th scope="col" width="37%">Proceso de Vacunación</th>
-				<th scope="col" width="3%" style="vertical-align: middle;text-align:center;">Activa</th>
+	      <th colspan="2" scope="col" style="vertical-align: middle;text-align:center;" width="75%">Seleccione el Proceso de Vacunación para visualizar sus sedes</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -28,12 +17,9 @@
 			?>
 					<tr>
 						<td style="vertical-align: middle;text-align:center;">
-							<button class='btn btn-warning' type="button" is="b-link" des='a_datosvacuna/editar_sede' dix='trabajo' tp="edit" v_idsede='<?php echo $key->id_sede; ?>' title='Editar sede (nombre, CLUES asociada, etc.)'>Editar</button>
+							<button class='btn btn-info' type="button" is="b-link" des='a_datosvacuna\lista_sedes_proceso' dix='trabajo' tp="edit" v_idproceso='<?php echo $key->id_proceso; ?>' title='Ver sedes de proceso de vacunación'><i class="fas fa-eye"></i> Ver Sedes</button>
 						</td>
-						<td style="vertical-align: middle;"><?php echo $key->nombre_mpio; ?></td>
-						<td style="vertical-align: middle;"><?php echo $key->nombre_sede; ?></td>
-						<td style="vertical-align: middle;font-size:75%;"><?php echo $key->nombre_proceso; ?></td>
-						<td style="vertical-align: middle;text-align:center;font-weight: 700;"><?php $sa=$key->sede_activa; if($sa==1){echo "SI";}else{echo "NO";}; ?></td>
+						<td style="vertical-align: middle;"><?php echo $key->nombre_proceso; ?></td>
 					</tr>
 			<?php
 				}
