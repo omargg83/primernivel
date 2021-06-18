@@ -245,12 +245,18 @@ $(document).ready(function () {
       <td class="add" rowspan="3" style="padding-left:10px; padding-right:10px;min-width:180px;text-align:center;">
         <select name="fecha_reporte" id="fecha_reporte" class="arriba" required style="width:100%;">
           <option value="" disabled selected hidden>Fecha a reportar</option>
-          <option value="2021-06-08">08/junio/2021</option>
-          <option value="2021-06-09">09/junio/2021</option>
-          <option value="2021-06-10">10/junio/2021</option>
-          <option value="2021-06-11">11/junio/2021</option>
-          <option value="2021-06-12">12/junio/2021</option>
           <option value="2021-06-14">14/junio/2021</option>
+          <option value="2021-06-15">15/junio/2021</option>
+          <option value="2021-06-16">16/junio/2021</option>
+          <option value="2021-06-17">17/junio/2021</option>
+          <option value="2021-06-18">18/junio/2021</option>
+          <option value="2021-06-19">19/junio/2021</option>
+          <option value="2021-06-21">21/junio/2021</option>
+          <option value="2021-06-22">22/junio/2021</option>
+          <option value="2021-06-23">23/junio/2021</option>
+          <option value="2021-06-24">24/junio/2021</option>
+          <option value="2021-06-25">25/junio/2021</option>
+          <option value="2021-06-26">26/junio/2021</option>
         </select>
       </td>
       <td class="add" style="position:sticky;left:0;z-index:2;background:white;padding-left:10px;padding-right:10px;font-weight:900;">VACUNAS</td>

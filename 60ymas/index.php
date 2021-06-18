@@ -161,7 +161,7 @@ $(document).ready(function () {
 <body>
   <CENTER>
     <IMG SRC="../images/encabezado.png" style="margin-top:12px;">
-  	<h1>AVANCE EN LA APLICACIÓN DE VACUNA ANTI COVID-19 A POBLACIÓN DE <u style="background-color: yellow;">60 AÑOS Y MÁS</u></h1>
+  	<h1>AVANCE EN LA APLICACIÓN DE VACUNA ANTI COVID-19 A POBLACIÓN DE <b class="c60mas">60 AÑOS Y MÁS</b></h1>
     <HR align=center width=90% color=#000000>
 <form name="form0" id="form0"  method="POST" action="envia_informe.php">
   <table align=center style="width:90%" border="0">

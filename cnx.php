@@ -24,7 +24,7 @@
 		$_SESSION['mysqluser']="root";
 		$_SESSION['mysqlpass']="1erNivel-94chu4";
 		$_SESSION['servidor'] = $iphome;
-		$_SESSION['bdd']="dbs610245";
+		$_SESSION['bdd']="vestuario2021";
 		$link = mysqli_connect($_SESSION['servidor'],$_SESSION['mysqluser'],$_SESSION['mysqlpass']);
 		mysqli_select_db($link, $_SESSION['bdd']);
 		if (!$link) {
